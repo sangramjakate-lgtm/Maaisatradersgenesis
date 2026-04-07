@@ -90,13 +90,20 @@ export function Navbar() {
       </div>
 
       <div className="flex items-center space-x-6">
-        <button className="hidden sm:block font-body text-[10px] tracking-[0.2em] uppercase text-primary font-bold hover:opacity-70 transition-all">
-          Private View
+        <button 
+          onClick={() => window.open(`https://wa.me/919172833311?text=${encodeURIComponent("Hello, I would like to book a tour of Maaisa Genesis.")}`, "_blank")}
+          className="hidden sm:block font-body text-[10px] tracking-[0.2em] uppercase text-primary font-bold hover:opacity-70 transition-all"
+        >
+          Enquire Now
         </button>
-        <button className="bg-primary text-on-primary px-6 py-3 text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-secondary hover:text-on-secondary transition-all flex items-center gap-2 group">
+        <a 
+          href="/Maaisa_Genesis_Website_Content_Brief.pdf" 
+          target="_blank"
+          className="bg-primary text-on-primary px-6 py-3 text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-secondary hover:text-on-secondary transition-all flex items-center gap-2 group shadow-elegant"
+        >
           Brochure
           <ArrowUpRight className="w-3 h-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-        </button>
+        </a>
         
         <button 
           className="md:hidden text-secondary"
