@@ -1,38 +1,90 @@
-import { cn } from "@/lib/utils";
+"use client";
+
+import React from "react";
+import Link from "next/link";
+import { WhatsAppButton } from "./WhatsAppButton";
+import { MapPin, Phone, Mail, Globe, Share2 } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-[#f3f4f5] dark:bg-slate-900 w-full py-16 px-6 md:px-12 border-t border-[#e1e3e4]/20 overflow-hidden">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 items-end w-full">
-        <div>
-          <div className="text-lg md:text-xl font-bold tracking-widest text-[#1f4788] dark:text-white mb-8">
-            MAAISA GENESIS
-          </div>
-          <p className="font-body text-[10px] md:text-xs tracking-tighter uppercase text-slate-500 max-w-sm mb-6 leading-relaxed">
-            © 2024 Maaisa Genesis. All rights reserved. <br/>
-            Curated Architectural Excellence in the heart of the modern metropolis.
-          </p>
-          <div className="flex flex-wrap gap-x-8 gap-y-4">
-            {["Privacy Policy", "Terms of Service", "Press Inquiries", "Contact Gallery"].map((item) => (
-              <a
-                key={item}
-                href="#"
-                className="font-body text-[10px] md:text-xs tracking-tighter uppercase text-slate-500 hover:text-[#1f4788] dark:hover:text-[#735c00] transition-all duration-300"
-              >
-                {item}
+    <footer className="bg-surface-low border-t border-black/5 py-24 px-6 md:px-12 overflow-hidden uppercase font-black text-[10px] tracking-widest text-tertiary">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+        {/* Brand & Mission: Maaisa Reality */}
+        <div className="space-y-8">
+           <Link href="/" className="inline-block mb-4">
+              <span className="text-xl md:text-2xl font-heading font-black tracking-tighter text-foreground uppercase">
+                 MAAISA <span className="text-primary italic font-light">REALITY.</span>
+              </span>
+           </Link>
+           <p className="text-[9px] leading-relaxed lowercase font-body tracking-tight text-tertiary/60">
+              crafted architectural excellence in the heart of the modern metropolis. providing a visionary lifestyle for a growing legacy.
+           </p>
+           <div className="flex items-center gap-6 pt-4">
+              <a href="#" className="text-primary/40 hover:text-primary transition-all">
+                 <Globe size={18} />
               </a>
-            ))}
-          </div>
+              <a href="#" className="text-primary/40 hover:text-primary transition-all">
+                 <Share2 size={18} />
+              </a>
+           </div>
         </div>
-        
-        <div className="text-left md:text-right">
-          <p className="font-body text-[10px] md:text-xs tracking-tighter uppercase text-slate-500 mb-2">
-            Exclusive Partner
-          </p>
-          <p className="text-lg md:text-xl font-heading text-[#1f4788] dark:text-white">
-            The Legacy Estate Group
-          </p>
+
+        {/* The Catalogue: Quick Access */}
+        <div>
+           <h4 className="text-primary font-black mb-10 tracking-[0.4em]">The Catalogue</h4>
+           <ul className="space-y-4">
+              {["Portfolio", "Floor Plans", "Amenities", "Project Vision"].map((link) => (
+                <li key={link}>
+                   <Link href={`/${link.toLowerCase().replace(" ", "-")}`} className="hover:text-primary transition-all">
+                      {link}
+                   </Link>
+                </li>
+              ))}
+           </ul>
         </div>
+
+        {/* The Location: Reach Us */}
+        <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+               <h4 className="text-primary font-black mb-10 tracking-[0.4em]">The Address</h4>
+               <div className="flex gap-4 items-start group">
+                  <MapPin size={16} className="text-primary/40 group-hover:text-primary transition-all shrink-0" />
+                  <p className="leading-relaxed lowercase font-body tracking-tight">
+                     3rd Floor, Office No 301 & 302, <br />
+                     41 Elite, Tathawade, Pune – 411033.
+                  </p>
+               </div>
+            </div>
+            
+            <div>
+               <h4 className="text-primary font-black mb-10 tracking-[0.4em]">The Direct</h4>
+               <div className="space-y-6">
+                  <div className="flex items-center gap-4 group">
+                     <Phone size={16} className="text-primary/40 group-hover:text-primary transition-all" />
+                     <a href="tel:+919890200222" className="hover:text-primary transition-all font-body">+91 98902 00222</a>
+                  </div>
+                  <div className="flex items-center gap-4 group">
+                     <Mail size={16} className="text-primary/40 group-hover:text-primary transition-all" />
+                     <a href="mailto:info@maaisa.com" className="hover:text-primary transition-all lowercase font-body">info@maaisa.com</a>
+                  </div>
+                  <WhatsAppButton 
+                    label="WhatsApp Connect" 
+                    message="Hello Maaisa Reality, I'm interested in the Genesis residential project." 
+                    variant="minimal" 
+                    className="text-[9px] font-black uppercase tracking-widest pt-4"
+                  />
+               </div>
+            </div>
+        </div>
+      </div>
+
+      {/* The Bottom: Legacy Acknowledgement */}
+      <div className="pt-12 border-t border-black/5 flex flex-col md:flex-row justify-between items-center text-[8px] opacity-40 gap-8">
+         <p>© {new Date().getFullYear()} MAAISA REALITY. ALL RIGHTS RESERVED.</p>
+         <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 uppercase">
+            <span>Exclusive Partner: The Legacy Estate Group</span>
+            <span>Maaisa Reality</span>
+         </div>
       </div>
     </footer>
   );

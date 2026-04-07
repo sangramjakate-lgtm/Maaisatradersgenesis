@@ -1,49 +1,60 @@
 "use client";
 
+import React from "react";
 import { MessageSquare, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface WhatsAppButtonProps {
-  message: string;
+  phone?: string;
+  message?: string;
   label?: string;
+  variant?: "primary" | "minimal";
   className?: string;
-  variant?: "primary" | "outline" | "minimal";
-  showIcon?: boolean;
 }
 
-const WHATSAPP_NUMBER = "919172833311";
-
-export function WhatsAppButton({
-  message,
-  label = "Enquiry",
-  className,
+export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
+  phone = "+919172833311",
+  message = "Hello, I'm interested in Maaisa Reality Genesis.",
+  label = "WhatsApp Scan",
   variant = "primary",
-  showIcon = true,
-}: WhatsAppButtonProps) {
+  className,
+}) => {
   const handleClick = () => {
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`, "_blank");
+    const whatsappUrl = `https://wa.me/${phone}?text=${encodedMessage}`;
+    window.open(whatsappUrl, "_blank");
   };
 
-  const baseStyles = "relative overflow-hidden transition-all duration-500 flex items-center justify-center gap-3 group";
-  const variants = {
-    primary: "bg-primary text-on-primary px-8 py-4 font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-secondary hover:text-on-secondary shadow-elegant",
-    outline: "border border-primary/30 text-primary px-8 py-4 font-bold text-[10px] tracking-[0.3em] uppercase hover:border-primary hover:bg-primary/5",
-    minimal: "text-primary font-bold text-[10px] tracking-[0.3em] uppercase hover:text-secondary group-hover:translate-x-1 transition-all",
-  };
+  if (variant === "minimal") {
+    return (
+      <button
+        onClick={handleClick}
+        className={cn(
+          "group flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.3em] text-primary hover:text-foreground transition-all duration-300",
+          className
+        )}
+      >
+        <span className="border-b border-primary/30 group-hover:border-primary pb-0.5">{label}</span>
+        <ArrowUpRight size={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+      </button>
+    );
+  }
 
   return (
     <button
       onClick={handleClick}
-      className={cn(baseStyles, variants[variant], className)}
+      className={cn(
+        "group relative px-10 py-5 bg-primary overflow-hidden shadow-elegant transition-all duration-500 hover:shadow-glow hover:-translate-y-0.5",
+        className
+      )}
     >
-      <span className="relative z-10">{label}</span>
-      {showIcon && (
-        <ArrowUpRight className="w-3 h-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-      )}
-      {variant === "primary" && (
-        <span className="absolute inset-0 bg-secondary translate-y-full group-hover:translate-y-0 transition-transform duration-500 -z-0" />
-      )}
+      <div className="absolute inset-0 bg-primary-glow translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+      <div className="relative z-10 flex items-center justify-center gap-4">
+        <MessageSquare size={16} className="text-on-primary group-hover:scale-110 transition-transform" />
+        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-on-primary">
+          {label}
+        </span>
+      </div>
     </button>
   );
-}
+};

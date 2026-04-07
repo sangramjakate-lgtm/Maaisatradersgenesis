@@ -8,32 +8,32 @@ import { cn } from "@/lib/utils";
 export default function Amenities() {
   const amenityGalleries = [
     {
-      title: "The Infinity Pool",
-      desc: "Our pool is high above the city, where you can swim and enjoy the amazing view. it's clean and safe.",
+      title: "Infinity Pool",
+      desc: "an expansive horizon of temperature-controlled water, designed for the ultimate aquatic sanctuary.",
       img: "https://images.unsplash.com/photo-1519449556851-5720b33024e7?q=80&w=2070&auto=format&fit=crop",
       icon: Waves,
-      tags: ["Temperature Controlled", "Glass Edge"]
+      tags: ["Climatized", "Glass Edge", "Sky Deck"]
     },
     {
-      title: "The Kinetic Gym",
-      desc: "the best machines for your workout. whether you want to lose weight or build muscle, our gym has everything.",
+      title: "Kinetic Gym",
+      desc: "top-tier athletic equipment housed in a high-velocity studio for peak physical performance.",
       img: "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=2070&auto=format&fit=crop",
       icon: Dumbbell,
-      tags: ["Personal Coaching", "Smart Machines"]
+      tags: ["Personalized Tracking", "Pro Guidance", "Recovery Zone"]
     },
     {
-      title: "Social Sky Lounge",
-      desc: "a cozy place to meet your neighbors and have coffee while looking at the city lights.",
+      title: "Sky Lounge",
+      desc: "a curated social hub above the cityscape, perfect for high-velocity networking and decompression.",
       img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
       icon: Coffee,
-      tags: ["Premium Bar", "Outdoor Deck"]
+      tags: ["Mixology Bar", "Panoramic View", "Private Nooks"]
     }
   ];
 
   return (
-    <main className="bg-surface-lowest uppercase">
-      {/* Amenities Hero: Immersive Large-Scale - Compacted */}
-      <section className="relative min-h-[90vh] flex items-center px-6 md:px-24 overflow-hidden">
+    <main className="bg-background uppercase font-black text-[10px] tracking-widest text-foreground">
+      {/* Amenities Hero: Maaisa Reality Genesis - Light Skin */}
+      <section className="relative min-h-[85vh] flex items-center px-6 md:px-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <ScrollReveal animation="image-parallax" className="h-full w-full">
             <img
@@ -42,71 +42,70 @@ export default function Amenities() {
               className="parallax-img w-full h-[120%] object-cover brightness-100"
             />
           </ScrollReveal>
-          <div className="absolute inset-0 bg-gradient-to-t from-surface-lowest via-transparent to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/10" />
         </div>
         
         <div className="relative z-10 max-w-4xl text-left">
           <ScrollReveal animation="blur-fade">
             <div className="flex items-center gap-4 mb-10">
                <span className="h-[1px] w-16 bg-primary/40 block" />
-               <span className="text-[10px] tracking-[0.6em] text-primary font-bold font-heading italic lowercase">
-                 everything for a healthy life.
+               <span className="text-primary font-black tracking-[0.6em] lowercase italic font-body">
+                 the genesis lifestyle suite.
                </span>
             </div>
           </ScrollReveal>
           
           <ScrollReveal animation="line-mask" delay={0.2} className="mb-12">
-            <h1 className="text-5xl md:text-7xl font-heading leading-[1.05] text-secondary mb-12 italic font-thin lowercase">
-              amenities <br />that <span className="text-primary">inspire.</span>
+            <h1 className="text-5xl md:text-8xl font-heading font-black leading-[0.95] text-foreground tracking-tighter uppercase">
+              curated <br />amity & <span className="text-primary italic font-light">luxury.</span>
             </h1>
           </ScrollReveal>
 
           <ScrollReveal animation="blur-fade" delay={0.6} className="max-w-xl flex flex-col md:flex-row items-center gap-10">
             <WhatsAppButton 
-              label="Enquire on Facilities"
-              message="I want to know more about the available amenities at Maaisa Genesis."
+              label="Tour Facilities"
+              message="Hello Maaisa Reality, I'm interested in viewing the amenities at Genesis."
               variant="primary"
-              className="py-4 min-w-[240px] text-xs shadow-2xl"
+              className="py-4 min-w-[240px] shadow-elegant"
             />
             <div className="hidden md:flex flex-col items-start gap-1">
-               <span className="text-[9px] tracking-[0.2em] font-bold text-secondary/40 font-heading lowercase italic">resident access</span>
-               <p className="text-[10px] text-secondary/60">Maaisa Genesis Exclusive</p>
+               <span className="text-[8px] tracking-[0.2em] font-black text-primary/40 lowercase italic font-body">access level</span>
+               <p className="text-foreground/40 font-black tracking-widest">Maaisa Resident Only</p>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Amenity Dynamic Grid - Compacted */}
-      <section className="py-24 bg-surface-lowest">
+      {/* Amenity Dynamic Grid: Moss Green Heritage - Light Skin */}
+      <section className="py-32 bg-background">
          <div className="max-w-7xl mx-auto px-6 md:px-24">
             {amenityGalleries.map((item, i) => (
-              <div key={i} className={cn("flex flex-col lg:flex-row gap-16 items-center mb-32", i % 2 !== 0 && "lg:flex-row-reverse")}>
+              <div key={i} className={cn("flex flex-col lg:flex-row gap-20 items-center mb-40", i % 2 !== 0 && "lg:flex-row-reverse")}>
                  <div className="w-full lg:w-3/5">
-                    <ScrollReveal animation="clip" className="aspect-video relative group shadow-2xl border border-white/5 overflow-hidden">
+                    <ScrollReveal animation="clip" className="aspect-video relative group shadow-elegant border border-black/5 overflow-hidden">
                        <img 
                         src={item.img} 
                         alt={item.title} 
-                        className="w-full h-full object-cover brightness-90 group-hover:brightness-110 group-hover:scale-105 transition-all duration-[2000ms]" 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-all duration-[2000ms]" 
                        />
-                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60" />
-                       <div className="absolute bottom-8 left-8 flex items-center gap-4">
-                          <item.icon className="w-8 h-8 text-primary/80" />
-                          <div className="h-8 w-[1px] bg-primary/30" />
+                       <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-all duration-700" />
+                       <div className="absolute top-8 left-8 flex items-center gap-4">
+                          <item.icon className="w-8 h-8 text-white drop-shadow-lg" />
                        </div>
                     </ScrollReveal>
                  </div>
                  
-                 <div className="w-full lg:w-2/5 text-left uppercase">
+                 <div className="w-full lg:w-2/5 text-left">
                     <ScrollReveal animation="blur-fade">
-                       <span className="text-primary font-bold text-[9px] tracking-[0.3em] mb-4 block">0{i + 1} // Genesis Feature</span>
-                       <h2 className="text-4xl font-heading text-secondary mb-6 italic font-thin leading-tight lowercase">{item.title}</h2>
-                       <p className="text-base text-tertiary font-light leading-relaxed mb-8 lowercase font-heading italic border-l border-primary/20 pl-6">
+                       <span className="text-primary font-black mb-4 block tracking-[0.5em]">Genesis Venue 0{i + 1}</span>
+                       <h2 className="text-4xl md:text-5xl font-heading font-black text-foreground mb-8 tracking-tighter leading-none">{item.title}</h2>
+                       <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed mb-10 border-l-2 border-primary/20 pl-8">
                           {item.desc}
                        </p>
                        
                        <div className="flex flex-wrap gap-3 mb-10">
                           {item.tags.map(tag => (
-                            <span key={tag} className="text-[9px] tracking-[0.1em] font-bold text-secondary/40 border border-white/5 px-4 py-1.5 glass hover:border-primary/20 transition-all font-heading uppercase italic">
+                            <span key={tag} className="text-[8px] tracking-[0.1em] font-black text-primary/60 border border-primary/20 px-4 py-2 hover:bg-primary/5 transition-all">
                                {tag}
                             </span>
                           ))}
@@ -114,7 +113,7 @@ export default function Amenities() {
                        
                        <WhatsAppButton 
                         label="Check Availability"
-                        message={`Hello, I'm interested in the ${item.title} at Maaisa Genesis.`}
+                        message={`Hello Maaisa Reality, I would like to check availability for ${item.title} at Genesis.`}
                         variant="minimal"
                         className="text-[10px]"
                        />
@@ -125,36 +124,36 @@ export default function Amenities() {
          </div>
       </section>
 
-      {/* Featured Feature: Zen Garden - Compacted */}
-      <section className="py-24 bg-surface-low border-y border-white/5 relative overflow-hidden uppercase">
-         <div className="max-w-7xl mx-auto px-6 md:px-24 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      {/* Featured Feature: Zen Sanctuary - Light Skin */}
+      <section className="py-32 bg-surface-low border-y border-black/5 relative overflow-hidden">
+         <div className="max-w-7xl mx-auto px-6 md:px-24 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
             <div className="text-left">
                <ScrollReveal animation="blur-fade">
-                  <span className="text-primary font-bold text-[10px] tracking-[0.6em] mb-6 block uppercase">The Secret Space</span>
-                  <h2 className="text-5xl md:text-7xl font-heading italic font-thin text-secondary leading-[0.9] lowercase italic">zen garden.</h2>
-                  <p className="text-base text-tertiary font-light leading-relaxed mt-8 mb-12 italic lowercase font-heading border-r border-primary/20 pr-8 text-right md:text-left">
-                    our secret garden is built for meditation. listen to the sound of silence.
+                  <span className="text-primary font-black tracking-[0.6em] mb-6 block">The Private Park</span>
+                  <h2 className="text-5xl md:text-8xl font-heading font-black text-foreground leading-[0.95] tracking-tighter uppercase mb-10">zen garden.</h2>
+                  <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed mb-12 border-primary/20 pr-8 md:pr-12">
+                    our secret garden is designed for intense meditation and absolute silence. a sanctuary for the mind within the city's velocity.
                   </p>
-                  <WhatsAppButton variant="primary" label="Visit Garden" message="Hello, I want to see the zen garden at Maaisa Genesis." className="py-4 px-12 text-xs" />
+                  <WhatsAppButton variant="primary" label="Visit Sanctuary" message="Hello Maaisa Reality, I want to see the zen garden at the Genesis project." className="px-12" />
                </ScrollReveal>
             </div>
             
-            <div className="grid grid-cols-2 gap-4">
-               <ScrollReveal animation="scale-fade" className="aspect-[3/4] rounded-sm overflow-hidden border border-white/5 relative group shadow-elegant">
-                  <img src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=2070&auto=format&fit=crop" alt="Zen" className="w-full h-full object-cover brightness-100 group-hover:brightness-110 transition-all duration-[2000ms]" />
+            <div className="grid grid-cols-2 gap-6 scale-110 md:scale-100">
+               <ScrollReveal animation="scale-fade" className="aspect-[3/4] overflow-hidden border border-black/5 relative group shadow-elegant">
+                  <img src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=2070&auto=format&fit=crop" alt="Zen" className="w-full h-full object-cover group-hover:scale-105 transition-all duration-[2000ms]" />
                </ScrollReveal>
-               <ScrollReveal animation="scale-fade" delay={0.2} className="aspect-[3/4] rounded-sm overflow-hidden border border-white/5 mt-12 relative group shadow-elegant">
-                  <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2070&auto=format&fit=crop" alt="Texture" className="w-full h-full object-cover brightness-100 group-hover:brightness-110 transition-all duration-[2000ms]" />
+               <ScrollReveal animation="scale-fade" delay={0.2} className="aspect-[3/4] overflow-hidden border border-black/5 mt-12 relative group shadow-elegant">
+                  <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2070&auto=format&fit=crop" alt="Texture" className="w-full h-full object-cover group-hover:scale-105 transition-all duration-[2000ms]" />
                </ScrollReveal>
             </div>
          </div>
       </section>
 
-      {/* Final CTA - Compacted */}
-      <section className="py-32 bg-surface-lowest text-center px-6">
+      {/* Wellness CTA - Maaisa Reality */}
+      <section className="py-40 bg-background text-center px-6">
          <ScrollReveal animation="blur-fade">
-            <h2 className="text-5xl md:text-7xl font-heading italic text-primary font-thin mb-16 lowercase italic">find your peace.</h2>
-            <WhatsAppButton variant="minimal" label="Start a Chat" message="I'm interested in the wellness lifestyle at Maaisa Genesis." className="text-xs" />
+            <h2 className="text-5xl md:text-8xl font-heading font-black text-primary tracking-tighter leading-none mb-16 uppercase">find your <br/><span className="text-foreground/20 italic font-light">tranquility.</span></h2>
+            <WhatsAppButton variant="minimal" label="Start a Chat" message="Hello Maaisa Reality, I'm interested in the wellness and fitness lifestyle at Genesis." className="text-xs" />
          </ScrollReveal>
       </section>
     </main>
