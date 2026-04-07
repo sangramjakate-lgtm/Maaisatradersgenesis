@@ -22,15 +22,15 @@ export default function Home() {
     const sections = gsap.utils.toArray('section');
     sections.forEach((section: any) => {
       gsap.fromTo(section, 
-        { opacity: 0, y: 50 },
+        { opacity: 0, y: 30 },
         { 
           opacity: 1, 
           y: 0, 
-          duration: 1.2, 
+          duration: 1, 
           ease: "expo.out",
           scrollTrigger: {
             trigger: section,
-            start: "top 85%",
+            start: "top 90%",
             toggleActions: "play none none reverse"
           }
         }
@@ -64,95 +64,90 @@ export default function Home() {
         />
       )}
 
-      {/* Hero Section: Editorial Layered Depth */}
-      <section className="relative min-h-[110vh] flex items-center justify-center overflow-hidden">
+      {/* Hero Section: Editorial Layered Depth - Compacted */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-surface-lowest z-10" />
           <ScrollReveal animation="image-parallax" className="h-full w-full">
             <img
               src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop"
               alt="Maaisa Genesis Exterior"
-              className="parallax-img w-full h-[130%] object-cover brightness-75 scale-100"
+              className="parallax-img w-full h-[120%] object-cover brightness-75 scale-100"
             />
           </ScrollReveal>
         </div>
 
-        <div className="relative z-20 text-center px-6 max-w-6xl">
+        <div className="relative z-20 text-center px-6 max-w-5xl">
           <ScrollReveal animation="blur-fade" delay={0.2}>
-            <div className="flex flex-col items-center gap-6 mb-12">
-               <span className="h-[1px] w-24 bg-primary/40 block" />
-               <span className="text-[10px] md:text-xs tracking-[0.8em] uppercase text-primary font-bold font-heading italic">
+            <div className="flex flex-col items-center gap-4 mb-8">
+               <span className="h-[1px] w-16 bg-primary/40 block" />
+               <span className="text-[10px] tracking-[0.6em] uppercase text-primary font-bold font-heading italic">
                  modern homes created for you
                </span>
             </div>
           </ScrollReveal>
           
-          <ScrollReveal animation="line-mask" delay={0.4} className="mb-16">
-            <h1 className="text-7xl md:text-[10rem] font-heading font-extralight leading-[0.95] text-secondary lowercase tracking-tight">
+          <ScrollReveal animation="line-mask" delay={0.4} className="mb-12">
+            <h1 className="text-5xl md:text-8xl font-heading font-extralight leading-[1] text-secondary lowercase tracking-tight">
               peaceful <br />
-              <span className="italic font-thin text-primary ml-12 md:ml-24">luxury spaces.</span>
+              <span className="italic font-thin text-primary ml-12 md:ml-16">luxury spaces.</span>
             </h1>
           </ScrollReveal>
 
-          <ScrollReveal animation="blur-fade" delay={1.2} className="flex flex-col sm:flex-row items-center justify-center gap-12">
+          <ScrollReveal animation="blur-fade" delay={1.2} className="flex flex-col sm:flex-row items-center justify-center gap-8">
             <WhatsAppButton 
               label="Enquire Now"
               message="Hello, I would like to schedule a tour of Maaisa Genesis."
               variant="primary"
-              className="min-w-[240px] py-6 shadow-2xl"
+              className="min-w-[200px] py-4 shadow-2xl"
             />
             
             <button 
               onClick={() => setActive360(tourPoints[0])}
-              className="flex items-center gap-6 group transition-all"
+              className="flex items-center gap-4 group transition-all"
             >
-              <div className="w-16 h-16 flex items-center justify-center border border-white/10 rounded-full group-hover:border-primary/40 group-hover:bg-primary/5 transition-all relative overflow-hidden">
+              <div className="w-12 h-12 flex items-center justify-center border border-white/10 rounded-full group-hover:border-primary/40 group-hover:bg-primary/5 transition-all relative overflow-hidden">
                 <span className="text-secondary group-hover:text-primary transition-colors text-[10px] font-bold z-10">360</span>
                 <div className="absolute inset-0 bg-primary/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
               </div>
               <div className="text-left">
-                <p className="text-[10px] tracking-[0.3em] uppercase text-secondary/40 font-bold group-hover:text-primary transition-colors">Start VR Tour</p>
-                <p className="text-xs text-secondary/60 italic font-heading">Look Around Room</p>
+                <p className="text-[9px] tracking-[0.2em] uppercase text-secondary/40 font-bold group-hover:text-primary transition-colors">VR Tour</p>
+                <p className="text-xs text-secondary/60 italic font-heading">Look Around</p>
               </div>
             </button>
           </ScrollReveal>
         </div>
-
-        <div className="absolute bottom-16 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-4">
-           <div className="h-32 w-[1px] bg-gradient-to-b from-primary/60 to-transparent" />
-           <span className="text-[8px] tracking-[0.5em] uppercase text-primary/40 font-bold">Scroll to Explore</span>
-        </div>
       </section>
 
-      {/* Featured Bento: Material Sincerity */}
-      <section className="py-64 bg-surface-lowest px-6 md:px-24 border-b border-white/5 uppercase">
+      {/* Featured Bento: Material Sincerity - Compacted */}
+      <section className="py-24 bg-surface-lowest px-6 md:px-24 border-b border-white/5 uppercase">
          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-end mb-40">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-end mb-24">
                <div className="lg:col-span-8">
                   <ScrollReveal animation="blur-fade">
-                    <span className="text-primary font-bold text-[10px] tracking-[0.6em] mb-6 block">The Build Quality</span>
-                    <h2 className="text-6xl md:text-8xl font-heading italic font-thin text-secondary leading-tight lowercase">only the best <br /> materials.</h2>
+                    <span className="text-primary font-bold text-[10px] tracking-[0.5em] mb-4 block">The Build Quality</span>
+                    <h2 className="text-4xl md:text-6xl font-heading italic font-thin text-secondary leading-tight lowercase">best materials.</h2>
                   </ScrollReveal>
                </div>
-               <div className="lg:col-span-4 border-l border-primary/20 pl-12 pb-4">
-                  <p className="text-tertiary font-body font-light text-sm tracking-widest leading-[1.8] lowercase italic font-heading">
-                    each house in maaisa genesis is made with smooth carrara marble, high-quality wood, and clean glass to make your home feel special.
+               <div className="lg:col-span-4 border-l border-primary/20 pl-8 pb-2">
+                  <p className="text-tertiary font-body font-light text-xs tracking-widest leading-[1.6] lowercase italic font-heading">
+                    each house is made with smooth carrara marble, high-quality wood, and clean glass.
                   </p>
                </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                {details.map((item, i) => (
-                 <ScrollReveal key={i} animation="scale-fade" delay={i * 0.1} className={cn("relative group h-[400px] overflow-hidden rounded-sm shadow-elegant", item.span)}>
+                 <ScrollReveal key={i} animation="scale-fade" delay={i * 0.1} className={cn("relative group h-[350px] overflow-hidden rounded-sm shadow-elegant", item.span)}>
                     <img 
                       src={item.img} 
                       alt={item.title} 
                       className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[2000ms]" 
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
-                    <div className="absolute bottom-12 left-12">
-                       <h3 className="text-3xl font-heading italic font-thin text-secondary mb-2">{item.title}</h3>
-                       <div className="h-[1px] w-12 bg-primary/40 group-hover:w-full transition-all duration-700" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
+                    <div className="absolute bottom-10 left-10">
+                       <h3 className="text-2xl font-heading italic font-thin text-secondary mb-2">{item.title}</h3>
+                       <div className="h-[1px] w-10 bg-primary/40 group-hover:w-full transition-all duration-700" />
                     </div>
                  </ScrollReveal>
                ))}
@@ -160,63 +155,61 @@ export default function Home() {
          </div>
       </section>
 
-      {/* Interactive Hub Redesign: Asymmetric Editorial */}
-      <section className="py-64 bg-surface-low relative overflow-hidden uppercase">
+      {/* Interactive Hub Redesign: Asymmetric Editorial - Compacted */}
+      <section className="py-32 bg-surface-low relative overflow-hidden uppercase">
         <div className="max-w-7xl mx-auto px-6 md:px-24">
-          <ScrollReveal animation="blur-fade" className="text-center mb-40">
-            <span className="text-primary font-bold text-[10px] tracking-[0.8em] mb-8 block uppercase">The Virtual Hub</span>
-            <h2 className="text-6xl md:text-9xl font-heading italic font-thin text-secondary leading-none lowercase">look around <br /> in 360.</h2>
+          <ScrollReveal animation="blur-fade" className="text-center mb-24">
+            <span className="text-primary font-bold text-[10px] tracking-[0.6em] mb-6 block uppercase">The Virtual Hub</span>
+            <h2 className="text-5xl md:text-7xl font-heading italic font-thin text-secondary leading-none lowercase">look around.</h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
-            <div className="space-y-12 lg:space-y-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+            <div className="space-y-12">
                {tourPoints.slice(0, 2).map((point, i) => (
                  <ScrollReveal key={i} animation="scale-fade" delay={i * 0.2}>
                     <div 
                       onClick={() => setActive360(point)}
-                      className="group cursor-pointer bg-surface-lowest p-8 md:p-12 border border-white/5 hover:border-primary/30 transition-all shadow-elegant"
+                      className="group cursor-pointer bg-surface-lowest p-8 border border-white/5 hover:border-primary/30 transition-all shadow-elegant"
                     >
-                       <div className="aspect-video relative overflow-hidden mb-12 shadow-2xl">
+                       <div className="aspect-video relative overflow-hidden mb-8 shadow-2xl">
                           <img src={point.url} alt={point.title} className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[2000ms]" />
                           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                             <div className="w-24 h-24 rounded-full glass flex items-center justify-center border border-primary/20 scale-50 group-hover:scale-100 transition-transform duration-500">
-                                <span className="text-primary font-bold text-[10px] tracking-[0.2em]">ENTER 360</span>
+                             <div className="w-20 h-20 rounded-full glass flex items-center justify-center border border-primary/20 scale-50 group-hover:scale-100 transition-transform duration-500">
+                                <span className="text-primary font-bold text-[9px] tracking-[0.1em]">360</span>
                              </div>
                           </div>
                        </div>
                        <div className="flex justify-between items-end">
                           <div>
-                             <h3 className="text-3xl font-heading italic font-thin text-secondary mb-2">{point.title}</h3>
-                             <p className="text-[10px] tracking-[0.3em] font-bold text-primary">{point.desc}</p>
+                             <h3 className="text-2xl font-heading italic font-thin text-secondary mb-1">{point.title}</h3>
+                             <p className="text-[9px] tracking-[0.2em] font-bold text-primary">{point.desc}</p>
                           </div>
-                          <div className="text-[10px] font-heading italic text-tertiary">0{i + 1}</div>
                        </div>
                     </div>
                  </ScrollReveal>
                ))}
             </div>
             
-            <div className="space-y-12 lg:space-y-24 mt-0 md:mt-48">
+            <div className="space-y-12 mt-0 md:mt-24">
                {tourPoints.slice(2, 4).map((point, i) => (
                  <ScrollReveal key={i} animation="scale-fade" delay={i * 0.2 + 0.3}>
                     <div 
                       onClick={() => setActive360(point)}
-                      className="group cursor-pointer bg-surface-lowest p-8 md:p-12 border border-white/5 hover:border-primary/30 transition-all shadow-elegant"
+                      className="group cursor-pointer bg-surface-lowest p-8 border border-white/5 hover:border-primary/30 transition-all shadow-elegant"
                     >
-                       <div className="aspect-[4/5] relative overflow-hidden mb-12 shadow-2xl">
+                       <div className="aspect-[4/5] relative overflow-hidden mb-8 shadow-2xl">
                           <img src={point.url} alt={point.title} className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[2000ms]" />
                           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                             <div className="w-24 h-24 rounded-full glass flex items-center justify-center border border-primary/20 scale-50 group-hover:scale-100 transition-transform duration-500">
-                                <span className="text-primary font-bold text-[10px] tracking-[0.2em]">ENTER 360</span>
+                             <div className="w-20 h-20 rounded-full glass flex items-center justify-center border border-primary/20 scale-50 group-hover:scale-100 transition-transform duration-500">
+                                <span className="text-primary font-bold text-[9px] tracking-[0.1em]">360</span>
                              </div>
                           </div>
                        </div>
                        <div className="flex justify-between items-end">
                           <div>
-                             <h3 className="text-3xl font-heading italic font-thin text-secondary mb-2">{point.title}</h3>
-                             <p className="text-[10px] tracking-[0.3em] font-bold text-primary">{point.desc}</p>
+                             <h3 className="text-2xl font-heading italic font-thin text-secondary mb-1">{point.title}</h3>
+                             <p className="text-[9px] tracking-[0.2em] font-bold text-primary">{point.desc}</p>
                           </div>
-                          <div className="text-[10px] font-heading italic text-tertiary">0{i + 3}</div>
                        </div>
                     </div>
                  </ScrollReveal>
@@ -226,24 +219,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Values Redesign: Minimal Depth Cards */}
-      <section className="py-64 bg-surface-lowest px-6 md:px-24 uppercase">
+      {/* Values Redesign: Minimal Depth Cards - Compacted */}
+      <section className="py-24 bg-surface-lowest px-6 md:px-24 uppercase">
          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                {[
-                 { icon: Shield, title: "Your Safety", desc: "Your family's safety is our priority. 24/7 security and safe space for kids." },
-                 { icon: MapPin, title: "Great Spot", desc: "Close to schools, hospitals, and parks. Right in the heart of the city." },
-                 { icon: Sun, title: "Natural Light", desc: "Designed to get natural sunlight throughout the day in every room." }
+                 { icon: Shield, title: "Your Safety", desc: "Your family's safety is our priority. 24/7 security." },
+                 { icon: MapPin, title: "Great Spot", desc: "Close to schools, hospitals, and parks." },
+                 { icon: Sun, title: "Natural Light", desc: "Designed to get natural sunlight throughout the day." }
                ].map((item, i) => (
-                 <ScrollReveal key={i} animation="scale-fade" delay={i * 0.1} className="bg-surface-low p-16 group hover:bg-surface-high transition-all shadow-elegant border border-white/5 hover:border-primary/10">
-                    <div className="w-16 h-16 rounded-full border border-primary/20 flex items-center justify-center mb-12 group-hover:border-primary group-hover:bg-primary/5 transition-all">
-                       <item.icon className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
+                 <ScrollReveal key={i} animation="scale-fade" delay={i * 0.1} className="bg-surface-low p-12 group hover:bg-surface-high transition-all shadow-elegant border border-white/5 hover:border-primary/10">
+                    <div className="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center mb-8 group-hover:border-primary group-hover:bg-primary/5 transition-all">
+                       <item.icon className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
                     </div>
-                    <h3 className="text-3xl font-heading italic font-thin text-secondary mb-6">{item.title}</h3>
-                    <p className="text-tertiary font-body font-light leading-relaxed text-[10px] uppercase tracking-[0.3em] mb-12">{item.desc}</p>
+                    <h3 className="text-2xl font-heading italic font-thin text-secondary mb-4">{item.title}</h3>
+                    <p className="text-tertiary font-body font-light leading-relaxed text-[10px] uppercase tracking-[0.2em] mb-8">{item.desc}</p>
                     <WhatsAppButton 
                       variant="minimal" 
-                      label="Enquire on WP" 
+                      label="Enquire" 
                       message={`Hello, I have an enquiry about ${item.title}.`}
                     />
                  </ScrollReveal>
@@ -252,68 +245,65 @@ export default function Home() {
          </div>
       </section>
 
-      {/* Featured Suite Spotlight */}
-      <section className="py-64 bg-surface-lowest relative">
-        <div className="max-w-7xl mx-auto px-6 md:px-24 grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
+      {/* Featured Suite Spotlight - Compacted */}
+      <section className="py-24 bg-surface-lowest relative">
+        <div className="max-w-7xl mx-auto px-6 md:px-24 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
            <div className="lg:col-span-7">
               <ScrollReveal animation="clip" className="aspect-[16/10] relative group shadow-2xl border border-white/5">
                  <img 
                     src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?q=80&w=2070&auto=format&fit=crop" 
                     alt="The Suite" 
-                    className="w-full h-full object-cover brightness-75 group-hover:scale-105 transition-all duration-[3000ms]" 
+                    className="w-full h-full object-cover brightness-75 transition-all duration-[3000ms]" 
                  />
-                 <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-[12rem] font-heading font-thin text-white/5 pointer-events-none select-none tracking-tighter">01</span>
-                 </div>
               </ScrollReveal>
            </div>
            
            <div className="lg:col-span-5 text-left uppercase">
               <ScrollReveal animation="blur-fade">
-                 <span className="text-primary font-bold text-[10px] tracking-[0.6em] mb-6 block font-heading">The Sky Collection</span>
-                 <h2 className="text-6xl md:text-8xl font-heading italic font-thin text-secondary leading-[0.9] mb-12 lowercase">the grand <p className="text-primary">horizon.</p></h2>
-                 <p className="text-tertiary text-lg font-light leading-relaxed mb-16 italic lowercase border-l border-primary/20 pl-8 font-heading">
-                    everything you need for a happy life. large balcony, floor-to-ceiling glass, and the finest finishing in the city.
+                 <span className="text-primary font-bold text-[10px] tracking-[0.4em] mb-4 block font-heading">The Sky Collection</span>
+                 <h2 className="text-4xl md:text-6xl font-heading italic font-thin text-secondary leading-[1] mb-8 lowercase">the grand <p className="text-primary">horizon.</p></h2>
+                 <p className="text-tertiary text-sm font-light leading-relaxed mb-12 italic lowercase border-l border-primary/20 pl-6 font-heading">
+                    everything you need for a happy life. large balcony and the finest finishing.
                  </p>
                  <WhatsAppButton 
                    label="Schedule Visit" 
                    message="I want to see the sky collection apartments."
                    variant="primary"
-                   className="w-full py-6"
+                   className="w-full py-4 text-xs"
                  />
               </ScrollReveal>
            </div>
         </div>
       </section>
 
-      {/* Contact Section: Professional Industry Standard */}
-      <section id="contact" className="py-64 bg-surface-lowest px-6 relative overflow-hidden uppercase">
+      {/* Contact Section: Professional Industry Standard - Compacted */}
+      <section id="contact" className="py-32 bg-surface-lowest px-6 relative overflow-hidden uppercase">
         <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--color-primary)_0%,_transparent_70%)]" />
         
         <ScrollReveal animation="blur-fade">
-          <div className="text-center mb-32">
-             <span className="text-primary font-bold text-[10px] tracking-[1em] mb-12 block uppercase">Connect with Us</span>
-             <h2 className="text-6xl md:text-[10rem] font-heading italic font-thin text-secondary lowercase tracking-tight">let's talk.</h2>
+          <div className="text-center mb-24">
+             <span className="text-primary font-bold text-[10px] tracking-[0.8em] mb-8 block uppercase">Connect</span>
+             <h2 className="text-4xl md:text-7xl font-heading italic font-thin text-secondary lowercase tracking-tight">let's talk.</h2>
           </div>
           <ContactForm />
         </ScrollReveal>
 
-        <div className="mt-48 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center border-t border-white/5 pt-32 gap-16">
-           <div className="flex flex-col items-center md:items-start gap-6">
-              <span className="text-[10px] tracking-[0.5em] text-primary font-bold">24/7 Phone Support</span>
-              <a href="tel:+919172833311" className="text-4xl md:text-5xl font-heading italic font-thin text-secondary hover:text-primary transition-all flex items-center gap-6">
-                 <Phone className="w-12 h-12 stroke-[1px]" />
+        <div className="mt-32 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center border-t border-white/5 pt-16 gap-12">
+           <div className="flex flex-col items-center md:items-start gap-4">
+              <span className="text-[9px] tracking-[0.4em] text-primary font-bold">Phone Support</span>
+              <a href="tel:+919172833311" className="text-3xl md:text-4xl font-heading italic font-thin text-secondary hover:text-primary transition-all flex items-center gap-6">
+                 <Phone className="w-8 h-8 stroke-[1px]" />
                  +91 91728 33311
               </a>
            </div>
            
-           <div className="flex flex-wrap justify-center gap-16">
-              <WhatsAppButton variant="minimal" label="Chat on WP" message="Hello, I'm reaching out from the website footer." />
+           <div className="flex flex-wrap justify-center gap-12">
+              <WhatsAppButton variant="minimal" label="WhatsApp" message="Hello, I'm reaching out from the website footer." />
               <button 
                 onClick={() => window.open('/Maaisa_Genesis_Website_Content_Brief.pdf', '_blank')}
-                className="text-primary font-bold text-[10px] tracking-[0.4em] uppercase hover:text-secondary whitespace-nowrap transition-all border-b border-primary/20 pb-2"
+                className="text-primary font-bold text-[10px] tracking-[0.3em] uppercase hover:text-secondary whitespace-nowrap transition-all border-b border-primary/20 pb-1"
               >
-                Download Brochure
+                Brochure
               </button>
            </div>
         </div>
