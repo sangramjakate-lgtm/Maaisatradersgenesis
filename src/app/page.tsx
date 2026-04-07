@@ -1,198 +1,175 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, Download, MapPin, Play, Star } from "lucide-react";
-import Image from "next/image";
+import { useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowRight, Download, Play, Plus } from "lucide-react";
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { cn } from "@/lib/utils";
 
-export default function HomePage() {
+export default function Home() {
+  const mainRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Smooth fade in for the whole page shell
+    gsap.to(mainRef.current, { opacity: 1, duration: 1, ease: "power2.out" });
+  }, []);
+
   return (
-    <main className="pt-24 overflow-x-hidden bg-surface-container-lowest">
-      {/* Hero Section */}
-      <section className="relative h-[921px] min-h-[700px] flex items-center px-6 md:px-24 mb-32 overflow-hidden">
+    <main ref={mainRef} className="opacity-0">
+      {/* Hero Section: The Portal */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img
-            alt="Luxury Living"
-            className="w-full h-full object-cover brightness-95"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdUVSa4CvIbhpAKimfYxZ7YtT-IlcikZOiJK8R3Cc0IrX0HdbOmFhTz9elKkknqlilSHL-Lw8PVptWVdwULtPJTOK31fUKvMck2VK2VH2DumBvdNOyJ1zaemUC9mRdvAVabXavntlZdDNbKxkPWN4NDAVTswdxa_Ic96j-AhT38E4qVBqq4AjQWnlICb1iF-85-rqca7CBpCoFb5zKv9UmwT1YvPzHlFQY576ed21jHG9yTxNXJoV_wBQiAqWx2hNtF42BjxOaVQE"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-transparent to-transparent dark:from-slate-950/80"></div>
-        </div>
-        
-        <div className="relative z-10 max-w-4xl text-left">
-          <motion.span 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-[10px] md:text-sm text-tertiary font-bold tracking-[0.3em] uppercase mb-6 block"
-          >
-            The Digital Estate
-          </motion.span>
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="text-5xl md:text-8xl font-heading leading-tight text-primary mb-12"
-          >
-            Experience <br />
-            <span className="italic font-light">Luxury Living</span> <br />
-            at Maaisa Genesis
-          </motion.h1>
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-6"
-          >
-            <button className="bg-[#00306c] px-10 py-5 text-white font-bold tracking-widest uppercase hover:scale-95 transition-transform duration-300">
-              Explore Residences
-            </button>
-            <button className="border border-outline-variant/30 backdrop-blur-md bg-white/20 px-10 py-5 text-[#00306c] font-bold tracking-widest uppercase hover:bg-white/40 transition-all">
-              Download Brochure
-            </button>
-          </motion.div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-surface-lowest z-10" />
+          <ScrollReveal animation="image-parallax" className="h-full w-full">
+            <img
+              src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop"
+              alt="Maaisa Genesis Exterior"
+              className="parallax-img w-full h-[120%] object-cover brightness-75 scale-110"
+            />
+          </ScrollReveal>
         </div>
 
-        <motion.div 
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="absolute bottom-0 right-12 lg:right-24 translate-y-1/2 hidden md:block w-72 h-96 border-[0.5pt] border-outline-variant/20 bg-surface-container-low p-8 shadow-2xl"
-        >
-          <div className="h-full flex flex-col justify-between">
-            <p className="text-[10px] tracking-widest uppercase text-slate-500">Project Location</p>
-            <p className="text-xl font-heading text-primary">Prestige Heights, <br />Global District 01</p>
-            <div className="w-full h-[0.5pt] bg-outline-variant/30 my-4"></div>
-            <p className="text-xs text-on-surface-variant leading-relaxed font-body">A sanctuary defined by light, space, and the geometry of pure intention.</p>
-          </div>
-        </motion.div>
-      </section>
+        <div className="relative z-20 text-center px-6 max-w-5xl">
+          <ScrollReveal animation="blur-fade" delay={0.2}>
+            <span className="text-[10px] md:text-xs tracking-[0.6em] uppercase text-primary font-bold mb-8 block">
+              Architectural Transcendence
+            </span>
+          </ScrollReveal>
+          
+          <ScrollReveal animation="line-mask" delay={0.4} className="mb-12">
+            <h1 className="text-6xl md:text-[8rem] font-heading font-extralight leading-[1.05] text-secondary">
+              The Geometry <br />
+              <span className="italic font-thin text-primary">of Silence.</span>
+            </h1>
+          </ScrollReveal>
 
-      {/* The Genesis of Precision */}
-      <section className="py-32 px-6 md:px-24 bg-surface-container-low relative">
-        <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#00306c_1px,transparent_1px)] [background-size:40px_40px]"></div>
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
-          <div className="lg:col-span-5">
-            <motion.h2 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.8 }}
-              className="text-4xl lg:text-6xl font-heading text-primary mb-8"
-            >
-              The Genesis of Precision
-            </motion.h2>
-            <div className="space-y-12">
-              {[
-                { title: "Monolithic Architecture", desc: "Designed as a single coherent statement, Maaisa Genesis challenges the traditional vertical stack." },
-                { title: "Sustainable Core", desc: "Integrated solar harvesting and greywater recycling systems are woven into the structural steel." },
-                { title: "Bespoke Interiors", desc: "Hand-selected Carrara marble and smoked oak floors curated by internationally acclaimed artisans." }
-              ].map((item, index) => (
-                <motion.div 
-                  key={item.title}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={index === 0 ? "border-l-2 border-tertiary pl-6" : "pl-6"}
-                >
-                  <h3 className="text-lg font-bold text-primary mb-2">{item.title}</h3>
-                  <p className="text-on-surface-variant text-sm leading-relaxed font-body">{item.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-          <div className="lg:col-span-7 relative">
-            <motion.div 
-               initial={{ opacity: 0, scale: 0.95 }}
-               whileInView={{ opacity: 1, scale: 1 }}
-               transition={{ duration: 1 }}
-               className="aspect-[4/5] bg-surface-container-highest overflow-hidden"
-            >
-              <img
-                alt="Architectural Precision"
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-105"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa371Aqq07-7yq8rPy5GXDv0KyaTqvURx08euvLfIWZTQTosNCeh4NctxZBova54vVomciLz-p3qskf2Pddx2FWAKmMUWI9XxRFcK6G1BGqe4FfE5ukofGCBMhL92GFvaRbT62BZc8kW9z4qjYOrEc_T9PxffuQw2bfn5TZyCRbHJuftY4n67dFQ8bU3JHRAoONzxXQHtiHOvLHvey91xIpDUMa-SFFvXGnbwhcmGQ-jo_CiAc5dR6ojs0b7SsIDG3EhWgHTsXH1Q"
-              />
-            </motion.div>
-            <motion.div 
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              className="absolute -bottom-12 -left-12 w-48 md:w-64 h-48 md:h-64 bg-[#00306c] p-8 hidden md:flex flex-col justify-center"
-            >
-              <span className="text-6xl font-heading text-white mb-2 italic">01</span>
-              <p className="text-white/80 text-[10px] tracking-widest uppercase">Global Design Recognition 2024</p>
-            </motion.div>
-          </div>
+          <ScrollReveal animation="blur-fade" delay={1} className="flex flex-col sm:flex-row items-center justify-center gap-8">
+            <button className="group relative px-12 py-5 overflow-hidden transition-all duration-500">
+              <span className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+              <span className="relative z-10 text-[10px] tracking-[0.3em] uppercase font-bold text-primary group-hover:text-on-primary transition-colors">
+                Explore The Collection
+              </span>
+              <span className="absolute inset-0 border border-primary/30" />
+            </button>
+            
+            <button className="flex items-center gap-4 text-[10px] tracking-[0.3em] uppercase font-bold text-secondary/60 hover:text-primary transition-colors group">
+              View Vision Film
+              <div className="w-12 h-12 flex items-center justify-center border border-white/10 rounded-full group-hover:bg-primary/10 transition-all">
+                <Play className="w-3 h-3 fill-current" />
+              </div>
+            </button>
+          </ScrollReveal>
+        </div>
+
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 hidden md:block">
+           <div className="w-[1px] h-24 bg-gradient-to-b from-primary/50 to-transparent" />
         </div>
       </section>
 
-      {/* Curated Living Spaces */}
-      <section className="py-32 px-6 md:px-24">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
-            <div className="max-w-2xl text-left">
-              <h2 className="text-4xl lg:text-6xl font-heading text-primary mb-6">Curated Living Spaces</h2>
-              <p className="text-on-surface-variant font-light leading-relaxed text-lg font-body italic">
-                Choose from a limited collection of 42 bespoke residences, each offering a unique floor plan optimized for panoramic views.
+      {/* Philosophy: The Void */}
+      <section className="py-64 px-6 md:px-24 bg-surface-lowest relative">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
+          <div className="lg:col-span-5 order-2 lg:order-1">
+            <ScrollReveal animation="blur-fade" className="mb-12">
+              <h2 className="text-4xl md:text-6xl font-heading text-secondary leading-tight italic font-thin mb-8">
+                Spaces that breathe, <br />
+                <span className="text-primary not-italic font-normal">Interfaces that recede.</span>
+              </h2>
+              <p className="text-tertiary text-lg font-light leading-relaxed mb-12 border-l border-primary/20 pl-8 font-body">
+                Maaisa Genesis is not a structure; it is a philosophy expressed through Carrara marble and smoked oak. We reject the noise of traditional living for the clarity of pure intention.
               </p>
-            </div>
+              
+              <div className="space-y-4">
+                {[
+                  { label: "Monolithic Form", value: "01" },
+                  { label: "Material Sincerity", value: "02" },
+                  { label: "Eternal Light", value: "03" }
+                ].map((item) => (
+                  <div key={item.value} className="flex justify-between items-center py-4 border-b border-white/5 group cursor-pointer hover:border-primary/50 transition-colors">
+                    <span className="text-[10px] tracking-[0.3em] uppercase text-tertiary group-hover:text-primary transition-colors">{item.label}</span>
+                    <Plus className="w-4 h-4 text-primary/30 group-hover:rotate-90 group-hover:text-primary transition-all" />
+                  </div>
+                ))}
+              </div>
+            </ScrollReveal>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-outline-variant/20">
+
+          <div className="lg:col-span-7 order-1 lg:order-2">
+            <ScrollReveal animation="clip" className="aspect-[4/5] md:aspect-video relative group">
+              <img
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+                alt="Architectural Detail"
+                className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 transition-all duration-1000"
+              />
+              <div className="absolute -inset-10 border border-primary/10 pointer-events-none hidden md:block" />
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* The Collection: Curated Living */}
+      <section className="py-32 px-6 md:px-24 bg-surface-low overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-32 gap-8">
+            <ScrollReveal animation="line-mask" className="max-w-2xl text-left">
+              <span className="text-[10px] tracking-[0.4em] uppercase text-primary font-bold mb-4 block">Selected Works</span>
+              <h2 className="text-5xl md:text-7xl font-heading text-secondary italic font-thin">The High-Tier Collection.</h2>
+            </ScrollReveal>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1px bg-white/5 border border-white/5">
             {[
-              { name: "The Sky Suite", sq: "3,400 SQ FT", desc: "Triple-height ceilings and a private wrap-around terrace.", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBo5_A7-89UpII7Zhb_DDpfWlnt7ynTteinsqIXCZG8QBOpBqsTs2iFZ9uSdKCm2_Yfq7cF2rT4XZ3EY_LrqmTzHanC_hUnjdPdzPubHcnLa1_VNt4Qlq08_QRgN6sYpL5C9ic3HcouHNv3Yp6RQEG_uO5GJh4R-QSS6lLZjCX-PV4teLQYOulYmzxL0bc2cBUhqoCgevdtU5k3b5zsbevwFNC2OGij2RstcLwzUeWnq8M7xcCp1q2nINp8Wk-igPp5P9W0g8xKc9s" },
-              { name: "The Horizon Loft", sq: "2,100 SQ FT", desc: "Integrated smart automation and panoramic glass walls.", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBgNKOdkI4TollIK8NArHDcFhdwPEuWyhnYcaqc0vbbJGTf-3GgzTOcWQTxiGVJZiCmJBhBzZSY-D5p4oKb_aYFGcYcnjAvxSTEP7sI6WL6ToFHwuwhA8u0jdWieGkAqGjnfaM1sdLVEsX520HRTL2GP3i809GJskupS9oHkkIOV4EzIQB11Lv9rITr47u95egKfVB2zQlLRDnEfi66xtDWP4DPEbPbzpK-oCyKRQm7CIwIdJNWj6C_yJ9V2bVBORYNM8_j6mR_AGU" },
-              { name: "The Duplex Mansion", sq: "5,800 SQ FT", desc: "Two levels of ultimate luxury featuring a private lift.", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuA_U7Ci1dY9eivTL8npiBjGRvWXUIN0ZiQpvFhmHcyFmo3r-SuTUaM7ykQZAhHelHffRkJX2zm0VU4MeT_xSdHrqiYLb5che9XbfGatU4UDBo8pQ0eiv6QJp2H06C47_D66pWA0GuWxGWdl7vdnNAUswWV6X9KIvMeO6rpl4Y6Ytg42McJSzWTCZbSsMBsCjvFCEw6-WgDFyDiVDoXX017VocDyMh31jz9UhXyLvViAVKwx_UISzpKeeS8L9mNaJS51pAaYOO09tsE" }
+              { name: "The Sky Suite", type: "01", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" },
+              { name: "The Horizon Loft", type: "02", img: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?q=80&w=2070&auto=format&fit=crop" },
+              { name: "The Duplex", type: "03", img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070&auto=format&fit=crop" }
             ].map((card, i) => (
-              <motion.div 
-                key={card.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="bg-surface-container-lowest p-10 hover:bg-surface-container-low transition-colors cursor-pointer group text-left"
+              <ScrollReveal 
+                key={card.name} 
+                animation="scale-fade" 
+                delay={i * 0.1}
+                className="bg-surface-lowest group cursor-pointer overflow-hidden p-12"
               >
-                <div className="aspect-square bg-surface-container-highest mb-12 overflow-hidden">
-                  <img
-                    alt={card.name}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 hover:scale-110"
+                <div className="aspect-[3/4] mb-12 overflow-hidden relative">
+                   <img
                     src={card.img}
-                  />
+                    alt={card.name}
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000"
+                   />
+                   <div className="absolute top-6 right-6 text-primary font-heading text-xl italic">{card.type}</div>
                 </div>
                 <div className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <h3 className="text-2xl font-heading text-primary">{card.name}</h3>
-                    <span className="text-tertiary font-bold text-xs uppercase">{card.sq}</span>
-                  </div>
-                  <p className="text-on-surface-variant text-sm font-body">{card.desc}</p>
-                  <div className="pt-6">
-                    <button className="text-xs font-bold tracking-widest uppercase text-primary border-b border-primary pb-2 group-hover:text-tertiary group-hover:border-tertiary transition-colors">
-                      View Detailed Plan
-                    </button>
-                  </div>
+                  <h3 className="text-2xl font-heading text-secondary flex items-center justify-between">
+                    {card.name}
+                    <ArrowRight className="w-5 h-5 -translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 text-primary" />
+                  </h3>
+                  <p className="text-[10px] tracking-[0.2em] uppercase text-tertiary">Limited Release • Available</p>
                 </div>
-              </motion.div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Corporate Identity Section */}
-      <section className="py-24 px-6 md:px-24 text-center">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-          className="max-w-4xl mx-auto border-[0.5pt] border-outline-variant/30 p-16 lg:p-32 bg-surface-container-low relative overflow-hidden group"
-        >
-          <div className="absolute inset-0 bg-[#00306c] translate-y-full group-hover:translate-y-0 transition-transform duration-700"></div>
-          <div className="relative z-10">
-            <h2 className="text-3xl lg:text-5xl font-heading text-primary group-hover:text-white transition-colors mb-12">
-              Begin Your Journey Into Excellence
-            </h2>
-            <button className="bg-tertiary text-white px-12 py-6 font-bold tracking-widest uppercase hover:scale-95 transition-transform inline-flex items-center gap-4 shadow-xl">
-              Download Complete Brochure
-              <Download className="w-5 h-5" />
-            </button>
-          </div>
-        </motion.div>
+      {/* Manifesto: Legacy callout */}
+      <section className="py-64 px-6 text-center bg-surface-lowest relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--color-primary)_0%,_transparent_70%)]" />
+        
+        <div className="max-w-4xl mx-auto relative z-10">
+          <ScrollReveal animation="blur-fade">
+             <div className="w-[1px] h-32 bg-primary/30 mx-auto mb-16" />
+             <h2 className="text-4xl md:text-6xl font-heading font-light text-secondary mb-16 leading-tight">
+                "A sanctuary defined by light, space, and the geometry of pure intention."
+             </h2>
+             <button className="bg-primary text-on-primary px-16 py-6 font-bold tracking-[0.3em] uppercase text-xs hover:bg-secondary hover:text-on-secondary transition-all shadow-elegant">
+                Request Private Access
+             </button>
+          </ScrollReveal>
+        </div>
       </section>
+
     </main>
   );
 }

@@ -3,6 +3,7 @@ import { Noto_Serif, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const fontHeading = Noto_Serif({
   variable: "--font-heading",
@@ -27,13 +28,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="light">
+    <html lang="en" suppressHydrationWarning className="dark no-scrollbar">
       <body
-        className={`${fontHeading.variable} ${fontBody.variable} antialiased min-h-screen font-body flex flex-col bg-surface-container-lowest text-on-surface`}
+        className={`${fontHeading.variable} ${fontBody.variable} antialiased min-h-screen font-body flex flex-col bg-surface-lowest text-secondary noise-overlay`}
       >
-        <Navbar />
-        <main className="flex-grow">{children}</main>
-        <Footer />
+        <SmoothScroll>
+          <Navbar />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );
