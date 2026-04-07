@@ -92,14 +92,14 @@ export default function FloorPlans() {
             {units.map((unit, i) => (
               <div key={i} className={cn("flex flex-col lg:flex-row gap-20 items-center", i % 2 !== 0 && "lg:flex-row-reverse")}>
                  <div className="w-full lg:w-3/5">
-                    <ScrollReveal animation="clip" className="aspect-video relative group border border-black/5 shadow-elegant overflow-hidden">
+                    <ScrollReveal animation="clip" className="aspect-video relative group border border-black/5 shadow-elegant overflow-hidden reveal-image">
                        <img 
                         src={unit.img} 
                         alt={unit.name} 
-                        className="w-full h-full object-cover group-hover:scale-105 transition-all duration-[2000ms]" 
+                        className="w-full h-full object-cover group-hover:scale-110 transition-all duration-[3000ms]" 
                        />
                        <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-all duration-700" />
-                       <div className="absolute top-8 left-8 border border-primary/30 p-4 bg-white/80 backdrop-blur-md shadow-elegant">
+                       <div className="absolute top-10 left-10 border border-primary/30 p-4 bg-white/80 backdrop-blur-md shadow-elegant">
                           <span className="text-3xl font-heading font-black text-primary tracking-tighter leading-none">{unit.id}</span>
                        </div>
                     </ScrollReveal>
@@ -157,12 +157,12 @@ export default function FloorPlans() {
               { name: "Brushed Brass", img: "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=2070&auto=format&fit=crop" },
               { name: "Reinforced Glass", img: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop" }
             ].map((material, i) => (
-              <ScrollReveal key={i} animation="scale-fade" delay={i * 0.1} className="relative group overflow-hidden shadow-card border border-black/5">
+              <ScrollReveal key={i} animation="scale-fade" delay={i * 0.1} className="relative group overflow-hidden shadow-card border border-black/5 reveal-image">
                  <div className="aspect-square relative overflow-hidden">
-                    <img src={material.img} alt={material.name} className="w-full h-full object-cover group-hover:scale-105 transition-all duration-[2000ms]" />
+                    <img src={material.img} alt={material.name} className="w-full h-full object-cover group-hover:scale-110 transition-all duration-[3000ms]" />
                     <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-all duration-700" />
-                    <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-700">
-                       <p className="text-[10px] tracking-[0.3em] font-black text-white drop-shadow-md">{material.name}</p>
+                    <div className="absolute bottom-8 left-8 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-700">
+                       <p className="text-[11px] tracking-[0.4em] font-black text-white drop-shadow-md">{material.name}</p>
                     </div>
                  </div>
               </ScrollReveal>

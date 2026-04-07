@@ -9,6 +9,43 @@ import { ThreeSixtyPortal } from "@/components/ThreeSixtyPortal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { ContactForm } from "@/components/ContactForm";
 import { cn } from "@/lib/utils";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+
+// Premium Magnetic Button Component
+const MagneticButton = ({ children, className }: { children: React.ReactNode, className?: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const springX = useSpring(x, { stiffness: 150, damping: 15 });
+  const springY = useSpring(y, { stiffness: 150, damping: 15 });
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!ref.current) return;
+    const { clientX, clientY } = e;
+    const { left, top, width, height } = ref.current.getBoundingClientRect();
+    const centerX = left + width / 2;
+    const centerY = top + height / 2;
+    x.set((clientX - centerX) * 0.4);
+    y.set((clientY - centerY) * 0.4);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ x: springX, y: springY }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 export default function Home() {
   const mainRef = useRef<HTMLDivElement>(null);
@@ -26,12 +63,29 @@ export default function Home() {
         { 
           opacity: 1, 
           y: 0, 
-          duration: 1, 
+          duration: 1.2, 
           ease: "expo.out",
           scrollTrigger: {
             trigger: section,
-            start: "top 90%",
+            start: "top 92%",
             toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
+
+    // Custom Clip Reveals for Images
+    const images = gsap.utils.toArray('.reveal-image');
+    images.forEach((img: any) => {
+      gsap.fromTo(img, 
+        { clipPath: 'inset(0 100% 0 0)' },
+        { 
+          clipPath: 'inset(0 0% 0 0)', 
+          duration: 1.5, 
+          ease: "expo.inOut",
+          scrollTrigger: {
+            trigger: img,
+            start: "top 85%",
           }
         }
       );
@@ -64,7 +118,7 @@ export default function Home() {
         />
       )}
 
-      {/* Hero Section: Maaisa Reality Genesis - Light Skin */}
+      {/* Hero Section: Maaisa Reality Genesis - Enhanced with Magnetic Interaction */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-background z-10" />
@@ -72,7 +126,7 @@ export default function Home() {
             <img
               src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop"
               alt="Maaisa Reality Exterior"
-              className="parallax-img w-full h-[120%] object-cover brightness-100 scale-100"
+              className="parallax-img w-full h-[120%] object-cover brightness-105 scale-100"
             />
           </ScrollReveal>
         </div>
@@ -80,109 +134,112 @@ export default function Home() {
         <div className="relative z-20 text-center px-6 max-w-5xl uppercase">
           <ScrollReveal animation="blur-fade" delay={0.2}>
             <div className="flex flex-col items-center gap-4 mb-8">
-               <span className="h-[1px] w-16 bg-primary/40 block" />
-               <span className="text-[10px] tracking-[0.6em] text-primary font-black font-heading">
-                 Maaisa Reality
+               <span className="h-[1px] w-16 bg-primary/40 block animate-width-reveal" />
+               <span className="text-[10px] tracking-[0.8em] text-primary font-black font-heading animate-fade-in">
+                 The Genesis Collection
                </span>
             </div>
           </ScrollReveal>
           
           <ScrollReveal animation="line-mask" delay={0.4} className="mb-12">
-            <h1 className="text-5xl md:text-8xl font-heading font-black leading-[0.95] text-foreground tracking-tighter">
-              architectural <br />
-              <span className="italic font-light text-primary">excellence.</span>
+            <h1 className="text-5xl md:text-[9rem] font-heading font-black leading-[0.85] text-foreground tracking-tighter mix-blend-multiply">
+              absolute <br />
+              <span className="italic font-light text-primary">heritage.</span>
             </h1>
           </ScrollReveal>
 
-          <ScrollReveal animation="blur-fade" delay={1.2} className="flex flex-col sm:flex-row items-center justify-center gap-8">
-            <WhatsAppButton 
-              label="Secure Unit"
-              message="Hello Maaisa Reality, I would like to schedule a tour of the Genesis project."
-              variant="primary"
-              className="min-w-[200px] py-4 shadow-elegant"
-            />
+          <ScrollReveal animation="blur-fade" delay={1.2} className="flex flex-col sm:flex-row items-center justify-center gap-12">
+            <MagneticButton>
+               <WhatsAppButton 
+                label="Secure Ownership"
+                message="Hello Maaisa Reality, I would like to schedule a private tour of the Genesis units."
+                variant="primary"
+                className="min-w-[260px] py-6 shadow-glow"
+               />
+            </MagneticButton>
             
-            <button 
+            <motion.button 
+              whileHover={{ scale: 1.1 }}
               onClick={() => setActive360(tourPoints[0])}
-              className="flex items-center gap-4 group transition-all"
+              className="flex items-center gap-5 group transition-all"
             >
-              <div className="w-12 h-12 flex items-center justify-center border border-black/10 rounded-full group-hover:border-primary/40 group-hover:bg-primary/5 transition-all relative overflow-hidden">
-                <span className="text-foreground group-hover:text-primary transition-colors text-[10px] font-black z-10">360</span>
+              <div className="w-16 h-16 flex items-center justify-center border border-primary/20 rounded-full group-hover:border-primary group-hover:bg-primary/5 transition-all relative overflow-hidden shadow-elegant">
+                <span className="text-foreground group-hover:text-primary transition-colors text-[11px] font-black z-10">360</span>
                 <div className="absolute inset-0 bg-primary/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
               </div>
               <div className="text-left">
-                <p className="text-[8px] tracking-[0.2em] font-black text-primary/60 group-hover:text-primary transition-colors">VR Vault</p>
-                <p className="text-[10px] text-foreground/40 font-black tracking-widest italic font-heading">Look Inside</p>
+                <p className="text-[9px] tracking-[0.3em] font-black text-primary/60 group-hover:text-primary transition-colors uppercase">VR Sanctuary</p>
+                <p className="text-[12px] text-foreground/40 font-black tracking-widest italic font-heading lowercase">explore the atmosphere</p>
               </div>
-            </button>
+            </motion.button>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Material Grid: Moss Green Heritage - Light Skin */}
-      <section className="py-32 bg-background px-6 md:px-24 border-b border-black/5 uppercase font-black text-[10px] tracking-widest">
+      {/* Material Grid: Cinematic Reveals */}
+      <section id="portfolio" className="py-40 bg-background px-6 md:px-24 border-b border-black/5 uppercase font-black text-[10px] tracking-widest">
          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-end mb-24">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-end mb-32">
                <div className="lg:col-span-8">
                   <ScrollReveal animation="blur-fade">
-                    <span className="text-primary font-black tracking-[0.5em] mb-4 block">The Genesis Build</span>
-                    <h2 className="text-5xl md:text-6xl font-heading font-black text-foreground leading-[1] tracking-tighter">premium <br/><span className="text-primary/40">materiality.</span></h2>
+                    <span className="text-primary font-black tracking-[0.5em] mb-4 block underline underline-offset-8 decoration-primary/20">Maaisa Craftsmanship</span>
+                    <h2 className="text-5xl md:text-[6rem] font-heading font-black text-foreground leading-[0.9] tracking-tighter">unrivaled <br/><span className="text-primary/40">materiality.</span></h2>
                   </ScrollReveal>
                </div>
-               <div className="lg:col-span-4 border-l border-primary/20 pl-8 pb-2">
-                  <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed max-w-xs">
-                    every genesis unit is crafted with imported carrara stones, smoked oak panels, and reinforced tempered glass.
+               <div className="lg:col-span-4 border-l-2 border-primary/20 pl-10 pb-4">
+                  <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed max-w-sm">
+                    every coordinate of the genesis build is synthesized with imported stone, smoked timber, and high-fidelity glazing.
                   </p>
                </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                {details.map((item, i) => (
-                 <ScrollReveal key={i} animation="scale-fade" delay={i * 0.1} className={cn("relative group h-[400px] overflow-hidden shadow-elegant border border-black/5", item.span)}>
+                 <div key={i} className={cn("relative group h-[500px] overflow-hidden shadow-elegant border border-black/5 reveal-image", item.span)}>
                     <img 
                       src={item.img} 
                       alt={item.title} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-all duration-[2000ms]" 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-all duration-[3000ms]" 
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-                    <div className="absolute bottom-10 left-10 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-700">
-                       <h3 className="text-2xl font-heading font-black text-foreground mb-2">{item.title}</h3>
-                       <div className="h-[2px] w-0 bg-primary group-hover:w-full transition-all duration-700" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                    <div className="absolute bottom-12 left-12 opacity-0 group-hover:opacity-100 translate-y-6 group-hover:translate-y-0 transition-all duration-700">
+                       <h3 className="text-3xl font-heading font-black text-foreground mb-3">{item.title}</h3>
+                       <div className="h-[3px] w-0 bg-primary group-hover:w-full transition-all duration-1000" />
                     </div>
-                 </ScrollReveal>
+                 </div>
                ))}
             </div>
          </div>
       </section>
 
-      {/* Interactive Hub: Maaisa Virtual Access - Light Skin */}
-      <section className="py-32 bg-surface-low relative overflow-hidden uppercase font-black text-[10px] tracking-widest">
+      {/* Interactive Hub: Maaisa Virtual Access */}
+      <section className="py-40 bg-surface-low relative overflow-hidden uppercase font-black text-[10px] tracking-widest">
         <div className="max-w-7xl mx-auto px-6 md:px-24">
-          <ScrollReveal animation="blur-fade" className="text-center mb-24">
-            <span className="text-primary font-black tracking-[0.6em] mb-6 block">Virtual Access</span>
-            <h2 className="text-5xl md:text-7xl font-heading font-black text-foreground leading-none tracking-tighter">interactive <br/><span className="text-primary/40">heritage.</span></h2>
+          <ScrollReveal animation="blur-fade" className="text-center mb-32">
+            <span className="text-primary font-black tracking-[0.8em] mb-8 block">Virtual Gateway</span>
+            <h2 className="text-5xl md:text-[7rem] font-heading font-black text-foreground leading-none tracking-tighter">digital <br/><span className="text-primary/40 italic font-light lowercase">immersion.</span></h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
-            <div className="space-y-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24">
+            <div className="space-y-16">
                {tourPoints.slice(0, 2).map((point, i) => (
                  <ScrollReveal key={i} animation="scale-fade" delay={i * 0.2}>
                     <div 
                       onClick={() => setActive360(point)}
-                      className="group cursor-pointer bg-background p-8 border border-black/5 hover:border-primary/20 transition-all shadow-card"
+                      className="group cursor-pointer bg-background p-10 border border-black/5 hover:border-primary/30 transition-all shadow-card hover:shadow-glow"
                     >
-                       <div className="aspect-video relative overflow-hidden mb-8 shadow-elegant">
-                          <img src={point.url} alt={point.title} className="w-full h-full object-cover group-hover:scale-105 transition-all duration-[2000ms]" />
-                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                             <div className="w-16 h-16 rounded-full glass flex items-center justify-center border border-primary/20 scale-50 group-hover:scale-100 transition-transform duration-500 shadow-glow">
-                                <span className="text-primary font-black text-[8px] tracking-[0.1em]">VIEW</span>
+                       <div className="aspect-video relative overflow-hidden mb-10 shadow-elegant reveal-image">
+                          <img src={point.url} alt={point.title} className="w-full h-full object-cover group-hover:scale-110 transition-all duration-[3000ms]" />
+                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-[2px]">
+                             <div className="w-20 h-20 rounded-full glass flex items-center justify-center border border-primary/40 scale-50 group-hover:scale-100 transition-transform duration-700 shadow-glow">
+                                <span className="text-primary font-black text-[9px] tracking-widest">ENTER</span>
                              </div>
                           </div>
                        </div>
-                       <div className="flex justify-between items-end">
+                       <div className="flex justify-between items-end border-l-2 border-primary/20 pl-6">
                           <div>
-                             <h3 className="text-2xl font-heading font-black text-foreground mb-1">{point.title}</h3>
-                             <p className="text-[8px] tracking-[0.2em] font-black text-primary/60">{point.desc}</p>
+                             <h3 className="text-3xl font-heading font-black text-foreground mb-2">{point.title}</h3>
+                             <p className="text-[9px] tracking-[0.4em] font-black text-primary/60 lowercase italic font-body">{point.desc}</p>
                           </div>
                        </div>
                     </div>
@@ -190,25 +247,25 @@ export default function Home() {
                ))}
             </div>
             
-            <div className="space-y-12 mt-0 md:mt-24">
+            <div className="space-y-16 mt-0 md:mt-32">
                {tourPoints.slice(2, 4).map((point, i) => (
                  <ScrollReveal key={i} animation="scale-fade" delay={i * 0.2 + 0.3}>
                     <div 
                       onClick={() => setActive360(point)}
-                      className="group cursor-pointer bg-background p-8 border border-black/5 hover:border-primary/20 transition-all shadow-card"
+                      className="group cursor-pointer bg-background p-10 border border-black/5 hover:border-primary/30 transition-all shadow-card hover:shadow-glow"
                     >
-                       <div className="aspect-[4/5] relative overflow-hidden mb-8 shadow-elegant">
-                          <img src={point.url} alt={point.title} className="w-full h-full object-cover group-hover:scale-105 transition-all duration-[2000ms]" />
-                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                             <div className="w-16 h-16 rounded-full glass flex items-center justify-center border border-primary/20 scale-50 group-hover:scale-100 transition-transform duration-500 shadow-glow">
-                                <span className="text-primary font-black text-[8px] tracking-[0.1em]">VIEW</span>
+                       <div className="aspect-[4/5] relative overflow-hidden mb-10 shadow-elegant reveal-image">
+                          <img src={point.url} alt={point.title} className="w-full h-full object-cover group-hover:scale-110 transition-all duration-[3000ms]" />
+                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-[2px]">
+                             <div className="w-20 h-20 rounded-full glass flex items-center justify-center border border-primary/40 scale-50 group-hover:scale-100 transition-transform duration-700 shadow-glow">
+                                <span className="text-primary font-black text-[9px] tracking-widest">ENTER</span>
                              </div>
                           </div>
                        </div>
-                       <div className="flex justify-between items-end">
+                       <div className="flex justify-between items-end border-l-2 border-primary/20 pl-6">
                           <div>
-                             <h3 className="text-2xl font-heading font-black text-foreground mb-1">{point.title}</h3>
-                             <p className="text-[8px] tracking-[0.2em] font-black text-primary/60">{point.desc}</p>
+                             <h3 className="text-3xl font-heading font-black text-foreground mb-2">{point.title}</h3>
+                             <p className="text-[9px] tracking-[0.4em] font-black text-primary/60 lowercase italic font-body">{point.desc}</p>
                           </div>
                        </div>
                     </div>
@@ -219,21 +276,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Values Section: Moss Green Accents - Light Skin */}
-      <section className="py-24 bg-background px-6 md:px-24 uppercase font-black text-[10px] tracking-widest">
+      {/* Corporate Values: Maaisa Reality Foundation */}
+      <section className="py-32 bg-background px-6 md:px-24 uppercase font-black text-[10px] tracking-widest">
          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                {[
-                 { icon: Shield, title: "Maaisa Secure", desc: "Genesis provides 24/7 high-fidelity biometric security layers." },
-                 { icon: MapPin, title: "Heritage Spot", desc: "Strategically located within Pune's high-velocity tech corridor." },
-                 { icon: Sun, title: "Solar Integrity", desc: "Oriented for optimal natural light and zero carbon footprint." }
+                 { icon: Shield, title: "Secure Axis", desc: "Genesis provides absolute security through biometric logic gates." },
+                 { icon: MapPin, title: "Prime Coordinate", desc: "Strategically synthesized within Pune's high-velocity tech districts." },
+                 { icon: Sun, title: "Luminous Design", desc: "Architectural orientation optimized for natural luminous efficiency." }
                ].map((item, i) => (
-                 <ScrollReveal key={i} animation="scale-fade" delay={i * 0.1} className="bg-surface-low p-12 group hover:bg-white transition-all shadow-card border border-black/5 hover:border-primary/10">
-                    <div className="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center mb-8 group-hover:border-primary group-hover:bg-primary/5 transition-all">
-                       <item.icon className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
+                 <ScrollReveal key={i} animation="scale-fade" delay={i * 0.1} className="bg-surface-low p-14 group hover:bg-white transition-all shadow-card hover:shadow-glow border border-black/5 hover:border-primary/20">
+                    <div className="w-14 h-14 rounded-xl border border-primary/20 flex items-center justify-center mb-10 group-hover:border-primary group-hover:bg-primary/5 transition-all shadow-elegant">
+                       <item.icon className="w-6 h-6 text-primary group-hover:rotate-12 transition-transform" />
                     </div>
-                    <h3 className="text-2xl font-heading font-black text-foreground mb-4 uppercase tracking-tighter">{item.title}</h3>
-                    <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed mb-8">{item.desc}</p>
+                    <h3 className="text-3xl font-heading font-black text-foreground mb-5 uppercase tracking-tighter leading-none">{item.title}</h3>
+                    <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed mb-10 border-l border-primary/20 pl-6">{item.desc}</p>
                     <WhatsAppButton 
                       variant="minimal" 
                       label="Enquire" 
@@ -245,65 +302,32 @@ export default function Home() {
          </div>
       </section>
 
-      {/* Featured Collection: Genesis Private Reserve - Light Skin */}
-      <section className="py-32 bg-background relative uppercase font-black text-[10px] tracking-widest">
-        <div className="max-w-7xl mx-auto px-6 md:px-24 grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
-           <div className="lg:col-span-7">
-              <ScrollReveal animation="clip" className="aspect-[16/10] relative group shadow-elegant border border-black/5 overflow-hidden">
-                 <img 
-                    src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?q=80&w=2070&auto=format&fit=crop" 
-                    alt="The Genesis Suite" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-[3000ms]" 
-                 />
-              </ScrollReveal>
-           </div>
-           
-           <div className="lg:col-span-5 text-left">
-              <ScrollReveal animation="blur-fade">
-                 <span className="text-primary font-black tracking-[0.4em] mb-4 block">Private Reserve</span>
-                 <h2 className="text-5xl md:text-7xl font-heading font-black text-foreground leading-[1] mb-8 tracking-tighter">the sky <br/><span className="text-primary/40">vault.</span></h2>
-                 <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed mb-12 border-l border-primary/20 pl-6">
-                    an exclusive collection of genesis suites designed for high-net-worth investors and visionaries.
-                 </p>
-                 <WhatsAppButton 
-                   label="Schedule Tour" 
-                   message="I want to see the sky collection apartments at Maaisa Reality Genesis."
-                   variant="primary"
-                   className="w-full py-5"
-                 />
-              </ScrollReveal>
-           </div>
-        </div>
-      </section>
-
-      {/* Contact Section: Maaisa Reality - Light Skin */}
-      <section id="contact" className="py-32 bg-secondary/20 px-6 relative overflow-hidden uppercase font-black text-[10px] tracking-widest">
-        <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--color-primary)_0%,_transparent_70%)]" />
-        
+      {/* Final Contact Axis: Maaisa Reality */}
+      <section id="contact" className="py-40 bg-surface-low px-6 relative overflow-hidden uppercase font-black text-[10px] tracking-widest">
         <ScrollReveal animation="blur-fade">
-          <div className="text-center mb-24">
-             <span className="text-primary font-black tracking-[0.8em] mb-8 block">Connect</span>
-             <h2 className="text-5xl md:text-7xl font-heading font-black text-foreground tracking-tighter leading-none mb-10">secure your <br/><span className="text-primary/40">heritage.</span></h2>
+          <div className="text-center mb-32">
+             <span className="text-primary font-black tracking-[1em] mb-10 block animate-pulse">CONNECTIVITY</span>
+             <h2 className="text-5xl md:text-[8rem] font-heading font-black text-foreground tracking-tighter leading-[0.8] mb-12">secure your <br/><span className="text-primary italic font-light lowercase">transition.</span></h2>
           </div>
           <ContactForm />
         </ScrollReveal>
 
-        <div className="mt-32 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center border-t border-black/5 pt-16 gap-12">
-           <div className="flex flex-col items-center md:items-start gap-4">
-              <span className="text-[9px] tracking-[0.4em] text-primary/40">Maaisa Reality Direct</span>
-              <a href="tel:+919890200222" className="text-3xl md:text-4xl font-heading font-black text-foreground hover:text-primary transition-all flex items-center gap-6 tracking-tighter">
-                 <Phone className="w-8 h-8 stroke-[2px] text-primary" />
+        <div className="mt-40 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center border-t border-black/5 pt-20 gap-16">
+           <div className="flex flex-col items-center md:items-start gap-5">
+              <span className="text-[10px] tracking-[0.5em] text-primary/40 font-black">Direct Communication Hub</span>
+              <a href="tel:+919890200222" className="text-4xl md:text-5xl font-heading font-black text-foreground hover:text-primary transition-all flex items-center gap-8 tracking-tighter">
+                 <Phone className="w-10 h-10 stroke-[2.5px] text-primary animate-bounce" />
                  +91 98902 00222
               </a>
            </div>
            
-           <div className="flex flex-wrap justify-center gap-12">
-              <WhatsAppButton variant="minimal" label="WhatsApp" message="Hello Maaisa Reality, I'm reaching out from the Genesis project portal." />
+           <div className="flex flex-wrap justify-center gap-16">
+              <WhatsAppButton variant="minimal" label="WhatsApp Axis" message="Hello Maaisa Reality, I'm reaching out regarding the Genesis residential project." />
               <button 
                 onClick={() => window.open('/Maaisa_Genesis_Website_Content_Brief.pdf', '_blank')}
-                className="text-primary font-black tracking-[0.3em] hover:text-foreground transition-all border-b border-primary/20 pb-1"
+                className="text-primary font-black tracking-[0.4em] hover:text-foreground transition-all border-b-2 border-primary/20 pb-2 hover:border-primary"
               >
-                Brochure
+                Brochure Ledger
               </button>
            </div>
         </div>

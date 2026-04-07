@@ -82,15 +82,15 @@ export default function Amenities() {
             {amenityGalleries.map((item, i) => (
               <div key={i} className={cn("flex flex-col lg:flex-row gap-20 items-center mb-40", i % 2 !== 0 && "lg:flex-row-reverse")}>
                  <div className="w-full lg:w-3/5">
-                    <ScrollReveal animation="clip" className="aspect-video relative group shadow-elegant border border-black/5 overflow-hidden">
+                    <ScrollReveal animation="clip" className="aspect-video relative group shadow-elegant border border-black/5 overflow-hidden reveal-image">
                        <img 
                         src={item.img} 
                         alt={item.title} 
-                        className="w-full h-full object-cover group-hover:scale-105 transition-all duration-[2000ms]" 
+                        className="w-full h-full object-cover group-hover:scale-110 transition-all duration-[3000ms]" 
                        />
                        <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-all duration-700" />
-                       <div className="absolute top-8 left-8 flex items-center gap-4">
-                          <item.icon className="w-8 h-8 text-white drop-shadow-lg" />
+                       <div className="absolute top-10 left-10 flex items-center gap-6">
+                          <item.icon className="w-10 h-10 text-white drop-shadow-xl" />
                        </div>
                     </ScrollReveal>
                  </div>
@@ -138,12 +138,12 @@ export default function Amenities() {
                </ScrollReveal>
             </div>
             
-            <div className="grid grid-cols-2 gap-6 scale-110 md:scale-100">
-               <ScrollReveal animation="scale-fade" className="aspect-[3/4] overflow-hidden border border-black/5 relative group shadow-elegant">
-                  <img src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=2070&auto=format&fit=crop" alt="Zen" className="w-full h-full object-cover group-hover:scale-105 transition-all duration-[2000ms]" />
+            <div className="grid grid-cols-2 gap-8 scale-110 md:scale-105">
+               <ScrollReveal animation="scale-fade" className="aspect-[3/4] overflow-hidden border border-black/5 relative group shadow-elegant reveal-image">
+                  <img src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=2070&auto=format&fit=crop" alt="Zen" className="w-full h-full object-cover group-hover:scale-110 transition-all duration-[3000ms]" />
                </ScrollReveal>
-               <ScrollReveal animation="scale-fade" delay={0.2} className="aspect-[3/4] overflow-hidden border border-black/5 mt-12 relative group shadow-elegant">
-                  <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2070&auto=format&fit=crop" alt="Texture" className="w-full h-full object-cover group-hover:scale-105 transition-all duration-[2000ms]" />
+               <ScrollReveal animation="scale-fade" delay={0.2} className="aspect-[3/4] overflow-hidden border border-black/5 mt-16 relative group shadow-elegant reveal-image">
+                  <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2070&auto=format&fit=crop" alt="Texture" className="w-full h-full object-cover group-hover:scale-110 transition-all duration-[3000ms]" />
                </ScrollReveal>
             </div>
          </div>

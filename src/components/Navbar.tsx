@@ -9,7 +9,7 @@ import { WhatsAppButton } from "./WhatsAppButton";
 import { cn } from "@/lib/utils";
 
 const navigation = [
-  { name: "Portfolio", href: "/portfolio" },
+  { name: "Portfolio", href: "/#portfolio" },
   { name: "Floor Plans", href: "/floor-plans" },
   { name: "Amenities", href: "/amenities" },
   { name: "The Vision", href: "/editorial" },
@@ -58,7 +58,7 @@ export const Navbar = () => {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "text-[10px] font-black uppercase tracking-[0.3em] transition-all duration-500 hover:text-primary",
+                  "text-[10px] font-black uppercase tracking-[0.3em] transition-all duration-500 hover:text-primary hover:tracking-[0.5em]",
                   pathname === item.href ? "text-primary" : "text-tertiary hover:text-foreground"
                 )}
               >
@@ -81,10 +81,10 @@ export const Navbar = () => {
               className="hidden sm:block text-[10px] font-black uppercase tracking-[0.3em] text-primary hover:text-foreground transition-all"
             />
 
-            {/* Stylish "Morphic" Hamburger */}
+            {/* Stylish "Morphic" Hamburger - Hidden on Laptop (lg) */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-3 rounded-full hover:bg-black/5 transition-all group scale-110"
+              className="p-3 rounded-full hover:bg-black/5 transition-all group scale-110 lg:hidden"
               aria-label="Toggle Menu"
             >
                <div className="w-6 h-5 flex flex-col justify-between items-end relative overflow-hidden">

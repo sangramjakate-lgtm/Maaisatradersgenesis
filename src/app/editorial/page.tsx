@@ -44,16 +44,16 @@ export default function Editorial() {
           </ScrollReveal>
         </div>
 
-        <ScrollReveal animation="clip" delay={0.5} className="relative mt-24 md:mt-0 md:-mr-48">
+        <ScrollReveal animation="clip" delay={0.5} className="relative mt-24 md:mt-0 md:-mr-48 reveal-image">
           <div className="w-full md:w-[800px] aspect-[4/5] md:aspect-[3/4] bg-surface-low overflow-hidden shadow-elegant border border-black/5">
             <img
               alt="Beautiful Architecture"
-              className="w-full h-full object-cover transition-all duration-[2000ms] hover:scale-105 brightness-100"
+              className="w-full h-full object-cover transition-all duration-[3000ms] hover:scale-110 brightness-105"
               src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
             />
           </div>
           {/* Overlapping Detail: Light Skin */}
-          <div className="absolute top-1/2 left-0 -translate-x-12 translate-y-24 bg-white/80 backdrop-blur-md p-12 w-[300px] hidden lg:block shadow-elegant border border-primary/10">
+          <div className="absolute top-1/2 left-0 -translate-x-12 translate-y-24 bg-white/80 backdrop-blur-md p-14 w-[320px] hidden lg:block shadow-elegant border border-primary/20">
              <span className="text-primary font-black tracking-[0.3em] mb-2 block italic">Maaisa Materials</span>
              <p className="text-[10px] font-black text-foreground mb-4 tracking-widest uppercase">stone & oak.</p>
              <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed italic border-l border-primary/20 pl-6">Your home is synthesized with the finest materials curated for durability and radiance.</p>
@@ -101,10 +101,10 @@ export default function Editorial() {
           </div>
 
           <div className="lg:col-span-8 order-1 lg:order-2">
-             <ScrollReveal animation="scale-fade" className="aspect-[16/9] relative md:translate-x-24 shadow-elegant border border-black/5 overflow-hidden">
+             <ScrollReveal animation="scale-fade" className="aspect-[16/9] relative md:translate-x-24 shadow-elegant border border-black/5 overflow-hidden reveal-image">
                 <img
                   alt="Minimalist View"
-                  className="w-full h-full object-cover shadow-elegant hover:scale-105 transition-all duration-[3000ms]"
+                  className="w-full h-full object-cover shadow-elegant hover:scale-110 transition-all duration-[3000ms]"
                   src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop"
                 />
              </ScrollReveal>
