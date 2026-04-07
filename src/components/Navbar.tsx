@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowRight, Search, Heart, MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react";
+import { Menu, X, ArrowRight, Search, Heart, MapPin, Phone, Mail } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { cn } from "@/lib/utils";
