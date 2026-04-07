@@ -37,7 +37,7 @@ export const Navbar = () => {
     <>
       <nav
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]",
+          "fixed top-0 left-0 right-0 z-[70] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]",
           isScrolled || isOpen
             ? "bg-surface-lowest/90 backdrop-blur-2xl py-4 border-b border-white/5"
             : "bg-transparent py-8"
@@ -107,7 +107,7 @@ export const Navbar = () => {
             animate={{ opacity: 1, clipPath: 'circle(150% at 90% 5%)' }}
             exit={{ opacity: 0, clipPath: 'circle(0% at 90% 5%)' }}
             transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
-            className="fixed inset-0 z-50 bg-black flex flex-col md:flex-row"
+            className="fixed inset-0 z-[60] bg-black flex flex-col md:flex-row h-screen"
           >
             {/* Left/Top Content: Visual Ambience */}
             <div className="relative w-full md:w-1/2 h-[30vh] md:h-full overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000">
