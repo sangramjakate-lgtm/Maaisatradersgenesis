@@ -40,7 +40,7 @@ export default function Editorial() {
           <div className="w-full md:w-[800px] aspect-[4/5] md:aspect-[3/4] bg-surface-low overflow-hidden shadow-elegant border border-white/5">
             <img
               alt="Beautiful Architecture"
-              className="w-full h-full object-cover transition-all duration-[2000ms] hover:scale-105 grayscale brightness-75 hover:grayscale-0"
+              className="w-full h-full object-cover transition-all duration-[2000ms] hover:scale-105 brightness-100"
               src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
             />
           </div>

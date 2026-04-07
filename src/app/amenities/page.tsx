@@ -39,10 +39,10 @@ export default function Amenities() {
             <img
               src="https://images.unsplash.com/photo-1544161515-4ae6b91839d2?q=80&w=2070&auto=format&fit=crop"
               alt="Luxury Amenities"
-              className="parallax-img w-full h-[120%] object-cover grayscale brightness-50"
+              className="parallax-img w-full h-[120%] object-cover brightness-100"
             />
           </ScrollReveal>
-          <div className="absolute inset-0 bg-gradient-to-t from-surface-lowest via-transparent to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-surface-lowest via-transparent to-black/20" />
         </div>
         
         <div className="relative z-10 max-w-4xl text-left">
@@ -86,9 +86,9 @@ export default function Amenities() {
                        <img 
                         src={item.img} 
                         alt={item.title} 
-                        className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 transition-all duration-[2000ms]" 
+                        className="w-full h-full object-cover brightness-90 group-hover:brightness-110 group-hover:scale-105 transition-all duration-[2000ms]" 
                        />
-                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
+                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60" />
                        <div className="absolute bottom-8 left-8 flex items-center gap-4">
                           <item.icon className="w-8 h-8 text-primary/80" />
                           <div className="h-8 w-[1px] bg-primary/30" />
@@ -141,10 +141,10 @@ export default function Amenities() {
             
             <div className="grid grid-cols-2 gap-4">
                <ScrollReveal animation="scale-fade" className="aspect-[3/4] rounded-sm overflow-hidden border border-white/5 relative group shadow-elegant">
-                  <img src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=2070&auto=format&fit=crop" alt="Zen" className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 transition-all duration-[2000ms]" />
+                  <img src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=2070&auto=format&fit=crop" alt="Zen" className="w-full h-full object-cover brightness-100 group-hover:brightness-110 transition-all duration-[2000ms]" />
                </ScrollReveal>
                <ScrollReveal animation="scale-fade" delay={0.2} className="aspect-[3/4] rounded-sm overflow-hidden border border-white/5 mt-12 relative group shadow-elegant">
-                  <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2070&auto=format&fit=crop" alt="Texture" className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 transition-all duration-[2000ms]" />
+                  <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2070&auto=format&fit=crop" alt="Texture" className="w-full h-full object-cover brightness-100 group-hover:brightness-110 transition-all duration-[2000ms]" />
                </ScrollReveal>
             </div>
          </div>

@@ -67,12 +67,12 @@ export default function Home() {
       {/* Hero Section: Editorial Layered Depth - Compacted */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-surface-lowest z-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-surface-lowest z-10" />
           <ScrollReveal animation="image-parallax" className="h-full w-full">
             <img
               src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop"
               alt="Maaisa Genesis Exterior"
-              className="parallax-img w-full h-[120%] object-cover brightness-75 scale-100"
+              className="parallax-img w-full h-[120%] object-cover brightness-100 scale-100"
             />
           </ScrollReveal>
         </div>
@@ -106,7 +106,7 @@ export default function Home() {
               onClick={() => setActive360(tourPoints[0])}
               className="flex items-center gap-4 group transition-all"
             >
-              <div className="w-12 h-12 flex items-center justify-center border border-white/10 rounded-full group-hover:border-primary/40 group-hover:bg-primary/5 transition-all relative overflow-hidden">
+              <div className="w-12 h-12 flex items-center justify-center border border-white/20 rounded-full group-hover:border-primary/40 group-hover:bg-primary/5 transition-all relative overflow-hidden">
                 <span className="text-secondary group-hover:text-primary transition-colors text-[10px] font-bold z-10">360</span>
                 <div className="absolute inset-0 bg-primary/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
               </div>
@@ -142,9 +142,9 @@ export default function Home() {
                     <img 
                       src={item.img} 
                       alt={item.title} 
-                      className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[2000ms]" 
+                      className="w-full h-full object-cover brightness-90 group-hover:brightness-110 group-hover:scale-105 transition-all duration-[2000ms]" 
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
                     <div className="absolute bottom-10 left-10">
                        <h3 className="text-2xl font-heading italic font-thin text-secondary mb-2">{item.title}</h3>
                        <div className="h-[1px] w-10 bg-primary/40 group-hover:w-full transition-all duration-700" />
@@ -172,7 +172,7 @@ export default function Home() {
                       className="group cursor-pointer bg-surface-lowest p-8 border border-white/5 hover:border-primary/30 transition-all shadow-elegant"
                     >
                        <div className="aspect-video relative overflow-hidden mb-8 shadow-2xl">
-                          <img src={point.url} alt={point.title} className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[2000ms]" />
+                          <img src={point.url} alt={point.title} className="w-full h-full object-cover brightness-100 group-hover:brightness-110 group-hover:scale-105 transition-all duration-[2000ms]" />
                           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                              <div className="w-20 h-20 rounded-full glass flex items-center justify-center border border-primary/20 scale-50 group-hover:scale-100 transition-transform duration-500">
                                 <span className="text-primary font-bold text-[9px] tracking-[0.1em]">360</span>
@@ -198,7 +198,7 @@ export default function Home() {
                       className="group cursor-pointer bg-surface-lowest p-8 border border-white/5 hover:border-primary/30 transition-all shadow-elegant"
                     >
                        <div className="aspect-[4/5] relative overflow-hidden mb-8 shadow-2xl">
-                          <img src={point.url} alt={point.title} className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[2000ms]" />
+                          <img src={point.url} alt={point.title} className="w-full h-full object-cover brightness-100 group-hover:brightness-110 group-hover:scale-105 transition-all duration-[2000ms]" />
                           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                              <div className="w-20 h-20 rounded-full glass flex items-center justify-center border border-primary/20 scale-50 group-hover:scale-100 transition-transform duration-500">
                                 <span className="text-primary font-bold text-[9px] tracking-[0.1em]">360</span>
@@ -253,7 +253,7 @@ export default function Home() {
                  <img 
                     src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?q=80&w=2070&auto=format&fit=crop" 
                     alt="The Suite" 
-                    className="w-full h-full object-cover brightness-75 transition-all duration-[3000ms]" 
+                    className="w-full h-full object-cover brightness-100 group-hover:brightness-110 group-hover:scale-105 transition-all duration-[3000ms]" 
                  />
               </ScrollReveal>
            </div>

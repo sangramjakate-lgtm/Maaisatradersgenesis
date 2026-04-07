@@ -37,15 +37,15 @@ export default function FloorPlans() {
     <main className="bg-surface-lowest uppercase">
       {/* Floor Plans Hero: The Masterplan - Compacted */}
       <section className="relative min-h-[90vh] flex items-center pt-32 pb-16 px-6 md:px-24 overflow-hidden border-b border-white/5">
-        <div className="absolute inset-0 z-0 opacity-30 grayscale pointer-events-none">
+        <div className="absolute inset-0 z-0 opacity-60 pointer-events-none">
           <ScrollReveal animation="image-parallax" className="h-full w-full">
             <img
               src="/images/floor-plan-overview.png"
               alt="Floor Plan Masterplan"
-              className="parallax-img w-full h-[120%] object-cover brightness-50"
+              className="parallax-img w-full h-[120%] object-cover brightness-100"
             />
           </ScrollReveal>
-          <div className="absolute inset-0 bg-gradient-to-r from-surface-lowest via-surface-lowest/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-surface-lowest via-surface-lowest/40 to-transparent" />
         </div>
         
         <div className="relative z-10 max-w-5xl text-left">
@@ -96,9 +96,9 @@ export default function FloorPlans() {
                        <img 
                         src={unit.img} 
                         alt={unit.name} 
-                        className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 transition-all duration-[2000ms]" 
+                        className="w-full h-full object-cover brightness-100 group-hover:brightness-110 group-hover:scale-105 transition-all duration-[2000ms]" 
                        />
-                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
+                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60" />
                        <div className="absolute top-8 left-8 border border-primary/20 p-2 glass">
                           <span className="text-2xl font-heading text-primary italic font-thin">{unit.id}</span>
                        </div>
@@ -159,8 +159,8 @@ export default function FloorPlans() {
             ].map((material, i) => (
               <ScrollReveal key={i} animation="scale-fade" delay={i * 0.1} className="p-0.5 glass shadow-elegant relative group overflow-hidden">
                  <div className="aspect-square relative overflow-hidden">
-                    <img src={material.img} alt={material.name} className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 transition-all duration-[2000ms]" />
-                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors" />
+                    <img src={material.img} alt={material.name} className="w-full h-full object-cover brightness-100 group-hover:brightness-110 transition-all duration-[2000ms]" />
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
                     <div className="absolute bottom-4 left-4">
                        <p className="text-[9px] tracking-[0.2em] font-bold text-secondary italic opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-700">{material.name}</p>
                     </div>
