@@ -3,7 +3,7 @@
 import { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowRight, Download, Play, Plus, MapPin, Shield, Sun, Home as HomeIcon, CheckCircle2, Phone } from "lucide-react";
+import { ArrowRight, Download, Play, Plus, MapPin, Shield, Sun, Home as HomeIcon, CheckCircle2, Phone, MousePointer2 } from "lucide-react";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { ThreeSixtyPortal } from "@/components/ThreeSixtyPortal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -16,7 +16,26 @@ export default function Home() {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    gsap.to(mainRef.current, { opacity: 1, duration: 1, ease: "power2.out" });
+    gsap.to(mainRef.current, { opacity: 1, duration: 1.5, ease: "power3.out" });
+    
+    // Smooth reveal for all sections
+    const sections = gsap.utils.toArray('section');
+    sections.forEach((section: any) => {
+      gsap.fromTo(section, 
+        { opacity: 0, y: 50 },
+        { 
+          opacity: 1, 
+          y: 0, 
+          duration: 1.2, 
+          ease: "expo.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
   }, []);
 
   const tourPoints = [
@@ -27,8 +46,15 @@ export default function Home() {
     { title: "City Horizon", url: "/360/allphoto-bangkok-GfXqtWmiuDI-unsplash.jpg", desc: "Breathtaking views of the skyline." }
   ];
 
+  const details = [
+    { title: "Carrara Marble", img: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2070&auto=format&fit=crop", span: "lg:col-span-1" },
+    { title: "Smoked Oak", img: "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=2070&auto=format&fit=crop", span: "lg:col-span-2" },
+    { title: "Smart Living", img: "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=2070&auto=format&fit=crop", span: "lg:col-span-2" },
+    { title: "Glass Horizon", img: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop", span: "lg:col-span-1" }
+  ];
+
   return (
-    <main ref={mainRef} className="opacity-0">
+    <main ref={mainRef} className="opacity-0 bg-surface-lowest">
       {/* 360 Portal Overlay */}
       {active360 && (
         <ThreeSixtyPortal 
@@ -38,112 +64,187 @@ export default function Home() {
         />
       )}
 
-      {/* Hero Section: Simple, Direct & Impactful */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden uppercase">
+      {/* Hero Section: Editorial Layered Depth */}
+      <section className="relative min-h-[110vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-surface-lowest z-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-surface-lowest z-10" />
           <ScrollReveal animation="image-parallax" className="h-full w-full">
             <img
               src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop"
               alt="Maaisa Genesis Exterior"
-              className="parallax-img w-full h-[120%] object-cover brightness-75 scale-110"
+              className="parallax-img w-full h-[130%] object-cover brightness-75 scale-100"
             />
           </ScrollReveal>
         </div>
 
-        <div className="relative z-20 text-center px-6 max-w-5xl">
+        <div className="relative z-20 text-center px-6 max-w-6xl">
           <ScrollReveal animation="blur-fade" delay={0.2}>
-            <span className="text-[10px] md:text-xs tracking-[0.6em] uppercase text-primary font-bold mb-8 block font-heading italic">
-              Modern Homes Created for You
-            </span>
+            <div className="flex flex-col items-center gap-6 mb-12">
+               <span className="h-[1px] w-24 bg-primary/40 block" />
+               <span className="text-[10px] md:text-xs tracking-[0.8em] uppercase text-primary font-bold font-heading italic">
+                 modern homes created for you
+               </span>
+            </div>
           </ScrollReveal>
           
-          <ScrollReveal animation="line-mask" delay={0.4} className="mb-12">
-            <h1 className="text-6xl md:text-[8rem] font-heading font-extralight leading-[1.05] text-secondary lowercase">
-              simple, <br />
-              <span className="italic font-thin text-primary">peaceful luxury.</span>
+          <ScrollReveal animation="line-mask" delay={0.4} className="mb-16">
+            <h1 className="text-7xl md:text-[10rem] font-heading font-extralight leading-[0.95] text-secondary lowercase tracking-tight">
+              peaceful <br />
+              <span className="italic font-thin text-primary ml-12 md:ml-24">luxury spaces.</span>
             </h1>
           </ScrollReveal>
 
-          <ScrollReveal animation="blur-fade" delay={1} className="flex flex-col sm:flex-row items-center justify-center gap-8">
+          <ScrollReveal animation="blur-fade" delay={1.2} className="flex flex-col sm:flex-row items-center justify-center gap-12">
             <WhatsAppButton 
-              label="Schedule Tour"
+              label="Enquire Now"
               message="Hello, I would like to schedule a tour of Maaisa Genesis."
               variant="primary"
+              className="min-w-[240px] py-6 shadow-2xl"
             />
             
             <button 
               onClick={() => setActive360(tourPoints[0])}
-              className="flex items-center gap-4 text-[10px] tracking-[0.3em] uppercase font-bold text-secondary/60 hover:text-primary transition-colors group"
+              className="flex items-center gap-6 group transition-all"
             >
-              Start 360 Tour
-              <div className="w-12 h-12 flex items-center justify-center border border-primary/20 rounded-full group-hover:bg-primary group-hover:text-on-primary transition-all">
-                <span className="text-[10px] font-bold">360</span>
+              <div className="w-16 h-16 flex items-center justify-center border border-white/10 rounded-full group-hover:border-primary/40 group-hover:bg-primary/5 transition-all relative overflow-hidden">
+                <span className="text-secondary group-hover:text-primary transition-colors text-[10px] font-bold z-10">360</span>
+                <div className="absolute inset-0 bg-primary/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+              </div>
+              <div className="text-left">
+                <p className="text-[10px] tracking-[0.3em] uppercase text-secondary/40 font-bold group-hover:text-primary transition-colors">Start VR Tour</p>
+                <p className="text-xs text-secondary/60 italic font-heading">Look Around Room</p>
               </div>
             </button>
           </ScrollReveal>
         </div>
+
+        <div className="absolute bottom-16 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-4">
+           <div className="h-32 w-[1px] bg-gradient-to-b from-primary/60 to-transparent" />
+           <span className="text-[8px] tracking-[0.5em] uppercase text-primary/40 font-bold">Scroll to Explore</span>
+        </div>
       </section>
 
-      {/* Virtual Hub: Interactive Grids with Depth */}
-      <section className="py-24 bg-surface-lowest relative overflow-hidden uppercase">
-        <div className="max-w-7xl mx-auto px-6 md:px-24">
-          <div className="mb-32 flex flex-col md:flex-row justify-between items-end gap-8">
-            <ScrollReveal animation="blur-fade">
-              <span className="text-primary font-bold text-[10px] tracking-[0.6em] mb-4 block">Interactive Enclaves</span>
-              <h2 className="text-5xl md:text-7xl font-heading italic font-thin text-secondary">Virtual <br />Experience.</h2>
-            </ScrollReveal>
-            <p className="text-tertiary max-w-sm font-body font-light text-xs tracking-widest leading-[2] border-r border-primary/20 pr-8 italic">
-              Look around your future home. Every detail, from the smooth wood to the open sunlight, can be seen in our 360 virtual walk.
-            </p>
-          </div>
+      {/* Featured Bento: Material Sincerity */}
+      <section className="py-64 bg-surface-lowest px-6 md:px-24 border-b border-white/5 uppercase">
+         <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-end mb-40">
+               <div className="lg:col-span-8">
+                  <ScrollReveal animation="blur-fade">
+                    <span className="text-primary font-bold text-[10px] tracking-[0.6em] mb-6 block">The Build Quality</span>
+                    <h2 className="text-6xl md:text-8xl font-heading italic font-thin text-secondary leading-tight lowercase">only the best <br /> materials.</h2>
+                  </ScrollReveal>
+               </div>
+               <div className="lg:col-span-4 border-l border-primary/20 pl-12 pb-4">
+                  <p className="text-tertiary font-body font-light text-sm tracking-widest leading-[1.8] lowercase italic font-heading">
+                    each house in maaisa genesis is made with smooth carrara marble, high-quality wood, and clean glass to make your home feel special.
+                  </p>
+               </div>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-            {tourPoints.map((point, i) => (
-              <ScrollReveal key={i} animation="scale-fade" delay={i * 0.1}>
-                 <div 
-                   onClick={() => setActive360(point)}
-                   className="group relative cursor-pointer aspect-[3/4] overflow-hidden shadow-elegant border border-primary/5 hover:border-primary/20 transition-all rounded-sm"
-                 >
-                    <img src={point.url} alt={point.title} className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000" />
-                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors" />
-                    <div className="absolute bottom-8 left-8 right-8 z-10">
-                       <div className="w-12 h-12 rounded-full border border-primary/50 flex items-center justify-center mb-6 bg-black/40 group-hover:bg-primary group-hover:text-on-primary transition-all">
-                          <span className="text-[10px] font-bold">360</span>
-                       </div>
-                       <h3 className="text-lg font-heading italic font-thin text-secondary mb-2 whitespace-nowrap">{point.title}</h3>
-                       <p className="text-[8px] tracking-[0.2em] font-bold text-primary">{point.desc}</p>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+               {details.map((item, i) => (
+                 <ScrollReveal key={i} animation="scale-fade" delay={i * 0.1} className={cn("relative group h-[400px] overflow-hidden rounded-sm shadow-elegant", item.span)}>
+                    <img 
+                      src={item.img} 
+                      alt={item.title} 
+                      className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[2000ms]" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+                    <div className="absolute bottom-12 left-12">
+                       <h3 className="text-3xl font-heading italic font-thin text-secondary mb-2">{item.title}</h3>
+                       <div className="h-[1px] w-12 bg-primary/40 group-hover:w-full transition-all duration-700" />
                     </div>
-                 </div>
-              </ScrollReveal>
-            ))}
+                 </ScrollReveal>
+               ))}
+            </div>
+         </div>
+      </section>
+
+      {/* Interactive Hub Redesign: Asymmetric Editorial */}
+      <section className="py-64 bg-surface-low relative overflow-hidden uppercase">
+        <div className="max-w-7xl mx-auto px-6 md:px-24">
+          <ScrollReveal animation="blur-fade" className="text-center mb-40">
+            <span className="text-primary font-bold text-[10px] tracking-[0.8em] mb-8 block uppercase">The Virtual Hub</span>
+            <h2 className="text-6xl md:text-9xl font-heading italic font-thin text-secondary leading-none lowercase">look around <br /> in 360.</h2>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
+            <div className="space-y-12 lg:space-y-24">
+               {tourPoints.slice(0, 2).map((point, i) => (
+                 <ScrollReveal key={i} animation="scale-fade" delay={i * 0.2}>
+                    <div 
+                      onClick={() => setActive360(point)}
+                      className="group cursor-pointer bg-surface-lowest p-8 md:p-12 border border-white/5 hover:border-primary/30 transition-all shadow-elegant"
+                    >
+                       <div className="aspect-video relative overflow-hidden mb-12 shadow-2xl">
+                          <img src={point.url} alt={point.title} className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[2000ms]" />
+                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                             <div className="w-24 h-24 rounded-full glass flex items-center justify-center border border-primary/20 scale-50 group-hover:scale-100 transition-transform duration-500">
+                                <span className="text-primary font-bold text-[10px] tracking-[0.2em]">ENTER 360</span>
+                             </div>
+                          </div>
+                       </div>
+                       <div className="flex justify-between items-end">
+                          <div>
+                             <h3 className="text-3xl font-heading italic font-thin text-secondary mb-2">{point.title}</h3>
+                             <p className="text-[10px] tracking-[0.3em] font-bold text-primary">{point.desc}</p>
+                          </div>
+                          <div className="text-[10px] font-heading italic text-tertiary">0{i + 1}</div>
+                       </div>
+                    </div>
+                 </ScrollReveal>
+               ))}
+            </div>
+            
+            <div className="space-y-12 lg:space-y-24 mt-0 md:mt-48">
+               {tourPoints.slice(2, 4).map((point, i) => (
+                 <ScrollReveal key={i} animation="scale-fade" delay={i * 0.2 + 0.3}>
+                    <div 
+                      onClick={() => setActive360(point)}
+                      className="group cursor-pointer bg-surface-lowest p-8 md:p-12 border border-white/5 hover:border-primary/30 transition-all shadow-elegant"
+                    >
+                       <div className="aspect-[4/5] relative overflow-hidden mb-12 shadow-2xl">
+                          <img src={point.url} alt={point.title} className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[2000ms]" />
+                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                             <div className="w-24 h-24 rounded-full glass flex items-center justify-center border border-primary/20 scale-50 group-hover:scale-100 transition-transform duration-500">
+                                <span className="text-primary font-bold text-[10px] tracking-[0.2em]">ENTER 360</span>
+                             </div>
+                          </div>
+                       </div>
+                       <div className="flex justify-between items-end">
+                          <div>
+                             <h3 className="text-3xl font-heading italic font-thin text-secondary mb-2">{point.title}</h3>
+                             <p className="text-[10px] tracking-[0.3em] font-bold text-primary">{point.desc}</p>
+                          </div>
+                          <div className="text-[10px] font-heading italic text-tertiary">0{i + 3}</div>
+                       </div>
+                    </div>
+                 </ScrollReveal>
+               ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Values & Integrity Grid */}
-      <section className="py-40 bg-surface-low border-y border-white/5 uppercase">
-         <div className="max-w-7xl mx-auto px-6 md:px-24">
-            <ScrollReveal animation="blur-fade" className="mb-32">
-               <span className="text-[10px] tracking-[0.4em] text-primary font-bold mb-6 block">Our Commitment</span>
-               <h2 className="text-6xl font-heading italic font-thin text-secondary leading-tight">Everything is built <br /> for your comfort.</h2>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-1px bg-white/5 border border-white/5 shadow-elegant">
+      {/* Values Redesign: Minimal Depth Cards */}
+      <section className="py-64 bg-surface-lowest px-6 md:px-24 uppercase">
+         <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                {[
-                 { icon: Shield, title: "Total Safety", desc: "Your family's safety is our priority. 24/7 security and safe space for kids." },
-                 { icon: MapPin, title: "Great Location", desc: "Close to schools, hospitals, and parks. Right in the heart of the city." },
-                 { icon: Sun, title: "Plenty of Light", desc: "Designed to get natural sunlight throughout the day in every room." }
+                 { icon: Shield, title: "Your Safety", desc: "Your family's safety is our priority. 24/7 security and safe space for kids." },
+                 { icon: MapPin, title: "Great Spot", desc: "Close to schools, hospitals, and parks. Right in the heart of the city." },
+                 { icon: Sun, title: "Natural Light", desc: "Designed to get natural sunlight throughout the day in every room." }
                ].map((item, i) => (
-                 <ScrollReveal key={i} animation="scale-fade" delay={i * 0.1} className="bg-surface-lowest p-20 group hover:bg-surface-low transition-colors">
-                    <item.icon className="w-12 h-12 text-primary/50 group-hover:text-primary transition-all mb-8 animate-pulse" />
-                    <h3 className="text-2xl font-heading italic font-thin text-secondary mb-6">{item.title}</h3>
-                    <p className="text-tertiary font-body font-light leading-relaxed text-[10px] uppercase tracking-[0.2em]">{item.desc}</p>
+                 <ScrollReveal key={i} animation="scale-fade" delay={i * 0.1} className="bg-surface-low p-16 group hover:bg-surface-high transition-all shadow-elegant border border-white/5 hover:border-primary/10">
+                    <div className="w-16 h-16 rounded-full border border-primary/20 flex items-center justify-center mb-12 group-hover:border-primary group-hover:bg-primary/5 transition-all">
+                       <item.icon className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
+                    </div>
+                    <h3 className="text-3xl font-heading italic font-thin text-secondary mb-6">{item.title}</h3>
+                    <p className="text-tertiary font-body font-light leading-relaxed text-[10px] uppercase tracking-[0.3em] mb-12">{item.desc}</p>
                     <WhatsAppButton 
                       variant="minimal" 
-                      label="Enquire" 
+                      label="Enquire on WP" 
                       message={`Hello, I have an enquiry about ${item.title}.`}
-                      className="mt-8"
                     />
                  </ScrollReveal>
                ))}
@@ -151,115 +252,68 @@ export default function Home() {
          </div>
       </section>
 
-      {/* Philosophy: High Quality & Detail */}
-      <section className="py-64 px-6 md:px-24 bg-surface-lowest relative uppercase">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-32 items-center">
-          <div className="lg:col-span-5 order-2 lg:order-1 border-r border-primary/10 pr-12">
-            <ScrollReveal animation="blur-fade" className="mb-12">
-              <h2 className="text-5xl font-heading text-secondary mb-8 italic font-thin leading-[1.1]">
-                High quality <br /> homes for your <br /> <span className="text-primary not-italic font-normal">growing legacy.</span>
-              </h2>
-              <p className="text-tertiary text-lg font-light leading-relaxed mb-16 italic lowercase border-b border-white/5 pb-12">
-                we use only the best stones, fine wood, and clean glass. maaisa genesis is made to feel quiet, grand, and simple.
-              </p>
-              
-              <div className="space-y-6">
-                {[
-                  "Built with Strong Materials",
-                  "Modern Smart Features",
-                  "Amazing Quiet Environment"
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-6 group">
-                    <CheckCircle2 className="w-5 h-5 text-primary/50 group-hover:text-primary transition-all" />
-                    <span className="text-[10px] tracking-[0.3em] font-bold text-tertiary group-hover:text-secondary transition-colors uppercase">{item}</span>
-                  </div>
-                ))}
-              </div>
-              <WhatsAppButton 
-                label="Book a Tour"
-                message="I would like to schedule a visit to see the materials and construction."
-                variant="primary"
-                className="mt-16 w-full"
-              />
-            </ScrollReveal>
-          </div>
-
-          <div className="lg:col-span-7">
-            <ScrollReveal animation="clip" className="aspect-[16/10] relative group shadow-elegant border border-white/5">
-              <img
-                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
-                alt="Architecture Detail"
-                className="w-full h-full object-cover brightness-75 group-hover:brightness-90 transition-all duration-1000"
-              />
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Collections Section Expansion */}
-      <section className="py-40 px-6 md:px-24 bg-surface-low uppercase">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-32 flex flex-col md:flex-row justify-between items-end gap-8">
-            <ScrollReveal animation="blur-fade">
-              <span className="text-primary font-bold text-[10px] tracking-[0.5em] mb-4 block">Selected Homes</span>
-              <h2 className="text-6xl font-heading italic font-thin text-secondary">The Collection.</h2>
-            </ScrollReveal>
-            <WhatsAppButton 
-              label="Talk to Sales"
-              message="Hello, I want to discuss the available units in the collection."
-              variant="outline"
-            />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1px bg-white/5 border border-white/5">
-            {[
-              { id: "01", name: "The Sky Suite", type: "Family Home", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" },
-              { id: "02", name: "The Horizon Loft", type: "Penthouse View", img: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?q=80&w=2070&auto=format&fit=crop" },
-              { id: "03", name: "The Atelier", type: "Couple Sanctuary", img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070&auto=format&fit=crop" }
-            ].map((card, i) => (
-              <ScrollReveal key={i} animation="scale-fade" delay={i * 0.1} className="bg-surface-lowest p-12 group">
-                <div className="aspect-[4/5] overflow-hidden mb-12 relative border border-white/5 group-hover:border-primary/20 transition-all duration-[1000ms]">
-                   <img src={card.img} alt={card.name} className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" />
-                   <div className="absolute top-8 right-8 font-heading text-xl italic text-primary">{card.id}</div>
-                </div>
-                <h3 className="text-2xl font-heading italic font-thin text-secondary mb-4">{card.name}</h3>
-                <p className="text-[10px] tracking-[0.2em] font-bold text-tertiary mb-12">{card.type}</p>
-                <WhatsAppButton 
-                  variant="primary" 
-                  label="Enquiry" 
-                  message={`Hello, I have an enquiry about ${card.name} (${card.id}).`}
-                  className="w-full"
-                />
+      {/* Featured Suite Spotlight */}
+      <section className="py-64 bg-surface-lowest relative">
+        <div className="max-w-7xl mx-auto px-6 md:px-24 grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
+           <div className="lg:col-span-7">
+              <ScrollReveal animation="clip" className="aspect-[16/10] relative group shadow-2xl border border-white/5">
+                 <img 
+                    src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?q=80&w=2070&auto=format&fit=crop" 
+                    alt="The Suite" 
+                    className="w-full h-full object-cover brightness-75 group-hover:scale-105 transition-all duration-[3000ms]" 
+                 />
+                 <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-[12rem] font-heading font-thin text-white/5 pointer-events-none select-none tracking-tighter">01</span>
+                 </div>
               </ScrollReveal>
-            ))}
-          </div>
+           </div>
+           
+           <div className="lg:col-span-5 text-left uppercase">
+              <ScrollReveal animation="blur-fade">
+                 <span className="text-primary font-bold text-[10px] tracking-[0.6em] mb-6 block font-heading">The Sky Collection</span>
+                 <h2 className="text-6xl md:text-8xl font-heading italic font-thin text-secondary leading-[0.9] mb-12 lowercase">the grand <p className="text-primary">horizon.</p></h2>
+                 <p className="text-tertiary text-lg font-light leading-relaxed mb-16 italic lowercase border-l border-primary/20 pl-8 font-heading">
+                    everything you need for a happy life. large balcony, floor-to-ceiling glass, and the finest finishing in the city.
+                 </p>
+                 <WhatsAppButton 
+                   label="Schedule Visit" 
+                   message="I want to see the sky collection apartments."
+                   variant="primary"
+                   className="w-full py-6"
+                 />
+              </ScrollReveal>
+           </div>
         </div>
       </section>
 
-      {/* Contact Section: The Professional Finale */}
-      <section className="py-64 bg-surface-lowest px-6 relative overflow-hidden uppercase">
-        <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--color-primary)_0%,_transparent_70%)]" />
+      {/* Contact Section: Professional Industry Standard */}
+      <section id="contact" className="py-64 bg-surface-lowest px-6 relative overflow-hidden uppercase">
+        <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--color-primary)_0%,_transparent_70%)]" />
         
         <ScrollReveal animation="blur-fade">
+          <div className="text-center mb-32">
+             <span className="text-primary font-bold text-[10px] tracking-[1em] mb-12 block uppercase">Connect with Us</span>
+             <h2 className="text-6xl md:text-[10rem] font-heading italic font-thin text-secondary lowercase tracking-tight">let's talk.</h2>
+          </div>
           <ContactForm />
         </ScrollReveal>
 
-        <div className="mt-40 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center border-t border-white/5 pt-24 gap-12">
-           <div className="flex flex-col items-center md:items-start gap-4">
-              <span className="text-[10px] tracking-[0.4em] text-primary font-bold">Call Us Anytime</span>
-              <a href="tel:+919172833311" className="text-3xl font-heading italic font-thin text-secondary hover:text-primary transition-colors flex items-center gap-4">
-                 <Phone className="w-6 h-6" />
+        <div className="mt-48 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center border-t border-white/5 pt-32 gap-16">
+           <div className="flex flex-col items-center md:items-start gap-6">
+              <span className="text-[10px] tracking-[0.5em] text-primary font-bold">24/7 Phone Support</span>
+              <a href="tel:+919172833311" className="text-4xl md:text-5xl font-heading italic font-thin text-secondary hover:text-primary transition-all flex items-center gap-6">
+                 <Phone className="w-12 h-12 stroke-[1px]" />
                  +91 91728 33311
               </a>
            </div>
            
-           <div className="flex gap-12">
-              <WhatsAppButton variant="minimal" label="WhatsApp" message="Hello, I'm reaching out from the website footer." />
+           <div className="flex flex-wrap justify-center gap-16">
+              <WhatsAppButton variant="minimal" label="Chat on WP" message="Hello, I'm reaching out from the website footer." />
               <button 
                 onClick={() => window.open('/Maaisa_Genesis_Website_Content_Brief.pdf', '_blank')}
-                className="text-primary font-bold text-[10px] tracking-[0.3em] uppercase hover:text-secondary whitespace-nowrap transition-colors underline underline-offset-8"
+                className="text-primary font-bold text-[10px] tracking-[0.4em] uppercase hover:text-secondary whitespace-nowrap transition-all border-b border-primary/20 pb-2"
               >
-                Brochure PDF
+                Download Brochure
               </button>
            </div>
         </div>
