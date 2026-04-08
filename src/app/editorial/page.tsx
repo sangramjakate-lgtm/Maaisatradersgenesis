@@ -14,12 +14,12 @@ export default function Editorial() {
       {/* Editorial Hero: Maaisa Reality Legacy - Light Skin */}
       <section className="relative px-6 md:px-24 mb-64 flex flex-col md:flex-row items-center justify-between text-left">
         <div className="max-w-2xl z-10">
-          <ScrollReveal animation="blur-fade">
+          <LineMaskReveal>
              <div className="flex flex-wrap justify-start gap-x-8 gap-y-2 uppercase mb-6">
                 <span>Exclusive Partner: The Legacy Estate Group</span>
                 <span>Maaisa Reality</span>
              </div>
-          </ScrollReveal>
+          </LineMaskReveal>
           
           <LineMaskReveal delay={200} className="mb-12">
             <h1 className="text-6xl md:text-[8rem] font-heading font-black leading-[0.95] text-foreground tracking-tighter uppercase mb-12">
@@ -32,7 +32,7 @@ export default function Editorial() {
             </div>
           </LineMaskReveal>
 
-          <ScrollReveal animation="blur-fade" delay={0.8} className="max-w-md">
+          <LineMaskReveal delay={0.8} className="max-w-md">
              <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed mb-12 border-l-2 border-primary/20 pl-8">
                 we don't just build structures. we synthesize environments where legacy thrives, in a sanctuary of silence and light.
              </p>
@@ -42,10 +42,10 @@ export default function Editorial() {
                 variant="primary"
                 className="shadow-elegant"
              />
-          </ScrollReveal>
+          </LineMaskReveal>
         </div>
 
-        <ScrollReveal animation="clip" delay={0.5} className="relative mt-24 md:mt-0 md:-mr-48 reveal-image">
+        <LineMaskReveal delay={0.5} className="relative mt-24 md:mt-0 md:-mr-48 reveal-image">
           <div className="w-full md:w-[800px] aspect-[4/5] md:aspect-[3/4] bg-surface-low overflow-hidden shadow-elegant border border-black/5">
             <img
               alt="Beautiful Architecture"
@@ -59,14 +59,14 @@ export default function Editorial() {
              <p className="text-[10px] font-black text-foreground mb-4 tracking-widest uppercase">stone & oak.</p>
              <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed italic border-l border-primary/20 pl-6">Your home is synthesized with the finest materials curated for durability and radiance.</p>
           </div>
-        </ScrollReveal>
+        </LineMaskReveal>
       </section>
 
       {/* Feature Section: Quiet Luxury - Light Skin */}
       <section className="py-64 bg-surface-low px-6 md:px-24 border-y border-black/5">
         <div className="max-w-7xl mx-auto flex flex-col lg:grid lg:grid-cols-12 gap-32 items-center">
           <div className="lg:col-span-4 order-2 lg:order-1 text-left">
-            <ScrollReveal animation="blur-fade" className="mb-12">
+            <LineMaskReveal className="mb-12">
                <LineMaskReveal delay={300}>
                 <h2 className="text-5xl font-heading font-black text-foreground mb-12 tracking-tighter leading-none uppercase">quiet & <br/><span className="text-primary/40 italic font-light lowercase">radiant.</span></h2>
                </LineMaskReveal>
@@ -79,7 +79,7 @@ export default function Editorial() {
                 variant="minimal"
                 className="text-[10px]"
                />
-            </ScrollReveal>
+            </LineMaskReveal>
             
             <div className="space-y-[1px] bg-black/5 mt-16 shadow-elegant overflow-hidden">
                {[
@@ -104,13 +104,13 @@ export default function Editorial() {
           </div>
 
           <div className="lg:col-span-8 order-1 lg:order-2">
-             <ScrollReveal animation="scale-fade" className="aspect-[16/9] relative md:translate-x-24 shadow-elegant border border-black/5 overflow-hidden reveal-image">
+             <LineMaskReveal className="aspect-[16/9] relative md:translate-x-24 shadow-elegant border border-black/5 overflow-hidden reveal-image">
                 <img
                   alt="Minimalist View"
                   className="w-full h-full object-cover shadow-elegant hover:scale-110 transition-all duration-[3000ms]"
                   src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop"
                 />
-             </ScrollReveal>
+             </LineMaskReveal>
           </div>
         </div>
       </section>
@@ -119,24 +119,24 @@ export default function Editorial() {
       <section className="bg-background py-64 px-6 md:px-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end relative z-10 gap-16 text-left">
            <div>
-              <ScrollReveal animation="blur-fade" className="mb-8">
+              <LineMaskReveal className="mb-8">
                 <LineMaskReveal delay={200}>
                   <h3 className="text-4xl md:text-8xl font-heading font-black text-primary leading-[0.95] tracking-tighter uppercase mb-10">the maaisa <br/><span className="text-foreground/20 italic font-light">legacy.</span></h3>
                 </LineMaskReveal>
                 <p className="text-tertiary max-w-sm font-body font-normal lowercase tracking-tight leading-relaxed border-l-2 border-primary/20 pl-8">
                   maaisa reality has been synthesizing premium environments for visionaries for many years. we manage every coordinate of your transition.
                 </p>
-              </ScrollReveal>
+              </LineMaskReveal>
            </div>
            
-           <ScrollReveal animation="blur-fade" delay={0.4}>
+           <LineMaskReveal delay={0.4}>
               <WhatsAppButton 
                 label="Consult Now"
                 message="Hello Maaisa Reality, I want to see the Genesis site to experience your quality standards."
                 variant="primary"
                 className="px-12 py-5 shadow-elegant"
               />
-           </ScrollReveal>
+           </LineMaskReveal>
         </div>
       </section>
     </main>

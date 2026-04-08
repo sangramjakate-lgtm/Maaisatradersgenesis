@@ -36,25 +36,25 @@ export default function Amenities() {
       {/* Amenities Hero: Maaisa Reality Genesis - Light Skin */}
       <section className="relative min-h-[85vh] flex items-center px-6 md:px-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <ScrollReveal animation="image-parallax" className="h-full w-full">
+          <LineMaskReveal className="h-full w-full">
             <img
               src="https://images.unsplash.com/photo-1544161515-4ae6b91839d2?q=80&w=2070&auto=format&fit=crop"
               alt="Luxury Amenities"
               className="parallax-img w-full h-[120%] object-cover brightness-100"
             />
-          </ScrollReveal>
+          </LineMaskReveal>
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/10" />
         </div>
         
         <div className="relative z-10 max-w-4xl text-left">
-          <ScrollReveal animation="blur-fade">
+          <LineMaskReveal delay={100}>
             <div className="flex items-center gap-4 mb-10">
                <span className="h-[1px] w-16 bg-primary/40 block" />
                <span className="text-primary font-black tracking-[0.6em] lowercase italic font-body">
-                 the genesis lifestyle suite.
+                 genesis project: residential suite.
                </span>
             </div>
-          </ScrollReveal>
+          </LineMaskReveal>
           
           <LineMaskReveal delay={200} className="mb-12">
             <h1 className="text-5xl md:text-8xl font-heading font-black leading-[0.95] text-foreground tracking-tighter uppercase">
@@ -62,18 +62,18 @@ export default function Amenities() {
             </h1>
           </LineMaskReveal>
 
-          <ScrollReveal animation="blur-fade" delay={0.6} className="max-w-xl flex flex-col md:flex-row items-center gap-10">
+          <LineMaskReveal delay={800} className="max-w-xl flex flex-col md:flex-row items-center gap-10">
             <WhatsAppButton 
               label="Tour Facilities"
-              message="Hello Maaisa Reality, I'm interested in viewing the amenities at Genesis."
+              message="Hello Maaisa Reality, I'm interested in viewing the amenities at the Genesis project."
               variant="primary"
               className="py-4 min-w-[240px] shadow-elegant"
             />
             <div className="hidden md:flex flex-col items-start gap-1">
                <span className="text-[8px] tracking-[0.2em] font-black text-primary/40 lowercase italic font-body">access level</span>
-               <p className="text-foreground/40 font-black tracking-widest">Maaisa Resident Only</p>
+               <p className="text-foreground/40 font-black tracking-widest">Genesis Resident Only</p>
             </div>
-          </ScrollReveal>
+          </LineMaskReveal>
         </div>
       </section>
 
@@ -83,7 +83,7 @@ export default function Amenities() {
             {amenityGalleries.map((item, i) => (
               <div key={i} className={cn("flex flex-col lg:flex-row gap-20 items-center mb-40", i % 2 !== 0 && "lg:flex-row-reverse")}>
                  <div className="w-full lg:w-3/5">
-                    <ScrollReveal animation="clip" className="aspect-video relative group shadow-elegant border border-black/5 overflow-hidden reveal-image">
+                    <LineMaskReveal className="aspect-video relative group shadow-elegant border border-black/5 overflow-hidden reveal-image">
                        <img 
                         src={item.img} 
                         alt={item.title} 
@@ -93,11 +93,11 @@ export default function Amenities() {
                        <div className="absolute top-10 left-10 flex items-center gap-6">
                           <item.icon className="w-10 h-10 text-white drop-shadow-xl" />
                        </div>
-                    </ScrollReveal>
+                    </LineMaskReveal>
                  </div>
                  
                  <div className="w-full lg:w-2/5 text-left">
-                    <ScrollReveal animation="blur-fade">
+                    <LineMaskReveal delay={100}>
                        <span className="text-primary font-black mb-4 block tracking-[0.5em]">Genesis Venue 0{i + 1}</span>
                        <LineMaskReveal delay={100}>
                         <h2 className="text-4xl md:text-5xl font-heading font-black text-foreground mb-8 tracking-tighter leading-none">{item.title}</h2>
@@ -120,7 +120,7 @@ export default function Amenities() {
                         variant="minimal"
                         className="text-[10px]"
                        />
-                    </ScrollReveal>
+                    </LineMaskReveal>
                  </div>
               </div>
             ))}
@@ -131,7 +131,7 @@ export default function Amenities() {
       <section className="py-32 bg-surface-low border-y border-black/5 relative overflow-hidden">
          <div className="max-w-7xl mx-auto px-6 md:px-24 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
             <div className="text-left">
-               <ScrollReveal animation="blur-fade">
+               <LineMaskReveal delay={100}>
                   <span className="text-primary font-black tracking-[0.6em] mb-6 block">The Private Park</span>
                 <LineMaskReveal delay={200}>
                   <h2 className="text-5xl md:text-8xl font-heading font-black text-foreground leading-[0.95] tracking-tighter uppercase mb-10">zen garden.</h2>
@@ -140,26 +140,26 @@ export default function Amenities() {
                     our secret garden is designed for intense meditation and absolute silence. a sanctuary for the mind within the city's velocity.
                   </p>
                   <WhatsAppButton variant="primary" label="Visit Sanctuary" message="Hello Maaisa Reality, I want to see the zen garden at the Genesis project." className="px-12" />
-               </ScrollReveal>
+               </LineMaskReveal>
             </div>
             
             <div className="grid grid-cols-2 gap-8 scale-110 md:scale-105">
-               <ScrollReveal animation="scale-fade" className="aspect-[3/4] overflow-hidden border border-black/5 relative group shadow-elegant reveal-image">
+               <LineMaskReveal className="aspect-[3/4] overflow-hidden border border-black/5 relative group shadow-elegant reveal-image">
                   <img src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=2070&auto=format&fit=crop" alt="Zen" className="w-full h-full object-cover group-hover:scale-110 transition-all duration-[3000ms]" />
-               </ScrollReveal>
-               <ScrollReveal animation="scale-fade" delay={0.2} className="aspect-[3/4] overflow-hidden border border-black/5 mt-16 relative group shadow-elegant reveal-image">
+               </LineMaskReveal>
+               <LineMaskReveal delay={0.2} className="aspect-[3/4] overflow-hidden border border-black/5 mt-16 relative group shadow-elegant reveal-image">
                   <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2070&auto=format&fit=crop" alt="Texture" className="w-full h-full object-cover group-hover:scale-110 transition-all duration-[3000ms]" />
-               </ScrollReveal>
+               </LineMaskReveal>
             </div>
          </div>
       </section>
 
       {/* Wellness CTA - Maaisa Reality */}
       <section className="py-40 bg-background text-center px-6">
-         <ScrollReveal animation="blur-fade">
+         <LineMaskReveal delay={100}>
             <h2 className="text-5xl md:text-8xl font-heading font-black text-primary tracking-tighter leading-none mb-16 uppercase">find your <br/><span className="text-foreground/20 italic font-light">tranquility.</span></h2>
-            <WhatsAppButton variant="minimal" label="Start a Chat" message="Hello Maaisa Reality, I'm interested in the wellness and fitness lifestyle at Genesis." className="text-xs" />
-         </ScrollReveal>
+            <WhatsAppButton variant="minimal" label="Start a Chat" message="Hello Maaisa Reality, I'm interested in the wellness and fitness lifestyle at the Genesis project." className="text-xs" />
+         </LineMaskReveal>
       </section>
     </main>
   );

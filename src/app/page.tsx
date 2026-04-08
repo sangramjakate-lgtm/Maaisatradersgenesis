@@ -123,24 +123,24 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-background z-10" />
-          <ScrollReveal animation="image-parallax" className="h-full w-full">
+          <LineMaskReveal className="h-full w-full">
             <img
               src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop"
               alt="Maaisa Reality Exterior"
               className="parallax-img w-full h-[120%] object-cover brightness-105 scale-100"
             />
-          </ScrollReveal>
+          </LineMaskReveal>
         </div>
 
         <div className="relative z-20 text-center px-6 max-w-5xl uppercase">
-          <ScrollReveal animation="blur-fade" delay={0.2}>
+          <LineMaskReveal delay={200}>
             <div className="flex flex-col items-center gap-4 mb-8">
                <span className="h-[1px] w-16 bg-primary/40 block animate-width-reveal" />
                <span className="text-[10px] tracking-[0.8em] text-primary font-black font-heading animate-fade-in">
-                 The Genesis Collection
+                 The Genesis Project
                </span>
             </div>
-          </ScrollReveal>
+          </LineMaskReveal>
           
           <LineMaskReveal delay={400} className="mb-12">
             <h1 className="text-5xl md:text-[9rem] font-heading font-black leading-[0.85] text-foreground tracking-tighter mix-blend-multiply">
@@ -149,11 +149,11 @@ export default function Home() {
             </h1>
           </LineMaskReveal>
 
-          <ScrollReveal animation="blur-fade" delay={1.2} className="flex flex-col sm:flex-row items-center justify-center gap-12">
+          <LineMaskReveal delay={1200} className="flex flex-col sm:flex-row items-center justify-center gap-12">
             <MagneticButton>
                <WhatsAppButton 
                 label="Secure Ownership"
-                message="Hello Maaisa Reality, I would like to schedule a private tour of the Genesis units."
+                message="Hello Maaisa Reality, I would like to schedule a private tour of the Genesis project."
                 variant="primary"
                 className="min-w-[260px] py-6 shadow-glow"
                />
@@ -173,7 +173,7 @@ export default function Home() {
                 <p className="text-[12px] text-foreground/40 font-black tracking-widest italic font-heading lowercase">explore the atmosphere</p>
               </div>
             </motion.button>
-          </ScrollReveal>
+          </LineMaskReveal>
         </div>
       </section>
 
@@ -183,7 +183,7 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-end mb-32">
                <div className="lg:col-span-8">
                   <LineMaskReveal delay={200}>
-                    <span className="text-primary font-black tracking-[0.5em] mb-4 block underline underline-offset-8 decoration-primary/20">Maaisa Craftsmanship</span>
+                    <span className="text-primary font-black tracking-[0.5em] mb-4 block underline underline-offset-8 decoration-primary/20">Genesis Craftsmanship</span>
                     <h2 className="text-5xl md:text-[6rem] font-heading font-black text-foreground leading-[0.9] tracking-tighter">unrivaled <br/><span className="text-primary/40">materiality.</span></h2>
                   </LineMaskReveal>
                </div>
@@ -216,15 +216,15 @@ export default function Home() {
       {/* Interactive Hub: Maaisa Virtual Access */}
       <section className="py-40 bg-surface-low relative overflow-hidden uppercase font-black text-[10px] tracking-widest">
         <div className="max-w-7xl mx-auto px-6 md:px-24">
-          <ScrollReveal animation="blur-fade" className="text-center mb-32">
+          <LineMaskReveal delay={100} className="text-center mb-32">
             <span className="text-primary font-black tracking-[0.8em] mb-8 block">Virtual Gateway</span>
             <h2 className="text-5xl md:text-[7rem] font-heading font-black text-foreground leading-none tracking-tighter">digital <br/><span className="text-primary/40 italic font-light lowercase">immersion.</span></h2>
-          </ScrollReveal>
+          </LineMaskReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24">
             <div className="space-y-16">
                {tourPoints.slice(0, 2).map((point, i) => (
-                 <ScrollReveal key={i} animation="scale-fade" delay={i * 0.2}>
+                 <LineMaskReveal key={i} delay={i * 200}>
                     <div 
                       onClick={() => setActive360(point)}
                       className="group cursor-pointer bg-background p-10 border border-black/5 hover:border-primary/30 transition-all shadow-card hover:shadow-glow"
@@ -244,13 +244,13 @@ export default function Home() {
                           </div>
                        </div>
                     </div>
-                 </ScrollReveal>
+                 </LineMaskReveal>
                ))}
             </div>
             
             <div className="space-y-16 mt-0 md:mt-32">
                {tourPoints.slice(2, 4).map((point, i) => (
-                 <ScrollReveal key={i} animation="scale-fade" delay={i * 0.2 + 0.3}>
+                 <LineMaskReveal key={i} delay={i * 200 + 300}>
                     <div 
                       onClick={() => setActive360(point)}
                       className="group cursor-pointer bg-background p-10 border border-black/5 hover:border-primary/30 transition-all shadow-card hover:shadow-glow"
@@ -270,7 +270,7 @@ export default function Home() {
                           </div>
                        </div>
                     </div>
-                 </ScrollReveal>
+                 </LineMaskReveal>
                ))}
             </div>
           </div>
@@ -281,12 +281,12 @@ export default function Home() {
       <section className="py-32 bg-background px-6 md:px-24 uppercase font-black text-[10px] tracking-widest">
          <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-               {[
+               { [
                  { icon: Shield, title: "Secure Axis", desc: "Genesis provides absolute security through biometric logic gates." },
                  { icon: MapPin, title: "Prime Coordinate", desc: "Strategically synthesized within Pune's high-velocity tech districts." },
                  { icon: Sun, title: "Luminous Design", desc: "Architectural orientation optimized for natural luminous efficiency." }
                ].map((item, i) => (
-                 <ScrollReveal key={i} animation="scale-fade" delay={i * 0.1} className="bg-surface-low p-14 group hover:bg-white transition-all shadow-card hover:shadow-glow border border-black/5 hover:border-primary/20">
+                 <LineMaskReveal key={i} delay={i * 200} className="bg-surface-low p-14 group hover:bg-white transition-all shadow-card hover:shadow-glow border border-black/5 hover:border-primary/20">
                     <div className="w-14 h-14 rounded-xl border border-primary/20 flex items-center justify-center mb-10 group-hover:border-primary group-hover:bg-primary/5 transition-all shadow-elegant">
                        <item.icon className="w-6 h-6 text-primary group-hover:rotate-12 transition-transform" />
                     </div>
@@ -295,9 +295,9 @@ export default function Home() {
                     <WhatsAppButton 
                       variant="minimal" 
                       label="Enquire" 
-                      message={`Hello Maaisa Reality, I have an enquiry about ${item.title}.`}
+                      message={`Hello Maaisa Reality, I have an enquiry about ${item.title} at the Genesis project.`}
                     />
-                 </ScrollReveal>
+                 </LineMaskReveal>
                ))}
             </div>
          </div>
@@ -305,7 +305,7 @@ export default function Home() {
 
       {/* Final Contact Axis: Maaisa Reality */}
       <section id="contact" className="py-40 bg-surface-low px-6 relative overflow-hidden uppercase font-black text-[10px] tracking-widest">
-        <ScrollReveal animation="blur-fade">
+        <LineMaskReveal delay={100}>
           <div className="text-center mb-32">
              <span className="text-primary font-black tracking-[1em] mb-10 block animate-pulse">CONNECTIVITY</span>
              <LineMaskReveal delay={300}>
@@ -313,7 +313,7 @@ export default function Home() {
              </LineMaskReveal>
           </div>
           <ContactForm />
-        </ScrollReveal>
+        </LineMaskReveal>
 
         <div className="mt-40 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center border-t border-black/5 pt-20 gap-16">
            <div className="flex flex-col items-center md:items-start gap-5">

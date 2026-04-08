@@ -14,7 +14,7 @@ interface WhatsAppButtonProps {
 
 export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
   phone = "+919172833311",
-  message = "Hello, I'm interested in Maaisa Reality Genesis.",
+  message = "Hello Maaisa Reality, I'm interested in the Genesis project.",
   label = "WhatsApp Scan",
   variant = "primary",
   className,
