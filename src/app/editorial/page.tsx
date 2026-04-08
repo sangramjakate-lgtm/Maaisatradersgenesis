@@ -1,6 +1,7 @@
 "use client";
 
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { LineMaskReveal } from "@/components/TextAnimations";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Plus, Heart, Sun, MapPin, Mail, Globe, Share2 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -20,7 +21,7 @@ export default function Editorial() {
              </div>
           </ScrollReveal>
           
-          <ScrollReveal animation="line-mask" delay={0.2} className="mb-12">
+          <LineMaskReveal delay={200} className="mb-12">
             <h1 className="text-6xl md:text-[8rem] font-heading font-black leading-[0.95] text-foreground tracking-tighter uppercase mb-12">
               your new <br />
               <span className="text-primary italic font-light lowercase">heritage.</span>
@@ -29,7 +30,7 @@ export default function Editorial() {
                <Mail size={14} className="text-primary" />
                <a href={`mailto:${CONTACT_EMAIL}`} className="text-[10px] font-black tracking-widest uppercase hover:text-foreground transition-colors font-body">{CONTACT_EMAIL}</a>
             </div>
-          </ScrollReveal>
+          </LineMaskReveal>
 
           <ScrollReveal animation="blur-fade" delay={0.8} className="max-w-md">
              <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed mb-12 border-l-2 border-primary/20 pl-8">
@@ -66,7 +67,9 @@ export default function Editorial() {
         <div className="max-w-7xl mx-auto flex flex-col lg:grid lg:grid-cols-12 gap-32 items-center">
           <div className="lg:col-span-4 order-2 lg:order-1 text-left">
             <ScrollReveal animation="blur-fade" className="mb-12">
-               <h2 className="text-5xl font-heading font-black text-foreground mb-12 tracking-tighter leading-none uppercase">quiet & <br/><span className="text-primary/40 italic font-light lowercase">radiant.</span></h2>
+               <LineMaskReveal delay={300}>
+                <h2 className="text-5xl font-heading font-black text-foreground mb-12 tracking-tighter leading-none uppercase">quiet & <br/><span className="text-primary/40 italic font-light lowercase">radiant.</span></h2>
+               </LineMaskReveal>
                <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed mb-10 border-l-2 border-primary/20 pl-8">
                   a Maaisa residence is defined by its silence and natural illumination. our spatial architecture is optimized for your peak decompression.
                </p>
@@ -117,7 +120,9 @@ export default function Editorial() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end relative z-10 gap-16 text-left">
            <div>
               <ScrollReveal animation="blur-fade" className="mb-8">
-                <h3 className="text-4xl md:text-8xl font-heading font-black text-primary leading-[0.95] tracking-tighter uppercase mb-10">the maaisa <br/><span className="text-foreground/20 italic font-light">legacy.</span></h3>
+                <LineMaskReveal delay={200}>
+                  <h3 className="text-4xl md:text-8xl font-heading font-black text-primary leading-[0.95] tracking-tighter uppercase mb-10">the maaisa <br/><span className="text-foreground/20 italic font-light">legacy.</span></h3>
+                </LineMaskReveal>
                 <p className="text-tertiary max-w-sm font-body font-normal lowercase tracking-tight leading-relaxed border-l-2 border-primary/20 pl-8">
                   maaisa reality has been synthesizing premium environments for visionaries for many years. we manage every coordinate of your transition.
                 </p>

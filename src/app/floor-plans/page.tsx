@@ -1,6 +1,7 @@
 "use client";
 
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { LineMaskReveal } from "@/components/TextAnimations";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Ruler, Sun, Layout, Maximize, Layers, Map as MapIcon, Compass, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -59,11 +60,11 @@ export default function FloorPlans() {
           </ScrollReveal>
           
           <div className="space-y-12">
-            <ScrollReveal animation="line-mask" delay={0.2}>
+            <LineMaskReveal delay={300}>
               <h1 className="text-5xl md:text-8xl font-heading font-black leading-[0.95] text-foreground tracking-tighter uppercase mb-12">
                 room <br />for <span className="text-primary italic font-light">vision.</span>
               </h1>
-            </ScrollReveal>
+            </LineMaskReveal>
 
             <ScrollReveal animation="blur-fade" delay={0.8} className="max-w-lg">
                <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed mb-12 border-l-2 border-primary/20 pl-8">
@@ -85,7 +86,9 @@ export default function FloorPlans() {
         <div className="max-w-7xl mx-auto">
           <ScrollReveal animation="blur-fade" className="text-center mb-24">
             <span className="text-primary font-black tracking-[0.6em] mb-4 block">The Private Portfolio</span>
-            <h2 className="text-5xl md:text-8xl font-heading font-black text-foreground leading-none tracking-tighter uppercase mb-10">exclusive <br/><span className="text-primary/40 italic font-light">suites.</span></h2>
+            <LineMaskReveal delay={200}>
+              <h2 className="text-5xl md:text-8xl font-heading font-black text-foreground leading-none tracking-tighter uppercase mb-10">exclusive <br/><span className="text-primary/40 italic font-light">suites.</span></h2>
+            </LineMaskReveal>
           </ScrollReveal>
 
           <div className="space-y-40">
@@ -141,7 +144,9 @@ export default function FloorPlans() {
          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end mb-24 gap-12">
             <ScrollReveal animation="blur-fade">
                <span className="text-primary font-black tracking-[0.6em] mb-4 block">Material Synthesis</span>
-               <h2 className="text-5xl md:text-8xl font-heading font-black text-foreground leading-[0.95] tracking-tighter uppercase">interior <br/><span className="text-primary/40 italic font-light">palette.</span></h2>
+               <LineMaskReveal delay={200}>
+                  <h2 className="text-4xl md:text-8xl font-heading font-black text-foreground leading-[0.95] tracking-tighter uppercase">interior <br/><span className="text-primary/40 italic font-light">palette.</span></h2>
+               </LineMaskReveal>
             </ScrollReveal>
             <div className="max-w-xs text-right border-r-2 border-primary/20 pr-8">
                <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed">

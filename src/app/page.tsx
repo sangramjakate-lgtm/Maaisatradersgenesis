@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight, Download, Play, Plus, MapPin, Shield, Sun, Home as HomeIcon, CheckCircle2, Phone, MousePointer2, Globe, Heart, Search } from "lucide-react";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { LineMaskReveal } from "@/components/TextAnimations";
 import { ThreeSixtyPortal } from "@/components/ThreeSixtyPortal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { ContactForm } from "@/components/ContactForm";
@@ -141,12 +142,12 @@ export default function Home() {
             </div>
           </ScrollReveal>
           
-          <ScrollReveal animation="line-mask" delay={0.4} className="mb-12">
+          <LineMaskReveal delay={400} className="mb-12">
             <h1 className="text-5xl md:text-[9rem] font-heading font-black leading-[0.85] text-foreground tracking-tighter mix-blend-multiply">
               absolute <br />
               <span className="italic font-light text-primary">heritage.</span>
             </h1>
-          </ScrollReveal>
+          </LineMaskReveal>
 
           <ScrollReveal animation="blur-fade" delay={1.2} className="flex flex-col sm:flex-row items-center justify-center gap-12">
             <MagneticButton>
@@ -181,10 +182,10 @@ export default function Home() {
          <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-end mb-32">
                <div className="lg:col-span-8">
-                  <ScrollReveal animation="blur-fade">
+                  <LineMaskReveal delay={200}>
                     <span className="text-primary font-black tracking-[0.5em] mb-4 block underline underline-offset-8 decoration-primary/20">Maaisa Craftsmanship</span>
                     <h2 className="text-5xl md:text-[6rem] font-heading font-black text-foreground leading-[0.9] tracking-tighter">unrivaled <br/><span className="text-primary/40">materiality.</span></h2>
-                  </ScrollReveal>
+                  </LineMaskReveal>
                </div>
                <div className="lg:col-span-4 border-l-2 border-primary/20 pl-10 pb-4">
                   <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed max-w-sm">
@@ -307,7 +308,9 @@ export default function Home() {
         <ScrollReveal animation="blur-fade">
           <div className="text-center mb-32">
              <span className="text-primary font-black tracking-[1em] mb-10 block animate-pulse">CONNECTIVITY</span>
-             <h2 className="text-5xl md:text-[8rem] font-heading font-black text-foreground tracking-tighter leading-[0.8] mb-12">secure your <br/><span className="text-primary italic font-light lowercase">transition.</span></h2>
+             <LineMaskReveal delay={300}>
+              <h2 className="text-5xl md:text-[8rem] font-heading font-black text-foreground tracking-tighter leading-[0.8] mb-12">secure your <br/><span className="text-primary italic font-light lowercase">transition.</span></h2>
+             </LineMaskReveal>
           </div>
           <ContactForm />
         </ScrollReveal>

@@ -1,6 +1,7 @@
 "use client";
 
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { LineMaskReveal } from "@/components/TextAnimations";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Waves, Heart, Dumbbell, Zap, Coffee, Wind, MapPin, Eye } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -55,11 +56,11 @@ export default function Amenities() {
             </div>
           </ScrollReveal>
           
-          <ScrollReveal animation="line-mask" delay={0.2} className="mb-12">
+          <LineMaskReveal delay={200} className="mb-12">
             <h1 className="text-5xl md:text-8xl font-heading font-black leading-[0.95] text-foreground tracking-tighter uppercase">
               curated <br />amity & <span className="text-primary italic font-light">luxury.</span>
             </h1>
-          </ScrollReveal>
+          </LineMaskReveal>
 
           <ScrollReveal animation="blur-fade" delay={0.6} className="max-w-xl flex flex-col md:flex-row items-center gap-10">
             <WhatsAppButton 
@@ -98,7 +99,9 @@ export default function Amenities() {
                  <div className="w-full lg:w-2/5 text-left">
                     <ScrollReveal animation="blur-fade">
                        <span className="text-primary font-black mb-4 block tracking-[0.5em]">Genesis Venue 0{i + 1}</span>
-                       <h2 className="text-4xl md:text-5xl font-heading font-black text-foreground mb-8 tracking-tighter leading-none">{item.title}</h2>
+                       <LineMaskReveal delay={100}>
+                        <h2 className="text-4xl md:text-5xl font-heading font-black text-foreground mb-8 tracking-tighter leading-none">{item.title}</h2>
+                       </LineMaskReveal>
                        <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed mb-10 border-l-2 border-primary/20 pl-8">
                           {item.desc}
                        </p>
@@ -130,7 +133,9 @@ export default function Amenities() {
             <div className="text-left">
                <ScrollReveal animation="blur-fade">
                   <span className="text-primary font-black tracking-[0.6em] mb-6 block">The Private Park</span>
+                <LineMaskReveal delay={200}>
                   <h2 className="text-5xl md:text-8xl font-heading font-black text-foreground leading-[0.95] tracking-tighter uppercase mb-10">zen garden.</h2>
+                </LineMaskReveal>
                   <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed mb-12 border-primary/20 pr-8 md:pr-12">
                     our secret garden is designed for intense meditation and absolute silence. a sanctuary for the mind within the city's velocity.
                   </p>
