@@ -111,16 +111,20 @@ export default function FloorPlans() {
                     <LineMaskReveal>
                        <h3 className="text-4xl md:text-5xl font-heading font-black text-foreground mb-6 tracking-tighter leading-none">{unit.name}</h3>
                        <p className="text-primary font-black text-xl mb-10 italic">{unit.sq} <span className="text-[10px] not-italic tracking-[0.3em] font-normal text-foreground/40 font-body">SQ. FT.</span></p>
-                       <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed mb-10 border-l-2 border-primary/20 pl-8">
-                          {unit.desc}
-                       </p>
+                       <LineMaskReveal delay={300}>
+                         <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed mb-10 border-l-2 border-primary/20 pl-8">
+                            {unit.desc}
+                         </p>
+                       </LineMaskReveal>
                        
                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                          {unit.specs.map(spec => (
-                            <div key={spec} className="flex items-center gap-4 group">
-                               <div className="w-1.5 h-1.5 bg-primary/20 group-hover:bg-primary transition-all" />
-                               <span className="text-[9px] tracking-[0.2em] font-black text-foreground/60 uppercase">{spec}</span>
-                            </div>
+                          {unit.specs.map((spec, idx) => (
+                            <LineMaskReveal key={spec} delay={400 + idx * 50}>
+                               <div className="flex items-center gap-4 group">
+                                  <div className="w-1.5 h-1.5 bg-primary/20 group-hover:bg-primary transition-all" />
+                                  <span className="text-[9px] tracking-[0.2em] font-black text-foreground/60 uppercase">{spec}</span>
+                               </div>
+                            </LineMaskReveal>
                           ))}
                        </div>
                        
@@ -147,11 +151,13 @@ export default function FloorPlans() {
                   <h2 className="text-4xl md:text-8xl font-heading font-black text-foreground leading-[0.95] tracking-tighter uppercase">interior <br/><span className="text-primary/40 italic font-light">palette.</span></h2>
                </LineMaskReveal>
             </LineMaskReveal>
-            <div className="max-w-xs text-right border-r-2 border-primary/20 pr-8">
-               <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed">
-                  every sequence of materials is curated to balance urban velocity with natural durability.
-               </p>
-            </div>
+             <div className="max-w-xs text-right border-r-2 border-primary/20 pr-8">
+                <LineMaskReveal delay={300}>
+                   <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed">
+                      every sequence of materials is curated to balance urban velocity with natural durability.
+                   </p>
+                </LineMaskReveal>
+             </div>
          </div>
 
          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

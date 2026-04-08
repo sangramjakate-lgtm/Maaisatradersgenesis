@@ -101,15 +101,19 @@ export default function Amenities() {
                        <LineMaskReveal delay={100}>
                         <h2 className="text-4xl md:text-5xl font-heading font-black text-foreground mb-8 tracking-tighter leading-none">{item.title}</h2>
                        </LineMaskReveal>
-                       <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed mb-10 border-l-2 border-primary/20 pl-8">
-                          {item.desc}
-                       </p>
+                       <LineMaskReveal delay={300}>
+                         <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed mb-10 border-l-2 border-primary/20 pl-8">
+                            {item.desc}
+                         </p>
+                       </LineMaskReveal>
                        
                        <div className="flex flex-wrap gap-3 mb-10">
-                          {item.tags.map(tag => (
-                            <span key={tag} className="text-[8px] tracking-[0.1em] font-black text-primary/60 border border-primary/20 px-4 py-2 hover:bg-primary/5 transition-all">
-                               {tag}
-                            </span>
+                          {item.tags.map((tag, idx) => (
+                            <LineMaskReveal key={tag} delay={400 + idx * 50}>
+                              <span className="text-[8px] tracking-[0.1em] font-black text-primary/60 border border-primary/20 px-4 py-2 hover:bg-primary/5 transition-all">
+                                 {tag}
+                              </span>
+                            </LineMaskReveal>
                           ))}
                        </div>
                        
@@ -135,9 +139,11 @@ export default function Amenities() {
                 <LineMaskReveal delay={200}>
                   <h2 className="text-5xl md:text-8xl font-heading font-black text-foreground leading-[0.95] tracking-tighter uppercase mb-10">zen garden.</h2>
                 </LineMaskReveal>
-                  <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed mb-12 border-primary/20 pr-8 md:pr-12">
-                    our secret garden is designed for intense meditation and absolute silence. a sanctuary for the mind within the city's velocity.
-                  </p>
+                  <LineMaskReveal delay={300}>
+                    <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed mb-12 border-primary/20 pr-8 md:pr-12">
+                      our secret garden is designed for intense meditation and absolute silence. a sanctuary for the mind within the city's velocity.
+                    </p>
+                  </LineMaskReveal>
                   <WhatsAppButton variant="primary" label="Visit Sanctuary" message="Hello Maaisa Reality, I want to see the zen garden at the Genesis project." className="px-12" />
                </LineMaskReveal>
             </div>

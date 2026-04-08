@@ -12,9 +12,11 @@ export function Footer() {
         {/* Brand & Mission: Maaisa Reality */}
         <div className="space-y-8">
            <Link href="/" className="inline-block mb-4">
-              <span className="text-xl md:text-2xl font-heading font-black tracking-tighter text-foreground uppercase">
-                 MAAISA <span className="text-primary italic font-light">REALITY.</span>
-              </span>
+               <div className="flex items-center gap-4">
+                 <img src="https://res.cloudinary.com/de6u5kbiw/image/upload/v1772447140/maaisa/Maaisa_wxdvqt.png" alt="Maaisa Reality" className="h-8 w-auto object-contain" />
+                  <div className="h-6 w-[1px] bg-primary/20" /> 
+                  <span className="text-xl font-heading font-black tracking-tighter text-foreground uppercase">Genesis</span> 
+               </div>
            </Link>
            <p className="text-[9px] leading-relaxed lowercase font-body tracking-tight text-tertiary/60">
               crafted architectural excellence in the heart of the modern metropolis. providing a visionary lifestyle for a growing legacy.

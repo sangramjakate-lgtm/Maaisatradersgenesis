@@ -135,9 +135,11 @@ export default function Home() {
           <LineMaskReveal delay={200}>
             <div className="flex flex-col items-center gap-4 mb-8">
                <span className="h-[1px] w-16 bg-primary/40 block animate-width-reveal" />
-               <span className="text-[10px] tracking-[0.8em] text-primary font-black font-heading animate-fade-in">
-                 The Genesis Project
-               </span>
+               <LineMaskReveal delay={300}>
+                 <span className="text-[10px] tracking-[0.8em] text-primary font-black font-heading animate-fade-in">
+                   The Genesis Project
+                 </span>
+               </LineMaskReveal>
             </div>
           </LineMaskReveal>
           
@@ -187,15 +189,17 @@ export default function Home() {
                   </LineMaskReveal>
                </div>
                <div className="lg:col-span-4 border-l-2 border-primary/20 pl-10 pb-4">
-                  <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed max-w-sm">
+                   <LineMaskReveal delay={400}>
+                      <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed max-w-sm">
                     every coordinate of the genesis build is synthesized with imported stone, smoked timber, and high-fidelity glazing.
-                  </p>
+                      </p>
+                   </LineMaskReveal>
                </div>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                {details.map((item, i) => (
-                 <div key={i} className={cn("relative group h-[500px] overflow-hidden shadow-elegant border border-black/5 reveal-image", item.span)}>
+                 <div key={i} className={cn("relative group h-[400px] md:h-[500px] overflow-hidden shadow-elegant border border-black/5 reveal-image", item.span)}>
                     <img 
                       src={item.img} 
                       alt={item.title} 
@@ -203,7 +207,9 @@ export default function Home() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
                     <div className="absolute bottom-12 left-12 opacity-0 group-hover:opacity-100 translate-y-6 group-hover:translate-y-0 transition-all duration-700">
-                       <h3 className="text-3xl font-heading font-black text-foreground mb-3">{item.title}</h3>
+                       <LineMaskReveal delay={100}>
+                          <h3 className="text-3xl font-heading font-black text-foreground mb-3">{item.title}</h3>
+                       </LineMaskReveal>
                        <div className="h-[3px] w-0 bg-primary group-hover:w-full transition-all duration-1000" />
                     </div>
                  </div>
@@ -238,8 +244,12 @@ export default function Home() {
                        </div>
                        <div className="flex justify-between items-end border-l-2 border-primary/20 pl-6">
                           <div>
-                             <h3 className="text-3xl font-heading font-black text-foreground mb-2">{point.title}</h3>
-                             <p className="text-[9px] tracking-[0.4em] font-black text-primary/60 lowercase italic font-body">{point.desc}</p>
+                             <LineMaskReveal delay={100}>
+                                <h3 className="text-3xl font-heading font-black text-foreground mb-2">{point.title}</h3>
+                             </LineMaskReveal>
+                             <LineMaskReveal delay={200}>
+                                <p className="text-[9px] tracking-[0.4em] font-black text-primary/60 lowercase italic font-body">{point.desc}</p>
+                             </LineMaskReveal>
                           </div>
                        </div>
                     </div>
@@ -264,8 +274,12 @@ export default function Home() {
                        </div>
                        <div className="flex justify-between items-end border-l-2 border-primary/20 pl-6">
                           <div>
-                             <h3 className="text-3xl font-heading font-black text-foreground mb-2">{point.title}</h3>
-                             <p className="text-[9px] tracking-[0.4em] font-black text-primary/60 lowercase italic font-body">{point.desc}</p>
+                             <LineMaskReveal delay={100}>
+                                <h3 className="text-3xl font-heading font-black text-foreground mb-2">{point.title}</h3>
+                             </LineMaskReveal>
+                             <LineMaskReveal delay={200}>
+                                <p className="text-[9px] tracking-[0.4em] font-black text-primary/60 lowercase italic font-body">{point.desc}</p>
+                             </LineMaskReveal>
                           </div>
                        </div>
                     </div>
@@ -289,8 +303,12 @@ export default function Home() {
                     <div className="w-14 h-14 rounded-xl border border-primary/20 flex items-center justify-center mb-10 group-hover:border-primary group-hover:bg-primary/5 transition-all shadow-elegant">
                        <item.icon className="w-6 h-6 text-primary group-hover:rotate-12 transition-transform" />
                     </div>
-                    <h3 className="text-3xl font-heading font-black text-foreground mb-5 uppercase tracking-tighter leading-none">{item.title}</h3>
-                    <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed mb-10 border-l border-primary/20 pl-6">{item.desc}</p>
+                    <LineMaskReveal delay={300}>
+                       <h3 className="text-3xl font-heading font-black text-foreground mb-5 uppercase tracking-tighter leading-none">{item.title}</h3>
+                    </LineMaskReveal>
+                    <LineMaskReveal delay={400}>
+                       <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed mb-10 border-l border-primary/20 pl-6">{item.desc}</p>
+                    </LineMaskReveal>
                     <WhatsAppButton 
                       variant="minimal" 
                       label="Enquire" 
@@ -316,7 +334,9 @@ export default function Home() {
 
         <div className="mt-40 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center border-t border-black/5 pt-20 gap-16">
            <div className="flex flex-col items-center md:items-start gap-5">
-              <span className="text-[10px] tracking-[0.5em] text-primary/40 font-black">Direct Communication Hub</span>
+               <LineMaskReveal delay={100}>
+                  <span className="text-[10px] tracking-[0.5em] text-primary/40 font-black">Direct Communication Hub</span>
+               </LineMaskReveal>
               <a href="tel:+919890200222" className="text-4xl md:text-5xl font-heading font-black text-foreground hover:text-primary transition-all flex items-center gap-8 tracking-tighter">
                  <Phone className="w-10 h-10 stroke-[2.5px] text-primary animate-bounce" />
                  +91 98902 00222

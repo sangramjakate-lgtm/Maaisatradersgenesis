@@ -55,8 +55,12 @@ export default function Editorial() {
           {/* Overlapping Detail: Light Skin */}
           <div className="absolute top-1/2 left-0 -translate-x-12 translate-y-24 bg-white/80 backdrop-blur-md p-14 w-[320px] hidden lg:block shadow-elegant border border-primary/20">
              <span className="text-primary font-black tracking-[0.3em] mb-2 block italic">Maaisa Materials</span>
-             <p className="text-[10px] font-black text-foreground mb-4 tracking-widest uppercase">stone & oak.</p>
-             <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed italic border-l border-primary/20 pl-6">Your home is synthesized with the finest materials curated for durability and radiance.</p>
+             <LineMaskReveal delay={600}>
+               <p className="text-[10px] font-black text-foreground mb-4 tracking-widest uppercase">stone & oak.</p>
+             </LineMaskReveal>
+             <LineMaskReveal delay={800}>
+               <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed italic border-l border-primary/20 pl-6">Your home is synthesized with the finest materials curated for durability and radiance.</p>
+             </LineMaskReveal>
           </div>
         </LineMaskReveal>
       </section>
@@ -69,9 +73,11 @@ export default function Editorial() {
                <LineMaskReveal delay={300}>
                 <h2 className="text-5xl font-heading font-black text-foreground mb-12 tracking-tighter leading-none uppercase">quiet & <br/><span className="text-primary/40 italic font-light lowercase">radiant.</span></h2>
                </LineMaskReveal>
-               <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed mb-10 border-l-2 border-primary/20 pl-8">
-                  a Maaisa residence is defined by its silence and natural illumination. our spatial architecture is optimized for your peak decompression.
-               </p>
+               <LineMaskReveal delay={300}>
+                 <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed mb-10 border-l-2 border-primary/20 pl-8">
+                    a Maaisa residence is defined by its silence and natural illumination. our spatial architecture is optimized for your peak decompression.
+                 </p>
+               </LineMaskReveal>
                <WhatsAppButton 
                 label="Enquire Quality"
                 message="Hello Maaisa Reality, I want to know about the design standards of Genesis."
@@ -85,11 +91,13 @@ export default function Editorial() {
                  { label: "Design Axis", value: "Modern & Absolute" },
                  { label: "Atmosphere", value: "Quiet & Secure" },
                  { label: "Identity", value: "Exclusive & Elite" }
-               ].map((item) => (
-                 <div key={item.label} className="bg-background p-8 flex justify-between items-center group cursor-pointer hover:bg-white transition-colors">
-                    <span className="text-[9px] tracking-[0.2em] font-black text-primary/40 group-hover:text-primary transition-colors uppercase">{item.label}</span>
-                    <span className="text-[10px] font-heading text-foreground font-black uppercase tracking-widest">{item.value}</span>
-                 </div>
+               ].map((item, i) => (
+                 <LineMaskReveal key={item.label} delay={400 + i * 100}>
+                   <div className="bg-background p-8 flex justify-between items-center group cursor-pointer hover:bg-white transition-colors">
+                      <span className="text-[9px] tracking-[0.2em] font-black text-primary/40 group-hover:text-primary transition-colors uppercase">{item.label}</span>
+                      <span className="text-[10px] font-heading text-foreground font-black uppercase tracking-widest">{item.value}</span>
+                   </div>
+                 </LineMaskReveal>
                ))}
             </div>
             <div className="flex items-center gap-6 pt-8">

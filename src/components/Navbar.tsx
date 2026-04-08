@@ -45,9 +45,15 @@ export const Navbar = () => {
       >
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex items-center justify-between">
           {/* Brand Logo: Maaisa Reality */}
-          <Link href="/" className="relative z-[60] group flex items-center gap-2">
-            <span className="text-xl md:text-2xl font-heading font-black tracking-tighter text-foreground uppercase group-hover:scale-105 transition-transform inline-block">
-              MAAISA <span className="text-primary italic font-light">REALITY.</span>
+          <Link href="/" className="relative z-[60] group flex items-center gap-5">
+            <img 
+              src="https://res.cloudinary.com/de6u5kbiw/image/upload/v1772447140/maaisa/Maaisa_wxdvqt.png" 
+              alt="Maaisa Reality" 
+              className="h-8 md:h-10 w-auto object-contain transition-transform group-hover:scale-105"
+            />
+            <div className="h-6 w-[1px] bg-primary/20 mx-1 hidden sm:block" />
+            <span className="text-xl md:text-2xl font-heading font-black tracking-tighter text-foreground uppercase group-hover:text-primary transition-colors inline-block">
+              Genesis
             </span>
           </Link>
 
@@ -147,7 +153,14 @@ export const Navbar = () => {
                {/* Mobile Menu Footer: Global Access */}
                <div className="mt-auto pt-20 border-t border-black/5 grid grid-cols-1 md:grid-cols-2 gap-12">
                   <div className="space-y-6">
-                     <span className="text-[10px] tracking-[0.4em] text-primary font-bold uppercase">Maaisa Reality</span>
+                     <div className="flex items-center gap-3">
+                        <img 
+                          src="https://res.cloudinary.com/de6u5kbiw/image/upload/v1772447140/maaisa/Maaisa_wxdvqt.png" 
+                          alt="Maaisa Reality" 
+                          className="h-6 w-auto object-contain brightness-0 invert"
+                        />
+                        <span className="text-[10px] tracking-[0.4em] text-white font-bold uppercase">Genesis Project</span>
+                     </div>
                      <div className="space-y-4">
                         <div className="flex items-center gap-4 text-tertiary">
                            <Phone size={14} className="text-primary" />
