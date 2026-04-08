@@ -1,6 +1,5 @@
 "use client";
 
-import { ScrollReveal } from "@/components/ScrollReveal";
 import { LineMaskReveal } from "@/components/TextAnimations";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Waves, Heart, Dumbbell, Zap, Coffee, Wind, MapPin, Eye } from "lucide-react";

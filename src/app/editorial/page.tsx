@@ -1,6 +1,5 @@
 "use client";
 
-import { ScrollReveal } from "@/components/ScrollReveal";
 import { LineMaskReveal } from "@/components/TextAnimations";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Plus, Heart, Sun, MapPin, Mail, Globe, Share2 } from "lucide-react";

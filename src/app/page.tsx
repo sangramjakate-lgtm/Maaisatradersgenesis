@@ -4,7 +4,6 @@ import { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight, Download, Play, Plus, MapPin, Shield, Sun, Home as HomeIcon, CheckCircle2, Phone, MousePointer2, Globe, Heart, Search } from "lucide-react";
-import { ScrollReveal } from "@/components/ScrollReveal";
 import { LineMaskReveal } from "@/components/TextAnimations";
 import { ThreeSixtyPortal } from "@/components/ThreeSixtyPortal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";

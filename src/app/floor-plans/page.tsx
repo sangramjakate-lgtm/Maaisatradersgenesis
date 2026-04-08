@@ -1,6 +1,5 @@
 "use client";
 
-import { ScrollReveal } from "@/components/ScrollReveal";
 import { LineMaskReveal } from "@/components/TextAnimations";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Ruler, Sun, Layout, Maximize, Layers, Map as MapIcon, Compass, ArrowRight } from "lucide-react";
@@ -162,7 +161,7 @@ export default function FloorPlans() {
               { name: "Brushed Brass", img: "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=2070&auto=format&fit=crop" },
               { name: "Reinforced Glass", img: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop" }
             ].map((material, i) => (
-              <ScrollReveal key={i} animation="scale-fade" delay={i * 0.1} className="relative group overflow-hidden shadow-card border border-black/5 reveal-image">
+            <LineMaskReveal key={i} delay={i * 100} className="relative group overflow-hidden shadow-card border border-black/5 reveal-image">
                  <div className="aspect-square relative overflow-hidden">
                     <img src={material.img} alt={material.name} className="w-full h-full object-cover group-hover:scale-110 transition-all duration-[3000ms]" />
                     <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-all duration-700" />
