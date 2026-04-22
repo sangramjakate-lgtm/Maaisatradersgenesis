@@ -205,12 +205,12 @@ export default function Home() {
                       alt={item.title} 
                       className="w-full h-full object-cover group-hover:scale-110 transition-all duration-[3000ms]" 
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-                    <div className="absolute bottom-12 left-12 opacity-0 group-hover:opacity-100 translate-y-6 group-hover:translate-y-0 transition-all duration-700">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-100 transition-opacity duration-1000" />
+                    <div className="absolute bottom-12 left-12 opacity-100 translate-y-0 transition-all duration-700">
                        <LineMaskReveal delay={100}>
-                          <h3 className="text-3xl font-heading font-black text-foreground mb-3">{item.title}</h3>
+                          <h3 className="text-3xl font-heading font-black text-white mb-3 drop-shadow-md">{item.title}</h3>
                        </LineMaskReveal>
-                       <div className="h-[3px] w-0 bg-primary group-hover:w-full transition-all duration-1000" />
+                       <div className="h-[3px] w-12 bg-primary group-hover:w-full transition-all duration-1000" />
                     </div>
                  </div>
                ))}
