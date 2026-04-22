@@ -37,8 +37,8 @@ export function Footer() {
            <ul className="space-y-4">
               <li><Link href="/" className="hover:text-primary transition-all">Home</Link></li>
               <li><Link href="/projects" className="hover:text-primary transition-all">Projects</Link></li>
-              <li><Link href="/#about" className="hover:text-primary transition-all">About Maaisa Reality</Link></li>
-              <li><Link href="/#contact" className="hover:text-primary transition-all">Contact Us</Link></li>
+              <li><Link href="/about" className="hover:text-primary transition-all">About Maaisa Reality</Link></li>
+              <li><Link href="/contact" className="hover:text-primary transition-all">Contact Us</Link></li>
            </ul>
         </div>
 

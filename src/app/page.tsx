@@ -7,9 +7,9 @@ import { ArrowRight, Download, Play, Plus, MapPin, Shield, Sun, Home as HomeIcon
 import { LineMaskReveal } from "@/components/TextAnimations";
 import { ThreeSixtyPortal } from "@/components/ThreeSixtyPortal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { ContactForm } from "@/components/ContactForm";
 import { cn } from "@/lib/utils";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import Link from "next/link";
 
 // Premium Magnetic Button Component
 const MagneticButton = ({ children, className }: { children: React.ReactNode, className?: string }) => {
@@ -143,10 +143,10 @@ export default function Home() {
             </div>
           </LineMaskReveal>
           
-          <LineMaskReveal delay={400} className="mb-12">
-            <h1 className="text-5xl md:text-[9rem] font-heading font-black leading-[0.85] text-foreground tracking-tighter mix-blend-multiply">
-              absolute <br />
-              <span className="italic font-light text-primary">heritage.</span>
+          <LineMaskReveal delay={400} className="mb-16">
+            <h1 className="text-4xl md:text-7xl lg:text-[6rem] font-heading font-medium leading-[1.1] text-foreground tracking-tight">
+              A Legacy Of <br />
+              <span className="italic font-light text-primary">Absolute Trust.</span>
             </h1>
           </LineMaskReveal>
 
@@ -161,17 +161,17 @@ export default function Home() {
             </MagneticButton>
             
             <motion.button 
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.05 }}
               onClick={() => setActive360(tourPoints[0])}
-              className="flex items-center gap-5 group transition-all"
+              className="flex items-center gap-4 group transition-all"
             >
-              <div className="w-16 h-16 flex items-center justify-center border border-primary/20 rounded-full group-hover:border-primary group-hover:bg-primary/5 transition-all relative overflow-hidden shadow-elegant">
-                <span className="text-foreground group-hover:text-primary transition-colors text-[11px] font-black z-10">360</span>
+              <div className="w-12 h-12 flex items-center justify-center border border-primary/20 rounded-full group-hover:border-primary group-hover:bg-primary/5 transition-all relative overflow-hidden shadow-sm">
+                <span className="text-foreground group-hover:text-primary transition-colors text-[9px] font-medium z-10 uppercase">360</span>
                 <div className="absolute inset-0 bg-primary/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
               </div>
-              <div className="text-left">
-                <p className="text-[9px] tracking-[0.3em] font-black text-primary/60 group-hover:text-primary transition-colors uppercase">VR Sanctuary</p>
-                <p className="text-[12px] text-foreground/40 font-black tracking-widest italic font-heading lowercase">explore the atmosphere</p>
+              <div className="text-left font-body uppercase">
+                <p className="text-[9px] tracking-[0.3em] font-medium text-primary/60 group-hover:text-primary transition-colors">VR Sanctuary</p>
+                <p className="text-[10px] text-foreground/40 font-medium tracking-widest italic lowercase">explore the atmosphere</p>
               </div>
             </motion.button>
           </LineMaskReveal>
@@ -181,11 +181,11 @@ export default function Home() {
       {/* About Material Grid */}
       <section id="about" className="py-40 bg-background px-6 md:px-24 border-b border-black/5 uppercase font-black text-[10px] tracking-widest">
          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-end mb-32">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-end mb-24">
                <div className="lg:col-span-8">
                   <LineMaskReveal delay={200}>
-                    <span className="text-primary font-black tracking-[0.5em] mb-4 block underline underline-offset-8 decoration-primary/20">Our Philosophy</span>
-                    <h2 className="text-5xl md:text-[6rem] font-heading font-black text-foreground leading-[0.9] tracking-tighter">unrivaled <br/><span className="text-primary/40">materiality.</span></h2>
+                    <span className="text-primary font-medium tracking-[0.3em] mb-4 block underline underline-offset-8 decoration-primary/20 text-[10px] uppercase">Our Philosophy</span>
+                    <h2 className="text-4xl md:text-[5rem] font-heading font-medium text-foreground leading-[1] tracking-tight">unrivaled <br/><span className="text-primary/60 font-light italic">materiality.</span></h2>
                   </LineMaskReveal>
                </div>
                <div className="lg:col-span-4 border-l-2 border-primary/20 pl-10 pb-4">
@@ -206,11 +206,11 @@ export default function Home() {
                       className="w-full h-full object-cover group-hover:scale-110 transition-all duration-[3000ms]" 
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-100 transition-opacity duration-1000" />
-                    <div className="absolute bottom-12 left-12 opacity-100 translate-y-0 transition-all duration-700">
+                    <div className="absolute bottom-8 left-8 opacity-100 translate-y-0 transition-all duration-700">
                        <LineMaskReveal delay={100}>
-                          <h3 className="text-3xl font-heading font-black text-white mb-3 drop-shadow-md">{item.title}</h3>
+                          <h3 className="text-2xl font-heading font-medium text-white mb-3 drop-shadow-md">{item.title}</h3>
                        </LineMaskReveal>
-                       <div className="h-[3px] w-12 bg-primary group-hover:w-full transition-all duration-1000" />
+                       <div className="h-[2px] w-8 bg-primary group-hover:w-full transition-all duration-1000" />
                     </div>
                  </div>
                ))}
@@ -219,11 +219,11 @@ export default function Home() {
       </section>
 
       {/* Upcoming Projects Hub: Genesis */}
-      <section id="projects" className="py-40 bg-surface-low relative overflow-hidden uppercase font-black text-[10px] tracking-widest">
+      <section id="projects" className="py-32 bg-surface-low relative overflow-hidden uppercase">
         <div className="max-w-7xl mx-auto px-6 md:px-24">
-          <LineMaskReveal delay={100} className="text-center mb-32">
-            <span className="text-primary font-black tracking-[0.8em] mb-8 block">Upcoming Designation</span>
-            <h2 className="text-5xl md:text-[7rem] font-heading font-black text-foreground leading-none tracking-tighter">the <br/><span className="text-primary/40 italic font-light lowercase">genesis.</span></h2>
+          <LineMaskReveal delay={100} className="text-center mb-24">
+            <span className="text-primary text-[10px] font-medium tracking-[0.4em] mb-6 block">Upcoming Designation</span>
+            <h2 className="text-4xl md:text-[5rem] font-heading font-medium text-foreground leading-[1] tracking-tight">the <br/><span className="text-primary/60 italic font-light lowercase">genesis.</span></h2>
           </LineMaskReveal>
 
           <LineMaskReveal delay={200}>
@@ -259,14 +259,14 @@ export default function Home() {
                  { icon: Sun, title: "Luminous Design", desc: "Architectural orientation optimized for natural luminous efficiency." }
                ].map((item, i) => (
                  <LineMaskReveal key={i} delay={i * 200} className="bg-surface-low p-14 group hover:bg-white transition-all shadow-card hover:shadow-glow border border-black/5 hover:border-primary/20">
-                    <div className="w-14 h-14 rounded-xl border border-primary/20 flex items-center justify-center mb-10 group-hover:border-primary group-hover:bg-primary/5 transition-all shadow-elegant">
-                       <item.icon className="w-6 h-6 text-primary group-hover:rotate-12 transition-transform" />
+                    <div className="w-12 h-12 rounded-xl border border-primary/20 flex items-center justify-center mb-8 group-hover:border-primary group-hover:bg-primary/5 transition-all shadow-sm">
+                       <item.icon className="w-5 h-5 text-primary group-hover:rotate-12 transition-transform" />
                     </div>
                     <LineMaskReveal delay={300}>
-                       <h3 className="text-3xl font-heading font-black text-foreground mb-5 uppercase tracking-tighter leading-none">{item.title}</h3>
+                       <h3 className="text-2xl font-heading font-medium text-foreground mb-4 tracking-tight leading-none capitalize">{item.title}</h3>
                     </LineMaskReveal>
                     <LineMaskReveal delay={400}>
-                       <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed mb-10 border-l border-primary/20 pl-6">{item.desc}</p>
+                       <p className="text-tertiary font-body font-normal lowercase tracking-wide leading-relaxed mb-8 border-l border-primary/20 pl-4">{item.desc}</p>
                     </LineMaskReveal>
                     <WhatsAppButton 
                       variant="minimal" 
@@ -279,38 +279,32 @@ export default function Home() {
          </div>
       </section>
 
-      {/* Final Contact Axis: Maaisa Reality */}
-      <section id="contact" className="py-40 bg-surface-low px-6 relative overflow-hidden uppercase font-black text-[10px] tracking-widest">
+      {/* Clean Contact Redirect */}
+      <section id="contact" className="py-32 bg-surface-low px-6 relative overflow-hidden">
         <LineMaskReveal delay={100}>
-          <div className="text-center mb-32">
-             <span className="text-primary font-black tracking-[1em] mb-10 block animate-pulse">CONNECTIVITY</span>
+          <div className="text-center mb-16">
+             <span className="text-primary font-medium text-[10px] uppercase tracking-[0.4em] mb-6 block">Connectivity</span>
              <LineMaskReveal delay={300}>
-              <h2 className="text-5xl md:text-[8rem] font-heading font-black text-foreground tracking-tighter leading-[0.8] mb-12">secure your <br/><span className="text-primary italic font-light lowercase">transition.</span></h2>
+              <h2 className="text-4xl md:text-[5rem] font-heading font-medium text-foreground tracking-tight leading-[1] mb-8">secure your <br/><span className="text-primary italic font-light lowercase">transition.</span></h2>
              </LineMaskReveal>
+             
+             <div className="mt-12">
+               <Link href="/contact" className="inline-flex items-center justify-center px-10 py-5 bg-primary text-on-primary text-[10px] font-medium uppercase tracking-[0.2em] shadow-sm hover:shadow-elegant transition-all hover:-translate-y-1">
+                 Open Dialogue Hub
+               </Link>
+             </div>
           </div>
-          <ContactForm />
         </LineMaskReveal>
-
-        <div className="mt-40 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center border-t border-black/5 pt-20 gap-16">
-           <div className="flex flex-col items-center md:items-start gap-5">
-               <LineMaskReveal delay={100}>
-                  <span className="text-[10px] tracking-[0.5em] text-primary/40 font-black">Direct Communication Hub</span>
-               </LineMaskReveal>
-              <a href="tel:+919890200222" className="text-4xl md:text-5xl font-heading font-black text-foreground hover:text-primary transition-all flex items-center gap-8 tracking-tighter">
-                 <Phone className="w-10 h-10 stroke-[2.5px] text-primary animate-bounce" />
-                 +91 98902 00222
-              </a>
-           </div>
-           
-           <div className="flex flex-wrap justify-center gap-16">
-              <WhatsAppButton variant="minimal" label="WhatsApp Axis" message="Hello Maaisa Reality, I am interested in connecting with you." />
-              <button 
-                onClick={() => window.open('/Maaisa_Genesis_Website_Content_Brief.pdf', '_blank')}
-                className="text-primary font-black tracking-[0.4em] hover:text-foreground transition-all border-b-2 border-primary/20 pb-2 hover:border-primary"
-              >
-                Brochure Ledger
-              </button>
-           </div>
+        
+        <div className="mt-24 max-w-7xl mx-auto flex flex-col md:flex-row justify-center items-center border-t border-black/5 pt-16 gap-10">
+           <WhatsAppButton variant="minimal" label="WhatsApp Chat" message="Hello Maaisa Reality, I am interested in connecting with you." />
+           <span className="text-tertiary/20 hidden md:block">|</span>
+           <button 
+             onClick={() => window.open('/Maaisa_Genesis_Website_Content_Brief.pdf', '_blank')}
+             className="text-[10px] text-primary font-medium tracking-[0.2em] uppercase hover:text-foreground transition-all border-b border-primary/20 pb-1 hover:border-primary"
+           >
+             Brochure Ledger
+           </button>
         </div>
       </section>
     </main>

@@ -11,8 +11,8 @@ import { cn } from "@/lib/utils";
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Projects", href: "/projects" },
-  { name: "About", href: "/#about" },
-  { name: "Contact Us", href: "/#contact" },
+  { name: "About", href: "/about" },
+  { name: "Contact Us", href: "/contact" },
 ];
 
 export const Navbar = () => {
