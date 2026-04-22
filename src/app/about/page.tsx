@@ -41,14 +41,14 @@ export default function AboutPage() {
     gsap.utils.toArray<HTMLElement>(".reveal-image").forEach((el) => {
       gsap.fromTo(el,
         { clipPath: "inset(0 100% 0 0)" },
-        { clipPath: "inset(0 0% 0 0)", duration: 1.6, ease: "expo.inOut", scrollTrigger: { trigger: el, start: "top 85%" } }
+        { clipPath: "inset(0 0% 0 0)", duration: 1.6, ease: "power2.inOut", scrollTrigger: { trigger: el, start: "top 85%" } }
       );
     });
 
     gsap.utils.toArray<HTMLElement>(".gsap-up").forEach((el) => {
       gsap.fromTo(el,
         { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.1, ease: "expo.out", scrollTrigger: { trigger: el, start: "top 88%" } }
+        { y: 0, opacity: 1, duration: 1.1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 88%" } }
       );
     });
   }, []);

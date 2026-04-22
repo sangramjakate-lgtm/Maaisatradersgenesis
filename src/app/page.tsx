@@ -71,14 +71,14 @@ export default function Home() {
       gsap.fromTo(
         img,
         { clipPath: "inset(0 100% 0 0)" },
-        { clipPath: "inset(0 0% 0 0)", duration: 1.6, ease: "expo.inOut", scrollTrigger: { trigger: img, start: "top 85%" } }
+        { clipPath: "inset(0 0% 0 0)", duration: 1.6, ease: "power2.inOut", scrollTrigger: { trigger: img, start: "top 85%" } }
       );
     });
 
     // Fade + slide up
     gsap.utils.toArray<HTMLElement>(".gsap-reveal").forEach((el) => {
       gsap.fromTo(el, { y: 40, opacity: 0 }, {
-        y: 0, opacity: 1, duration: 1, ease: "expo.out",
+        y: 0, opacity: 1, duration: 1, ease: "power3.out",
         scrollTrigger: { trigger: el, start: "top 88%" }
       });
     });

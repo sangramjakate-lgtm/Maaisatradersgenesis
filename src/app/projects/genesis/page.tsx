@@ -22,7 +22,7 @@ export default function GenesisProject() {
         { 
           clipPath: 'inset(0 0% 0 0)', 
           duration: 1.5, 
-          ease: "expo.inOut",
+          ease: "power2.inOut",
           scrollTrigger: {
             trigger: img,
             start: "top 85%",

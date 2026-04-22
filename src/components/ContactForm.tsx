@@ -1,101 +1,143 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import { Send, Mail } from "lucide-react";
+import { Send, User, ShieldCheck, MessageSquare } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const CONTACT_EMAIL = "info@maaisa.com";
 
 export function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [activeField, setActiveField] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const subject = `Enquiry: Maaisa Reality Genesis - ${formData.name}`;
+    setIsSubmitting(true);
+    await new Promise((r) => setTimeout(r, 600));
+    const subject = `Enquiry: Maaisa Reality — ${formData.name}`;
     const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
-    const mailtoUrl = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoUrl;
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setIsSubmitting(false);
   };
 
+  const fields = [
+    { id: "name", label: "Your Name", type: "text", icon: User, placeholder: "Full Name" },
+    { id: "email", label: "Email Address", type: "email", icon: ShieldCheck, placeholder: "you@example.com" },
+  ];
+
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="w-full max-w-4xl mx-auto p-6 md:p-14 lg:p-20 bg-white/40 backdrop-blur-3xl shadow-elegant border border-primary/5 uppercase font-black text-[10px] tracking-widest text-foreground relative overflow-hidden"
+      transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+      className="relative w-full bg-background border border-black/8 shadow-elegant p-6 sm:p-10 overflow-hidden"
     >
-      {/* Subtle Brand Monogram Watermark */}
-      <div className="absolute -bottom-10 -right-10 md:-bottom-20 md:-right-20 opacity-[0.03] pointer-events-none select-none">
-         <span className="text-[12rem] md:text-[20rem] font-heading font-black leading-none">M.</span>
-      </div>
+      {/* Subtle accent blob */}
+      <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-primary/3 rounded-full blur-2xl pointer-events-none" />
 
-      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 md:gap-8 mb-12 md:mb-16 relative z-10">
-        <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-primary/5 flex items-center justify-center border border-primary/10 shadow-elegant">
-           <Mail className="text-primary w-6 h-6 md:w-10 md:h-10 animate-pulse" />
+      <form onSubmit={handleSubmit} className="relative z-10 space-y-8">
+        {/* Name + Email row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {fields.map((field) => (
+            <div key={field.id} className="space-y-2">
+              <div className="flex items-center justify-between">
+                <label htmlFor={field.id} className="text-[9px] tracking-[0.4em] font-bold text-tertiary uppercase">
+                  {field.label}
+                </label>
+                <field.icon
+                  size={11}
+                  className={cn("transition-colors duration-300", activeField === field.id ? "text-primary" : "text-black/10")}
+                />
+              </div>
+              <div className="relative">
+                <input
+                  id={field.id}
+                  type={field.type}
+                  required
+                  placeholder={field.placeholder}
+                  value={formData[field.id as "name" | "email"]}
+                  onFocus={() => setActiveField(field.id)}
+                  onBlur={() => setActiveField(null)}
+                  onChange={(e) => setFormData({ ...formData, [field.id]: e.target.value })}
+                  className="w-full bg-surface-low border border-black/8 rounded-sm px-5 py-4 text-sm text-foreground placeholder:text-tertiary/40 focus:outline-none focus:border-primary transition-all"
+                />
+                {/* Underline indicator */}
+                <div
+                  className={cn(
+                    "absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-500",
+                    activeField === field.id ? "w-full" : "w-0"
+                  )}
+                />
+              </div>
+            </div>
+          ))}
         </div>
-        <h2 className="text-3xl sm:text-4xl md:text-6xl font-heading font-black tracking-tighter leading-none">secure your <br className="hidden sm:block" /><span className="text-primary/40 italic font-light lowercase">interaction.</span></h2>
-      </div>
 
-      <form onSubmit={handleSubmit} className="space-y-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="space-y-5">
-            <label className="text-[9px] tracking-[0.5em] font-black text-primary">Identity Access</label>
-            <input
-              type="text"
-              required
-              className="w-full bg-transparent border-b-2 border-black/5 py-5 focus:border-primary focus:outline-none transition-all placeholder:text-tertiary/10 text-[12px] tracking-[0.2em] font-black uppercase"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+        {/* Message */}
+        <div className="space-y-2">
+          <div className="flex items-center justify-between">
+            <label htmlFor="message" className="text-[9px] tracking-[0.4em] font-bold text-tertiary uppercase">
+              Your Message
+            </label>
+            <MessageSquare
+              size={11}
+              className={cn("transition-colors duration-300", activeField === "message" ? "text-primary" : "text-black/10")}
             />
           </div>
-          <div className="space-y-5">
-            <label className="text-[9px] tracking-[0.5em] font-black text-primary">Digital Axis</label>
-            <input
-              type="email"
+          <div className="relative">
+            <textarea
+              id="message"
               required
-              className="w-full bg-transparent border-b-2 border-black/5 py-5 focus:border-primary focus:outline-none transition-all placeholder:text-tertiary/10 text-[12px] tracking-[0.2em] font-black uppercase"
-              placeholder="Your Email"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              rows={5}
+              placeholder="Tell us about your interest or requirements..."
+              value={formData.message}
+              onFocus={() => setActiveField("message")}
+              onBlur={() => setActiveField(null)}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              className="w-full bg-surface-low border border-black/8 rounded-sm px-5 py-4 text-sm text-foreground placeholder:text-tertiary/40 focus:outline-none focus:border-primary transition-all resize-none"
+            />
+            <div
+              className={cn(
+                "absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-500",
+                activeField === "message" ? "w-full" : "w-0"
+              )}
             />
           </div>
         </div>
 
-        <div className="space-y-5">
-          <label className="text-[9px] tracking-[0.5em] font-black text-primary">Inquiry Vision</label>
-          <textarea
-            required
-            rows={4}
-            className="w-full bg-transparent border-b-2 border-black/5 py-5 focus:border-primary focus:outline-none transition-all placeholder:text-tertiary/10 text-[12px] tracking-[0.2em] font-black uppercase resize-none"
-            placeholder="Describe your sanctuary..."
-            value={formData.message}
-            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-          />
-        </div>
-
+        {/* Submit */}
         <motion.button
           whileHover={{ scale: 1.01 }}
           whileTap={{ scale: 0.98 }}
           type="submit"
-          className="group relative w-full overflow-hidden bg-primary py-8 flex items-center justify-center gap-6 transition-all duration-500 hover:shadow-glow shadow-elegant"
+          disabled={isSubmitting}
+          className="group relative w-full overflow-hidden bg-primary py-5 flex items-center justify-center gap-4 transition-all shadow-elegant hover:shadow-[0_10px_40px_rgba(0,0,0,0.2)]"
         >
-          <div className="absolute inset-0 bg-primary-glow translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]" />
-          <span className="relative z-10 text-[11px] tracking-[0.6em] font-black text-on-primary">Transmit Enquiry</span>
-          <Send className="relative z-10 w-5 h-5 text-on-primary group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" />
+          <div className="absolute inset-0 bg-black/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+          <span className="relative z-10 text-[11px] tracking-[0.4em] font-bold text-on-primary uppercase">
+            {isSubmitting ? "Sending..." : "Send Enquiry"}
+          </span>
+          <AnimatePresence mode="wait">
+            {!isSubmitting ? (
+              <motion.div key="icon" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                <Send className="relative z-10 w-4 h-4 text-on-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </motion.div>
+            ) : (
+              <motion.div key="spin" animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: "linear" }}>
+                <div className="w-4 h-4 border-2 border-on-primary/30 border-t-on-primary rounded-full" />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.button>
+
+        <p className="text-center text-[10px] text-tertiary/50 tracking-[0.3em] uppercase">
+          Or call us: <a href="tel:+919890200222" className="text-primary hover:underline">+91 98902 00222</a>
+        </p>
       </form>
-      
-      <p className="mt-16 text-center text-[10px] tracking-[0.4em] text-tertiary/30">
-        Primary Coordinate: <span className="text-primary italic font-light lowercase">info@maaisa.com</span>
-      </p>
     </motion.div>
   );
 }

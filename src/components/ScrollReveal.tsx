@@ -59,7 +59,7 @@ export const ScrollReveal = ({
                     { opacity: 0, scale: 0.8 },
                     {
                         opacity: 1, scale: 1,
-                        duration: 1.5, delay, ease: "expo.out",
+                        duration: 1.5, delay, ease: "power3.out",
                         scrollTrigger: {
                             trigger: sectionRef.current,
                             start: "top 95%",
