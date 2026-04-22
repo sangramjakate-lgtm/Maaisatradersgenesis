@@ -205,12 +205,10 @@ export default function Home() {
                       alt={item.title} 
                       className="w-full h-full object-cover group-hover:scale-110 transition-all duration-[3000ms]" 
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-100 transition-opacity duration-1000" />
-                    <div className="absolute bottom-8 left-8 opacity-100 translate-y-0 transition-all duration-700">
-                       <LineMaskReveal delay={100}>
-                          <h3 className="text-2xl font-heading font-medium text-white mb-3 drop-shadow-md">{item.title}</h3>
-                       </LineMaskReveal>
-                       <div className="h-[2px] w-8 bg-primary group-hover:w-full transition-all duration-1000" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-100" />
+                    <div className="absolute bottom-8 left-8 opacity-100">
+                       <h3 className="text-2xl font-heading font-medium text-white mb-3 drop-shadow-md">{item.title}</h3>
+                       <div className="h-[2px] w-8 bg-primary mt-2" />
                     </div>
                  </div>
                ))}
@@ -234,6 +232,7 @@ export default function Home() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[4000ms]" 
                 />
                 <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/10 transition-colors duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80" />
                 <div className="absolute inset-0 flex items-center justify-center">
                    <div className="w-32 h-32 rounded-full glass border border-white/20 flex flex-col items-center justify-center scale-90 group-hover:scale-100 transition-all duration-700 shadow-glow">
                       <span className="text-[9px] tracking-widest text-white font-black mb-1">ENTER</span>

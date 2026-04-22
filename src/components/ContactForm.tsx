@@ -29,18 +29,18 @@ export function ContactForm() {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="max-w-4xl mx-auto p-12 md:p-20 bg-white/40 backdrop-blur-3xl shadow-elegant border border-primary/5 uppercase font-black text-[10px] tracking-widest text-foreground relative overflow-hidden"
+      className="w-full max-w-4xl mx-auto p-6 md:p-14 lg:p-20 bg-white/40 backdrop-blur-3xl shadow-elegant border border-primary/5 uppercase font-black text-[10px] tracking-widest text-foreground relative overflow-hidden"
     >
       {/* Subtle Brand Monogram Watermark */}
-      <div className="absolute -bottom-20 -right-20 opacity-[0.03] pointer-events-none select-none">
-         <span className="text-[20rem] font-heading font-black leading-none">M.</span>
+      <div className="absolute -bottom-10 -right-10 md:-bottom-20 md:-right-20 opacity-[0.03] pointer-events-none select-none">
+         <span className="text-[12rem] md:text-[20rem] font-heading font-black leading-none">M.</span>
       </div>
 
-      <div className="flex items-center gap-8 mb-16 relative z-10">
-        <div className="w-20 h-20 rounded-full bg-primary/5 flex items-center justify-center border border-primary/10 shadow-elegant">
-           <Mail className="text-primary w-10 h-10 animate-pulse" />
+      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 md:gap-8 mb-12 md:mb-16 relative z-10">
+        <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-primary/5 flex items-center justify-center border border-primary/10 shadow-elegant">
+           <Mail className="text-primary w-6 h-6 md:w-10 md:h-10 animate-pulse" />
         </div>
-        <h2 className="text-5xl md:text-6xl font-heading font-black tracking-tighter leading-none">secure your <br/><span className="text-primary/40 italic font-light lowercase">interaction.</span></h2>
+        <h2 className="text-3xl sm:text-4xl md:text-6xl font-heading font-black tracking-tighter leading-none">secure your <br className="hidden sm:block" /><span className="text-primary/40 italic font-light lowercase">interaction.</span></h2>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-12 relative z-10">

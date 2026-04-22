@@ -51,10 +51,6 @@ export const Navbar = () => {
               alt="Maaisa Reality" 
               className="h-8 md:h-10 w-auto object-contain transition-transform group-hover:scale-105"
             />
-            <div className="h-6 w-[1px] bg-primary/20 mx-1 hidden sm:block" />
-            <span className="text-xl md:text-2xl font-heading font-black tracking-tighter text-foreground uppercase group-hover:text-primary transition-colors inline-block">
-              Reality
-            </span>
           </Link>
 
           {/* Desktop Navigation: Minimalist Heritage */}
@@ -122,7 +118,7 @@ export const Navbar = () => {
                />
                <div className="absolute inset-0 bg-primary/20" />
                <div className="absolute inset-12 flex flex-col justify-end text-left">
-                  <p className="text-white text-[10px] font-bold tracking-[0.5em] mb-4 uppercase">Maaisa Reality</p>
+                  <p className="text-white text-[10px] font-bold tracking-[0.5em] mb-4 uppercase">Maaisa</p>
                   <h3 className="text-4xl text-white font-heading font-black leading-none uppercase tracking-tighter">vision <br /> of <span className="text-white/60">excellence.</span></h3>
                </div>
             </div>
