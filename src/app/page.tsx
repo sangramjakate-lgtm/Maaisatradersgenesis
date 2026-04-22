@@ -137,7 +137,7 @@ export default function Home() {
                <span className="h-[1px] w-16 bg-primary/40 block animate-width-reveal" />
                <LineMaskReveal delay={300}>
                  <span className="text-[10px] tracking-[0.8em] text-primary font-black font-heading animate-fade-in">
-                   The Genesis Project
+                   Maaisa Reality
                  </span>
                </LineMaskReveal>
             </div>
@@ -153,8 +153,8 @@ export default function Home() {
           <LineMaskReveal delay={1200} className="flex flex-col sm:flex-row items-center justify-center gap-12">
             <MagneticButton>
                <WhatsAppButton 
-                label="Secure Ownership"
-                message="Hello Maaisa Reality, I would like to schedule a private tour of the Genesis project."
+                label="Explore Vision"
+                message="Hello Maaisa Reality, I would like to schedule an introductory consultation."
                 variant="primary"
                 className="min-w-[260px] py-6 shadow-glow"
                />
@@ -178,20 +178,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Material Grid: Cinematic Reveals */}
-      <section id="portfolio" className="py-40 bg-background px-6 md:px-24 border-b border-black/5 uppercase font-black text-[10px] tracking-widest">
+      {/* About Material Grid */}
+      <section id="about" className="py-40 bg-background px-6 md:px-24 border-b border-black/5 uppercase font-black text-[10px] tracking-widest">
          <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-end mb-32">
                <div className="lg:col-span-8">
                   <LineMaskReveal delay={200}>
-                    <span className="text-primary font-black tracking-[0.5em] mb-4 block underline underline-offset-8 decoration-primary/20">Genesis Craftsmanship</span>
+                    <span className="text-primary font-black tracking-[0.5em] mb-4 block underline underline-offset-8 decoration-primary/20">Our Philosophy</span>
                     <h2 className="text-5xl md:text-[6rem] font-heading font-black text-foreground leading-[0.9] tracking-tighter">unrivaled <br/><span className="text-primary/40">materiality.</span></h2>
                   </LineMaskReveal>
                </div>
                <div className="lg:col-span-4 border-l-2 border-primary/20 pl-10 pb-4">
                    <LineMaskReveal delay={400}>
                       <p className="text-tertiary font-body font-normal lowercase tracking-tight leading-relaxed max-w-sm">
-                    every coordinate of the genesis build is synthesized with imported stone, smoked timber, and high-fidelity glazing.
+                    every maaisa structure is synthesized with uncompromising quality, integrating imported stone, smoked timber, and high-fidelity glazing.
                       </p>
                    </LineMaskReveal>
                </div>
@@ -218,75 +218,34 @@ export default function Home() {
          </div>
       </section>
 
-      {/* Interactive Hub: Maaisa Virtual Access */}
-      <section className="py-40 bg-surface-low relative overflow-hidden uppercase font-black text-[10px] tracking-widest">
+      {/* Upcoming Projects Hub: Genesis */}
+      <section id="projects" className="py-40 bg-surface-low relative overflow-hidden uppercase font-black text-[10px] tracking-widest">
         <div className="max-w-7xl mx-auto px-6 md:px-24">
           <LineMaskReveal delay={100} className="text-center mb-32">
-            <span className="text-primary font-black tracking-[0.8em] mb-8 block">Virtual Gateway</span>
-            <h2 className="text-5xl md:text-[7rem] font-heading font-black text-foreground leading-none tracking-tighter">digital <br/><span className="text-primary/40 italic font-light lowercase">immersion.</span></h2>
+            <span className="text-primary font-black tracking-[0.8em] mb-8 block">Upcoming Designation</span>
+            <h2 className="text-5xl md:text-[7rem] font-heading font-black text-foreground leading-none tracking-tighter">the <br/><span className="text-primary/40 italic font-light lowercase">genesis.</span></h2>
           </LineMaskReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24">
-            <div className="space-y-16">
-               {tourPoints.slice(0, 2).map((point, i) => (
-                 <LineMaskReveal key={i} delay={i * 200}>
-                    <div 
-                      onClick={() => setActive360(point)}
-                      className="group cursor-pointer bg-background p-10 border border-black/5 hover:border-primary/30 transition-all shadow-card hover:shadow-glow"
-                    >
-                       <div className="aspect-video relative overflow-hidden mb-10 shadow-elegant reveal-image">
-                          <img src={point.url} alt={point.title} className="w-full h-full object-cover group-hover:scale-110 transition-all duration-[3000ms]" />
-                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-[2px]">
-                             <div className="w-20 h-20 rounded-full glass flex items-center justify-center border border-primary/40 scale-50 group-hover:scale-100 transition-transform duration-700 shadow-glow">
-                                <span className="text-primary font-black text-[9px] tracking-widest">ENTER</span>
-                             </div>
-                          </div>
-                       </div>
-                       <div className="flex justify-between items-end border-l-2 border-primary/20 pl-6">
-                          <div>
-                             <LineMaskReveal delay={100}>
-                                <h3 className="text-3xl font-heading font-black text-foreground mb-2">{point.title}</h3>
-                             </LineMaskReveal>
-                             <LineMaskReveal delay={200}>
-                                <p className="text-[9px] tracking-[0.4em] font-black text-primary/60 lowercase italic font-body">{point.desc}</p>
-                             </LineMaskReveal>
-                          </div>
-                       </div>
-                    </div>
-                 </LineMaskReveal>
-               ))}
-            </div>
-            
-            <div className="space-y-16 mt-0 md:mt-32">
-               {tourPoints.slice(2, 4).map((point, i) => (
-                 <LineMaskReveal key={i} delay={i * 200 + 300}>
-                    <div 
-                      onClick={() => setActive360(point)}
-                      className="group cursor-pointer bg-background p-10 border border-black/5 hover:border-primary/30 transition-all shadow-card hover:shadow-glow"
-                    >
-                       <div className="aspect-[4/5] relative overflow-hidden mb-10 shadow-elegant reveal-image">
-                          <img src={point.url} alt={point.title} className="w-full h-full object-cover group-hover:scale-110 transition-all duration-[3000ms]" />
-                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-[2px]">
-                             <div className="w-20 h-20 rounded-full glass flex items-center justify-center border border-primary/40 scale-50 group-hover:scale-100 transition-transform duration-700 shadow-glow">
-                                <span className="text-primary font-black text-[9px] tracking-widest">ENTER</span>
-                             </div>
-                          </div>
-                       </div>
-                       <div className="flex justify-between items-end border-l-2 border-primary/20 pl-6">
-                          <div>
-                             <LineMaskReveal delay={100}>
-                                <h3 className="text-3xl font-heading font-black text-foreground mb-2">{point.title}</h3>
-                             </LineMaskReveal>
-                             <LineMaskReveal delay={200}>
-                                <p className="text-[9px] tracking-[0.4em] font-black text-primary/60 lowercase italic font-body">{point.desc}</p>
-                             </LineMaskReveal>
-                          </div>
-                       </div>
-                    </div>
-                 </LineMaskReveal>
-               ))}
-            </div>
-          </div>
+          <LineMaskReveal delay={200}>
+             <a href="/projects/genesis" className="group block relative w-full h-[60vh] md:h-[80vh] overflow-hidden shadow-elegant border border-black/5 reveal-image">
+                <img 
+                  src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop" 
+                  alt="Genesis Project" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[4000ms]" 
+                />
+                <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/10 transition-colors duration-700" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                   <div className="w-32 h-32 rounded-full glass border border-white/20 flex flex-col items-center justify-center scale-90 group-hover:scale-100 transition-all duration-700 shadow-glow">
+                      <span className="text-[9px] tracking-widest text-white font-black mb-1">ENTER</span>
+                      <ArrowRight className="w-4 h-4 text-white" />
+                   </div>
+                </div>
+                <div className="absolute bottom-12 left-12">
+                   <span className="text-white text-3xl md:text-5xl font-heading font-black tracking-tighter">GENESIS</span>
+                   <p className="text-white/60 text-[9px] tracking-[0.4em] font-black lowercase italic font-body mt-2">tathawade, pune</p>
+                </div>
+             </a>
+          </LineMaskReveal>
         </div>
       </section>
 
@@ -295,7 +254,7 @@ export default function Home() {
          <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                { [
-                 { icon: Shield, title: "Secure Axis", desc: "Genesis provides absolute security through biometric logic gates." },
+                 { icon: Shield, title: "Absolute Trust", desc: "Maaisa Reality provides uncompromising commitment to delivery and legal transparency." },
                  { icon: MapPin, title: "Prime Coordinate", desc: "Strategically synthesized within Pune's high-velocity tech districts." },
                  { icon: Sun, title: "Luminous Design", desc: "Architectural orientation optimized for natural luminous efficiency." }
                ].map((item, i) => (
@@ -312,7 +271,7 @@ export default function Home() {
                     <WhatsAppButton 
                       variant="minimal" 
                       label="Enquire" 
-                      message={`Hello Maaisa Reality, I have an enquiry about ${item.title} at the Genesis project.`}
+                      message={`Hello Maaisa Reality, I have an enquiry about ${item.title}.`}
                     />
                  </LineMaskReveal>
                ))}
@@ -344,7 +303,7 @@ export default function Home() {
            </div>
            
            <div className="flex flex-wrap justify-center gap-16">
-              <WhatsAppButton variant="minimal" label="WhatsApp Axis" message="Hello Maaisa Reality, I'm reaching out regarding the Genesis residential project." />
+              <WhatsAppButton variant="minimal" label="WhatsApp Axis" message="Hello Maaisa Reality, I am interested in connecting with you." />
               <button 
                 onClick={() => window.open('/Maaisa_Genesis_Website_Content_Brief.pdf', '_blank')}
                 className="text-primary font-black tracking-[0.4em] hover:text-foreground transition-all border-b-2 border-primary/20 pb-2 hover:border-primary"

@@ -9,10 +9,10 @@ import { WhatsAppButton } from "./WhatsAppButton";
 import { cn } from "@/lib/utils";
 
 const navigation = [
-  { name: "Portfolio", href: "/#portfolio" },
-  { name: "Floor Plans", href: "/floor-plans" },
-  { name: "Amenities", href: "/amenities" },
-  { name: "The Vision", href: "/editorial" },
+  { name: "Home", href: "/" },
+  { name: "Projects", href: "/projects" },
+  { name: "About", href: "/#about" },
+  { name: "Contact Us", href: "/#contact" },
 ];
 
 export const Navbar = () => {
@@ -53,7 +53,7 @@ export const Navbar = () => {
             />
             <div className="h-6 w-[1px] bg-primary/20 mx-1 hidden sm:block" />
             <span className="text-xl md:text-2xl font-heading font-black tracking-tighter text-foreground uppercase group-hover:text-primary transition-colors inline-block">
-              Genesis
+              Reality
             </span>
           </Link>
 
@@ -82,7 +82,7 @@ export const Navbar = () => {
 
             <WhatsAppButton 
               label="Enquire"
-              message="Hello Maaisa Reality, I would like to schedule a tour of the Genesis project."
+              message="Hello Maaisa Reality, I would like to initiate an introductory consultation."
               variant="minimal"
               className="hidden sm:block text-[10px] font-black uppercase tracking-[0.3em] text-primary hover:text-foreground transition-all"
             />
@@ -123,7 +123,7 @@ export const Navbar = () => {
                <div className="absolute inset-0 bg-primary/20" />
                <div className="absolute inset-12 flex flex-col justify-end text-left">
                   <p className="text-white text-[10px] font-bold tracking-[0.5em] mb-4 uppercase">Maaisa Reality</p>
-                  <h3 className="text-4xl text-white font-heading font-black leading-none uppercase tracking-tighter">genesis <br /> of <span className="text-white/60">excellence.</span></h3>
+                  <h3 className="text-4xl text-white font-heading font-black leading-none uppercase tracking-tighter">vision <br /> of <span className="text-white/60">excellence.</span></h3>
                </div>
             </div>
 
@@ -159,7 +159,7 @@ export const Navbar = () => {
                           alt="Maaisa Reality" 
                           className="h-6 w-auto object-contain brightness-0 invert"
                         />
-                        <span className="text-[10px] tracking-[0.4em] text-white font-bold uppercase">Genesis Project</span>
+                        <span className="text-[10px] tracking-[0.4em] text-white font-bold uppercase">Corporate Operations</span>
                      </div>
                      <div className="space-y-4">
                         <div className="flex items-center gap-4 text-tertiary">
@@ -174,7 +174,7 @@ export const Navbar = () => {
                   </div>
                   
                   <div className="flex flex-col items-start gap-8">
-                     <WhatsAppButton variant="minimal" label="WhatsApp" message="Hello Maaisa Reality, I would like to enquire about the Genesis project." className="w-full text-[10px] font-black uppercase tracking-widest" />
+                     <WhatsAppButton variant="minimal" label="WhatsApp" message="Hello Maaisa Reality, I would like to enquire about your projects." className="w-full text-[10px] font-black uppercase tracking-widest" />
                      <Link 
                       href="/Maaisa_Genesis_Website_Content_Brief.pdf" 
                       target="_blank"

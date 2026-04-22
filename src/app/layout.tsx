@@ -20,8 +20,8 @@ const fontBody = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Genesis | Maaisa Reality: Curated Architectural Excellence",
-  description: "Experience luxury living at Genesis, a Maaisa Reality development defined by light, space, and the geometry of pure intention.",
+  title: "Maaisa Reality | Curated Architectural Excellence",
+  description: "Maaisa Reality develops premium real estate with visionary design, dedicated to absolute luxury and architectural perfection.",
 };
 
 export default function RootLayout({

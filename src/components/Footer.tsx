@@ -15,7 +15,7 @@ export function Footer() {
                <div className="flex items-center gap-4">
                  <img src="https://res.cloudinary.com/de6u5kbiw/image/upload/v1772447140/maaisa/Maaisa_wxdvqt.png" alt="Maaisa Reality" className="h-8 w-auto object-contain" />
                   <div className="h-6 w-[1px] bg-primary/20" /> 
-                  <span className="text-xl font-heading font-black tracking-tighter text-foreground uppercase">Genesis</span> 
+                  <span className="text-xl font-heading font-black tracking-tighter text-foreground uppercase">Reality</span> 
                </div>
            </Link>
            <p className="text-[9px] leading-relaxed lowercase font-body tracking-tight text-tertiary/60">
@@ -35,13 +35,10 @@ export function Footer() {
         <div>
            <h4 className="text-primary font-black mb-10 tracking-[0.4em]">The Catalogue</h4>
            <ul className="space-y-4">
-              {["Portfolio", "Floor Plans", "Amenities", "Project Vision"].map((link) => (
-                <li key={link}>
-                   <Link href={`/${link.toLowerCase().replace(" ", "-")}`} className="hover:text-primary transition-all">
-                      {link}
-                   </Link>
-                </li>
-              ))}
+              <li><Link href="/" className="hover:text-primary transition-all">Home</Link></li>
+              <li><Link href="/projects" className="hover:text-primary transition-all">Projects</Link></li>
+              <li><Link href="/#about" className="hover:text-primary transition-all">About Maaisa Reality</Link></li>
+              <li><Link href="/#contact" className="hover:text-primary transition-all">Contact Us</Link></li>
            </ul>
         </div>
 
@@ -71,7 +68,7 @@ export function Footer() {
                   </div>
                   <WhatsAppButton 
                     label="WhatsApp Connect" 
-                    message="Hello Maaisa Reality, I'm interested in the Genesis residential project." 
+                    message="Hello Maaisa Reality, I'm interested in connecting with your team." 
                     variant="minimal" 
                     className="text-[9px] font-black uppercase tracking-widest pt-4"
                   />
