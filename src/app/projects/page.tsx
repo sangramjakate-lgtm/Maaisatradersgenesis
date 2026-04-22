@@ -34,51 +34,85 @@ export default function Projects() {
   }, []);
 
   return (
-    <main ref={mainRef} className="opacity-0 bg-background selection:bg-primary selection:text-white pt-32">
-      <section className="px-6 md:px-24 mb-32">
-        <LineMaskReveal>
-           <span className="text-primary font-black tracking-[0.8em] text-[10px] uppercase block mb-4">Maaisa Reality</span>
-           <h1 className="text-5xl md:text-[8rem] font-heading font-black leading-none tracking-tighter uppercase mb-8">
-             our <span className="text-primary/40 italic font-light lowercase">portfolio.</span>
-           </h1>
-        </LineMaskReveal>
+    <main ref={mainRef} className="opacity-0 bg-background selection:bg-primary selection:text-white pt-24 pb-40">
+      
+      {/* 1. PORTFOLIO HERO — Minimalist & Grand */}
+      <section className="relative px-6 md:px-24 mb-32 overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-heading font-black text-black/[0.03] uppercase tracking-tighter pointer-events-none select-none">
+          Portfolio
+        </div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <LineMaskReveal>
+             <span className="text-primary font-medium tracking-[0.6em] text-[10px] uppercase block mb-6">Maaisa Reality Portfolio</span>
+             <h1 className="text-6xl md:text-[8rem] font-heading font-medium leading-[1] tracking-tighter text-foreground uppercase">
+               The <br /><span className="italic font-light text-primary/60 lowercase">Collection.</span>
+             </h1>
+          </LineMaskReveal>
+        </div>
       </section>
 
-      <section className="px-6 md:px-24 pb-40 border-b border-black/5">
-        <div className="grid grid-cols-1 gap-32 max-w-7xl mx-auto">
-           {/* Genesis Project Link */}
-           <LineMaskReveal delay={200}>
-             <Link href="/projects/genesis" className="group block relative w-full h-[55vh] md:h-[75vh] overflow-hidden shadow-elegant reveal-image">
+      {/* 2. PROJECT NODES — Cinematic Cards */}
+      <section className="px-6 md:px-24">
+        <div className="grid grid-cols-1 gap-48 max-w-7xl mx-auto">
+           
+           {/* Project 01: Genesis */}
+           <div className="gsap-reveal bg-surface-low/30 p-4 md:p-8 border border-black/5 rounded-sm">
+             <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between border-b border-black/5 pb-10 gap-6">
+                <div>
+                  <LineMaskReveal>
+                    <span className="text-primary text-[10px] font-medium uppercase tracking-[0.4em] mb-4 block">Upcoming Designation</span>
+                    <h2 className="text-4xl md:text-5xl font-heading font-medium text-foreground leading-[1] tracking-tight">
+                      The <span className="text-primary/60 italic font-light">Genesis.</span>
+                    </h2>
+                  </LineMaskReveal>
+                </div>
+                <div className="md:text-right max-w-sm">
+                  <LineMaskReveal delay={300}>
+                    <p className="text-tertiary text-sm leading-relaxed font-body">
+                      A pioneering architectural statement in Tathawade, redefining urban luxury through minimalist design and natural integration.
+                    </p>
+                  </LineMaskReveal>
+                </div>
+             </div>
+
+             <Link href="/projects/genesis" className="group block relative w-full h-[60vh] md:h-[80vh] overflow-hidden shadow-elegant reveal-image">
                 <img 
                   src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop" 
                   alt="Genesis Project" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[4000ms]" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/5" />
+                {/* Enhanced Contrast Gradient to fix white-on-white visibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/5 opacity-90 group-hover:opacity-100 transition-opacity" />
+                
+                {/* Center Badge */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                   <div className="w-28 h-28 rounded-full border border-white/30 flex flex-col items-center justify-center scale-90 group-hover:scale-110 group-hover:border-primary transition-all duration-700 backdrop-blur-sm bg-white/5">
+                   <div className="w-28 h-28 rounded-full border border-white/20 flex flex-col items-center justify-center scale-90 group-hover:scale-110 group-hover:border-primary transition-all duration-700 backdrop-blur-sm bg-white/5">
                       <span className="text-[8px] tracking-widest text-white font-medium mb-1 uppercase">Enter</span>
                       <ArrowRight className="w-4 h-4 text-primary" />
                    </div>
                 </div>
-                <div className="absolute bottom-10 left-10 right-10 flex flex-col md:flex-row justify-between items-end gap-4">
-                   <div>
+
+                {/* Bottom Info Strip */}
+                <div className="absolute bottom-10 left-10 right-10 flex flex-col md:flex-row justify-between items-end gap-6">
+                   <div className="gsap-reveal">
                       <span className="text-white text-4xl md:text-6xl font-heading font-medium tracking-tight">Genesis</span>
                       <p className="text-white/60 text-[10px] tracking-[0.4em] font-medium uppercase mt-2">Tathawade, Pune</p>
                    </div>
-                   <div className="flex gap-6 text-right">
+                   <div className="flex gap-8 text-right gsap-reveal">
                       <div>
-                        <div className="text-white text-sm font-medium">2025</div>
+                        <div className="text-white text-lg font-heading font-medium">2025</div>
                         <div className="text-white/40 text-[9px] tracking-widest uppercase font-medium">Delivery</div>
                       </div>
-                      <div>
-                        <div className="text-white text-sm font-medium">3 BHK+</div>
+                      <div className="border-l border-white/10 pl-8">
+                        <div className="text-white text-lg font-heading font-medium">3 BHK+</div>
                         <div className="text-white/40 text-[9px] tracking-widest uppercase font-medium">Config</div>
                       </div>
                    </div>
                 </div>
              </Link>
-          </LineMaskReveal>
+           </div>
+
           
           <LineMaskReveal delay={300} className="flex justify-center border-t border-black/5 pt-32">
              <div className="text-center">
