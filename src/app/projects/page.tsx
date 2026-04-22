@@ -48,23 +48,34 @@ export default function Projects() {
         <div className="grid grid-cols-1 gap-32 max-w-7xl mx-auto">
            {/* Genesis Project Link */}
            <LineMaskReveal delay={200}>
-             <Link href="/projects/genesis" className="group block relative w-full h-[60vh] md:h-[80vh] overflow-hidden shadow-elegant border border-black/5 reveal-image">
+             <Link href="/projects/genesis" className="group block relative w-full h-[55vh] md:h-[75vh] overflow-hidden shadow-elegant reveal-image">
                 <img 
                   src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop" 
                   alt="Genesis Project" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[4000ms]" 
                 />
-                <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/10 transition-colors duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/5" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                   <div className="w-32 h-32 rounded-full glass border border-white/20 flex flex-col items-center justify-center scale-90 group-hover:scale-100 transition-all duration-700 shadow-glow">
-                      <span className="text-[9px] tracking-widest text-white font-black mb-1 uppercase">ENTER</span>
-                      <ArrowRight className="w-4 h-4 text-white" />
+                   <div className="w-28 h-28 rounded-full border border-white/30 flex flex-col items-center justify-center scale-90 group-hover:scale-110 group-hover:border-primary transition-all duration-700 backdrop-blur-sm bg-white/5">
+                      <span className="text-[8px] tracking-widest text-white font-medium mb-1 uppercase">Enter</span>
+                      <ArrowRight className="w-4 h-4 text-primary" />
                    </div>
                 </div>
-                <div className="absolute bottom-12 left-12 uppercase">
-                   <span className="text-white text-3xl md:text-5xl font-heading font-black tracking-tighter">GENESIS</span>
-                   <p className="text-white/60 text-[9px] tracking-[0.4em] font-black lowercase italic font-body mt-2">tathawade, pune</p>
+                <div className="absolute bottom-10 left-10 right-10 flex flex-col md:flex-row justify-between items-end gap-4">
+                   <div>
+                      <span className="text-white text-4xl md:text-6xl font-heading font-medium tracking-tight">Genesis</span>
+                      <p className="text-white/60 text-[10px] tracking-[0.4em] font-medium uppercase mt-2">Tathawade, Pune</p>
+                   </div>
+                   <div className="flex gap-6 text-right">
+                      <div>
+                        <div className="text-white text-sm font-medium">2025</div>
+                        <div className="text-white/40 text-[9px] tracking-widest uppercase font-medium">Delivery</div>
+                      </div>
+                      <div>
+                        <div className="text-white text-sm font-medium">3 BHK+</div>
+                        <div className="text-white/40 text-[9px] tracking-widest uppercase font-medium">Config</div>
+                      </div>
+                   </div>
                 </div>
              </Link>
           </LineMaskReveal>
