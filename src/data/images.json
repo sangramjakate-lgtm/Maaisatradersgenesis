@@ -1,0 +1,130 @@
+{
+  "buildings": [
+    {
+      "id": "b01",
+      "url": "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185643/daniel-brubaker-uhYYa9nlr6w-unsplash_dqzyek.jpg",
+      "alt": "Modern Building Facade",
+      "tag": "hero"
+    },
+    {
+      "id": "b02",
+      "url": "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185640/aalo-lens-_wHXtrp4C0g-unsplash_tf5t6c.jpg",
+      "alt": "Contemporary Architecture",
+      "tag": "hero"
+    },
+    {
+      "id": "b03",
+      "url": "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185637/andrea-ferrario-N4uww5RFj_Q-unsplash_ge6cdc.jpg",
+      "alt": "Urban Residential Tower",
+      "tag": "gallery"
+    },
+    {
+      "id": "b04",
+      "url": "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185635/danist-soh-0nGjnZyKYB8-unsplash_gwlpzs.jpg",
+      "alt": "Architectural Detail",
+      "tag": "gallery"
+    },
+    {
+      "id": "b05",
+      "url": "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185621/damian-kravchuk-SER9iK-wtk0-unsplash_j04con.jpg",
+      "alt": "Premium Residential Complex",
+      "tag": "gallery"
+    },
+    {
+      "id": "b06",
+      "url": "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185618/allphoto-bangkok-nI4aC1kaTRc-unsplash_nifjbt.jpg",
+      "alt": "Night Skyline Architecture",
+      "tag": "gallery"
+    },
+    {
+      "id": "b07",
+      "url": "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185615/anders-holm-jensen-urYCLa2G4Lg-unsplash_yyme1m.jpg",
+      "alt": "Luxury Residential Tower",
+      "tag": "mask"
+    },
+    {
+      "id": "b08",
+      "url": "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185614/dillon-kydd-TJfJPfVCbeA-unsplash_pg8wwf.jpg",
+      "alt": "Modern High-Rise",
+      "tag": "mask"
+    },
+    {
+      "id": "b09",
+      "url": "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185606/mika-baumeister-PL7K02i4s9g-unsplash_rnxrdt.jpg",
+      "alt": "Glass Tower",
+      "tag": "gallery"
+    },
+    {
+      "id": "b10",
+      "url": "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185598/isaac-quesada-s34TlUTPIf4-unsplash_hxbzcd.jpg",
+      "alt": "Premium Building Exterior",
+      "tag": "gallery"
+    },
+    {
+      "id": "b11",
+      "url": "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185585/istrfry-marcus-zd0SmnpgT1s-unsplash_qjy1xn.jpg",
+      "alt": "Elegant Architecture",
+      "tag": "about"
+    },
+    {
+      "id": "b12",
+      "url": "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185583/annie-spratt-6Q8o6Kxufkw-unsplash_fyebbb.jpg",
+      "alt": "Residential Development",
+      "tag": "about"
+    },
+    {
+      "id": "b13",
+      "url": "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185579/codeshady-AHzHbWmNaU4-unsplash_hsltus.jpg",
+      "alt": "Architectural Landmark",
+      "tag": "strip"
+    },
+    {
+      "id": "b14",
+      "url": "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185574/pierre-chatel-innocenti-gxyeia7Syuk-unsplash_i3yi1l.jpg",
+      "alt": "Urban Skyline",
+      "tag": "strip"
+    },
+    {
+      "id": "b15",
+      "url": "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185572/shalev-cohen-KjueSklMNyY-unsplash_gxhm3w.jpg",
+      "alt": "Geometric Building",
+      "tag": "strip"
+    },
+    {
+      "id": "b16",
+      "url": "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185570/saru-robert-9rP3mxf8qWI-unsplash_y1uyhj.jpg",
+      "alt": "Contemporary Facade",
+      "tag": "values"
+    },
+    {
+      "id": "b17",
+      "url": "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185571/jinish-shah-jJ-wBmQXpVk-unsplash_wgnvzp.jpg",
+      "alt": "Luxury Development",
+      "tag": "values"
+    },
+    {
+      "id": "b18",
+      "url": "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185570/victor-0NJ9urGXrIg-unsplash_chyjcd.jpg",
+      "alt": "Modern Residential Block",
+      "tag": "values"
+    },
+    {
+      "id": "b19",
+      "url": "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185565/chuttersnap-3_1f0ZGOjIY-unsplash_vb5sxy.jpg",
+      "alt": "High-Rise Complex",
+      "tag": "contact"
+    },
+    {
+      "id": "b20",
+      "url": "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185565/aimar-gallardo-fTM-tpxGUCk-unsplash_pwv45k.jpg",
+      "alt": "Architectural Excellence",
+      "tag": "contact"
+    },
+    {
+      "id": "b21",
+      "url": "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185563/cn-veyth-iPq4X7sfePs-unsplash_lkp97v.jpg",
+      "alt": "Premium Construction",
+      "tag": "projects"
+    }
+  ]
+}

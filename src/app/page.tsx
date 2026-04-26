@@ -99,11 +99,36 @@ export default function Home() {
     { num: "Pune", label: "Headquarters" },
   ];
 
+  // All building images from Cloudinary
+  const IMGS = {
+    hero:    "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185643/daniel-brubaker-uhYYa9nlr6w-unsplash_dqzyek.jpg",
+    hero2:   "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185640/aalo-lens-_wHXtrp4C0g-unsplash_tf5t6c.jpg",
+    hero3:   "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185637/andrea-ferrario-N4uww5RFj_Q-unsplash_ge6cdc.jpg",
+    g1:      "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185635/danist-soh-0nGjnZyKYB8-unsplash_gwlpzs.jpg",
+    g2:      "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185621/damian-kravchuk-SER9iK-wtk0-unsplash_j04con.jpg",
+    g3:      "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185618/allphoto-bangkok-nI4aC1kaTRc-unsplash_nifjbt.jpg",
+    mask1:   "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185615/anders-holm-jensen-urYCLa2G4Lg-unsplash_yyme1m.jpg",
+    mask2:   "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185614/dillon-kydd-TJfJPfVCbeA-unsplash_pg8wwf.jpg",
+    strip1:  "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185606/mika-baumeister-PL7K02i4s9g-unsplash_rnxrdt.jpg",
+    strip2:  "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185598/isaac-quesada-s34TlUTPIf4-unsplash_hxbzcd.jpg",
+    about1:  "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185585/istrfry-marcus-zd0SmnpgT1s-unsplash_qjy1xn.jpg",
+    about2:  "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185583/annie-spratt-6Q8o6Kxufkw-unsplash_fyebbb.jpg",
+    strip3:  "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185579/codeshady-AHzHbWmNaU4-unsplash_hsltus.jpg",
+    strip4:  "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185574/pierre-chatel-innocenti-gxyeia7Syuk-unsplash_i3yi1l.jpg",
+    strip5:  "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185572/shalev-cohen-KjueSklMNyY-unsplash_gxhm3w.jpg",
+    v1:      "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185570/saru-robert-9rP3mxf8qWI-unsplash_y1uyhj.jpg",
+    v2:      "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185571/jinish-shah-jJ-wBmQXpVk-unsplash_wgnvzp.jpg",
+    v3:      "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185570/victor-0NJ9urGXrIg-unsplash_chyjcd.jpg",
+    contact: "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185565/chuttersnap-3_1f0ZGOjIY-unsplash_vb5sxy.jpg",
+    proj1:   "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185565/aimar-gallardo-fTM-tpxGUCk-unsplash_pwv45k.jpg",
+    proj2:   "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185563/cn-veyth-iPq4X7sfePs-unsplash_lkp97v.jpg",
+  };
+
   const materiality = [
-    { title: "Carrara Marble", img: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2070&auto=format&fit=crop", span: "lg:col-span-1" },
-    { title: "Smoked Oak", img: "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=2070&auto=format&fit=crop", span: "lg:col-span-2" },
-    { title: "Smart Living", img: "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=2070&auto=format&fit=crop", span: "lg:col-span-2" },
-    { title: "Glass Horizon", img: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop", span: "lg:col-span-1" },
+    { title: "Precision Engineering", img: IMGS.g1,     span: "lg:col-span-1" },
+    { title: "Urban Skylines",        img: IMGS.g2,     span: "lg:col-span-2" },
+    { title: "Structural Mastery",    img: IMGS.g3,     span: "lg:col-span-2" },
+    { title: "Glass & Light",         img: IMGS.strip1, span: "lg:col-span-1" },
   ];
 
   return (
@@ -118,7 +143,7 @@ export default function Home() {
         {/* Parallax BG Image */}
         <motion.div style={{ y: bgY }} className="absolute inset-0 z-0 scale-110">
           <img
-            src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2800&auto=format&fit=crop"
+            src={IMGS.hero}
             alt="Maaisa Reality"
             className="w-full h-full object-cover"
           />
@@ -128,22 +153,22 @@ export default function Home() {
         {/* Floating Image Cards — decorative */}
         <div className="absolute inset-0 z-10 pointer-events-none hidden lg:block">
           <FloatingCard
-            src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=800&auto=format&fit=crop"
-            alt="Interior"
+            src={IMGS.hero2}
+            alt="Architecture"
             className="absolute top-[18%] right-[6%] w-52 h-64 rounded-lg"
             delay={1.2}
             rotateAmt={4}
           />
           <FloatingCard
-            src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=800&auto=format&fit=crop"
-            alt="Architecture"
+            src={IMGS.mask1}
+            alt="Residential Tower"
             className="absolute top-[55%] right-[18%] w-36 h-44 rounded-lg"
             delay={1.6}
             rotateAmt={-3}
           />
           <FloatingCard
-            src="https://images.unsplash.com/photo-1619292387767-b8f6e7b3c7ad?q=80&w=800&auto=format&fit=crop"
-            alt="Lobby"
+            src={IMGS.about1}
+            alt="Building"
             className="absolute top-[60%] left-[4%] w-44 h-56 rounded-lg"
             delay={2}
             rotateAmt={2}
@@ -176,7 +201,7 @@ export default function Home() {
               <br />
               <span
                 style={{
-                  backgroundImage: "url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop')",
+                  backgroundImage: `url('${IMGS.mask2}')`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   WebkitBackgroundClip: "text",
@@ -266,7 +291,7 @@ export default function Home() {
           <div className="relative h-[70vh] hidden lg:block gsap-reveal">
             <div className="absolute inset-0 reveal-image overflow-hidden rounded-sm shadow-elegant">
               <img
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+                src={IMGS.about1}
                 alt="Architecture"
                 className="w-full h-full object-cover"
               />
@@ -278,8 +303,8 @@ export default function Home() {
               className="absolute -bottom-8 -right-8 w-48 h-56 overflow-hidden rounded-sm shadow-[0_20px_60px_rgba(0,0,0,0.25)] border-2 border-background z-10"
             >
               <img
-                src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=800&auto=format&fit=crop"
-                alt="Interior"
+                src={IMGS.about2}
+                alt="Building Detail"
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -322,20 +347,59 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
 
           {/* Image-Masked Giant Text */}
-          <div className="mb-20 text-center gsap-reveal">
+          {/* Image-Masked Giant Text */}
+          <div className="mb-12 text-center gsap-reveal">
             <h2
               className="text-[clamp(4rem,14vw,14rem)] font-heading font-black leading-none tracking-tighter uppercase select-none"
               style={{
-                backgroundImage: "url('https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=2070&auto=format&fit=crop')",
+                backgroundImage: `url('${IMGS.mask1}')`,
                 backgroundSize: "cover",
-                backgroundPosition: "center",
+                backgroundPosition: "center top",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
               }}
             >
-              Craft
+              Build
             </h2>
+            <h2
+              className="text-[clamp(2.5rem,9vw,9rem)] font-heading font-light italic leading-none tracking-tighter select-none -mt-4"
+              style={{
+                backgroundImage: `url('${IMGS.mask2}')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center bottom",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              Legacies
+            </h2>
+          </div>
+
+          {/* Horizontal Filmstrip — all building images scrolling */}
+          <div className="mb-20 overflow-x-auto pb-4 gsap-reveal" style={{ scrollbarWidth: "none" }}>
+            <div className="flex gap-4 w-max">
+              {[
+                IMGS.hero, IMGS.hero2, IMGS.hero3, IMGS.g1, IMGS.g2, IMGS.g3,
+                IMGS.strip1, IMGS.strip2, IMGS.strip3, IMGS.strip4, IMGS.strip5, IMGS.proj2,
+              ].map((url, i) => (
+                <div
+                  key={i}
+                  className="relative flex-shrink-0 w-60 h-80 overflow-hidden group cursor-pointer shadow-card border border-black/5"
+                >
+                  <img
+                    src={url}
+                    alt={`Building ${i + 1}`}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2000ms]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <span className="text-white text-[9px] uppercase tracking-[0.3em] font-medium">0{i + 1}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Material Grid */}
@@ -372,7 +436,7 @@ export default function Home() {
 
           <a href="/projects/genesis" className="group block relative w-full h-[55vh] md:h-[75vh] overflow-hidden shadow-elegant reveal-image">
             <img
-              src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop"
+              src={IMGS.proj1}
               alt="Genesis"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[4000ms]"
             />
@@ -472,17 +536,17 @@ export default function Home() {
               {
                 title: "Absolute Trust",
                 desc: "Uncompromising commitment to delivery and legal transparency — on time, every time.",
-                img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop",
+                img: IMGS.v1,
               },
               {
                 title: "Prime Location",
                 desc: "Strategically positioned in Pune's thriving residential and tech corridors.",
-                img: "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=800&auto=format&fit=crop",
+                img: IMGS.v2,
               },
               {
                 title: "Luminous Design",
                 desc: "Architectural orientation calibrated for maximum natural light and spatial harmony.",
-                img: "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?q=80&w=800&auto=format&fit=crop",
+                img: IMGS.v3,
               },
             ].map((card, i) => (
               <motion.div
@@ -523,7 +587,7 @@ export default function Home() {
         {/* Full bleed BG image */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1584738766473-61c083514bf4?q=80&w=2070&auto=format&fit=crop"
+            src={IMGS.contact}
             alt="Contact"
             className="w-full h-full object-cover"
           />
