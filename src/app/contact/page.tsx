@@ -337,7 +337,7 @@ export default function ContactPage() {
       <section className="py-24 bg-surface-low border-t border-black/5">
         <div className="max-w-7xl mx-auto px-6 md:px-24 text-center gsap-up">
           <h2
-            className="text-[clamp(5rem,16vw,16rem)] font-heading font-black leading-none tracking-tighter uppercase select-none"
+            className="text-[clamp(3rem,13vw,13rem)] font-heading font-black leading-none tracking-tighter uppercase select-none"
             style={{
               backgroundImage: "url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop')",
               backgroundSize: "cover",
