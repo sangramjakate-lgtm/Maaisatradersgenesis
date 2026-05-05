@@ -107,8 +107,8 @@ export default function Home() {
     g1:      "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185635/danist-soh-0nGjnZyKYB8-unsplash_gwlpzs.jpg",
     g2:      "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185621/damian-kravchuk-SER9iK-wtk0-unsplash_j04con.jpg",
     g3:      "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185618/allphoto-bangkok-nI4aC1kaTRc-unsplash_nifjbt.jpg",
-    mask1:   "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185615/anders-holm-jensen-urYCLa2G4Lg-unsplash_yyme1m.jpg",
-    mask2:   "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185614/dillon-kydd-TJfJPfVCbeA-unsplash_pg8wwf.jpg",
+    mask1:   "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185637/andrea-ferrario-N4uww5RFj_Q-unsplash_ge6cdc.jpg",
+    mask2:   "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185640/aalo-lens-_wHXtrp4C0g-unsplash_tf5t6c.jpg",
     strip1:  "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185606/mika-baumeister-PL7K02i4s9g-unsplash_rnxrdt.jpg",
     strip2:  "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185598/isaac-quesada-s34TlUTPIf4-unsplash_hxbzcd.jpg",
     about1:  "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185585/istrfry-marcus-zd0SmnpgT1s-unsplash_qjy1xn.jpg",
@@ -116,9 +116,9 @@ export default function Home() {
     strip3:  "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185579/codeshady-AHzHbWmNaU4-unsplash_hsltus.jpg",
     strip4:  "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185574/pierre-chatel-innocenti-gxyeia7Syuk-unsplash_i3yi1l.jpg",
     strip5:  "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185572/shalev-cohen-KjueSklMNyY-unsplash_gxhm3w.jpg",
-    v1:      "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185570/saru-robert-9rP3mxf8qWI-unsplash_y1uyhj.jpg",
-    v2:      "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185571/jinish-shah-jJ-wBmQXpVk-unsplash_wgnvzp.jpg",
-    v3:      "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185570/victor-0NJ9urGXrIg-unsplash_chyjcd.jpg",
+    v1:      "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185565/chuttersnap-3_1f0ZGOjIY-unsplash_vb5sxy.jpg",
+    v2:      "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185565/aimar-gallardo-fTM-tpxGUCk-unsplash_pwv45k.jpg",
+    v3:      "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185621/damian-kravchuk-SER9iK-wtk0-unsplash_j04con.jpg",
     contact: "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185565/chuttersnap-3_1f0ZGOjIY-unsplash_vb5sxy.jpg",
     proj1:   "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185565/aimar-gallardo-fTM-tpxGUCk-unsplash_pwv45k.jpg",
     proj2:   "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185563/cn-veyth-iPq4X7sfePs-unsplash_lkp97v.jpg",
@@ -231,7 +231,7 @@ export default function Home() {
           >
             <MagneticButton>
               <WhatsAppButton
-                label="Schedule Consultation"
+                label="ENQUIRE NOW"
                 message="Hello Maaisa Reality, I would like to schedule a private consultation."
                 variant="primary"
                 className="min-w-[260px] py-5 shadow-[0_0_40px_rgba(var(--color-primary-rgb),0.4)]"

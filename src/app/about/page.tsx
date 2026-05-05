@@ -68,9 +68,9 @@ export default function AboutPage() {
   ];
 
   const values = [
-    { title: "Precision", desc: "Every detail engineered to perfection — from foundations to finishing.", img: "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?q=80&w=800&auto=format&fit=crop" },
-    { title: "Integrity", desc: "Committed to legal transparency, honest timelines, and zero compromise.", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop" },
-    { title: "Legacy", desc: "Homes designed to endure generations, not just trends.", img: "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?q=80&w=800&auto=format&fit=crop" },
+    { title: "Precision", desc: "Every detail engineered to perfection — from foundations to finishing.", img: "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185635/danist-soh-0nGjnZyKYB8-unsplash_gwlpzs.jpg" },
+    { title: "Integrity", desc: "Committed to legal transparency, honest timelines, and zero compromise.", img: "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185621/damian-kravchuk-SER9iK-wtk0-unsplash_j04con.jpg" },
+    { title: "Legacy", desc: "Homes designed to endure generations, not just trends.", img: "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185618/allphoto-bangkok-nI4aC1kaTRc-unsplash_nifjbt.jpg" },
   ];
 
   return (
@@ -81,7 +81,7 @@ export default function AboutPage() {
         {/* Parallax BG */}
         <motion.div style={{ y: bgY }} className="absolute inset-0 z-0 scale-110">
           <img
-            src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=2800&auto=format&fit=crop"
+            src="https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185621/damian-kravchuk-SER9iK-wtk0-unsplash_j04con.jpg"
             alt="Maaisa Reality"
             className="w-full h-full object-cover"
           />
@@ -91,19 +91,19 @@ export default function AboutPage() {
         {/* Floating Accent Images */}
         <div className="absolute inset-0 z-10 pointer-events-none hidden lg:block">
           <FloatCard
-            src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=700&auto=format&fit=crop"
+            src="https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185640/aalo-lens-_wHXtrp4C0g-unsplash_tf5t6c.jpg"
             alt="Interior"
             className="absolute top-[20%] right-[7%] w-48 h-60 rounded-lg"
             delay={1.2} rotate={4}
           />
           <FloatCard
-            src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=700&auto=format&fit=crop"
+            src="https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185637/andrea-ferrario-N4uww5RFj_Q-unsplash_ge6cdc.jpg"
             alt="Exterior"
             className="absolute top-[55%] right-[20%] w-36 h-44 rounded-md"
             delay={1.6} rotate={-3}
           />
           <FloatCard
-            src="https://images.unsplash.com/photo-1584744982491-665216d95f8b?q=80&w=700&auto=format&fit=crop"
+            src="https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185635/danist-soh-0nGjnZyKYB8-unsplash_gwlpzs.jpg"
             alt="Lobby"
             className="absolute top-[62%] left-[4%] w-44 h-52 rounded-lg"
             delay={2} rotate={2}
@@ -130,7 +130,7 @@ export default function AboutPage() {
             <br />
             <span
               style={{
-                backgroundImage: "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')",
+                backgroundImage: "url('https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185643/daniel-brubaker-uhYYa9nlr6w-unsplash_dqzyek.jpg')",
                 backgroundSize: "cover",
                 backgroundPosition: "center top",
                 WebkitBackgroundClip: "text",
@@ -199,7 +199,7 @@ export default function AboutPage() {
           <div className="relative h-[70vh] hidden lg:block gsap-up">
             <div className="absolute inset-0 reveal-image overflow-hidden rounded-sm shadow-elegant">
               <img
-                src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=2070&auto=format&fit=crop"
+                src="https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185615/anders-holm-jensen-urYCLa2G4Lg-unsplash_yyme1m.jpg"
                 alt="Mission"
                 className="w-full h-full object-cover"
               />
@@ -211,7 +211,7 @@ export default function AboutPage() {
               className="absolute -bottom-10 -right-10 w-52 h-64 overflow-hidden rounded-sm shadow-[0_20px_60px_rgba(0,0,0,0.3)] border-4 border-background z-10"
             >
               <img
-                src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=700&auto=format&fit=crop"
+                src="https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185614/dillon-kydd-TJfJPfVCbeA-unsplash_pg8wwf.jpg"
                 alt="Interior"
                 className="w-full h-full object-cover"
               />
@@ -264,7 +264,7 @@ export default function AboutPage() {
           <div
             className="text-[clamp(5rem,20vw,18rem)] font-heading font-black leading-none tracking-tighter uppercase select-none"
             style={{
-              backgroundImage: "url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2070&auto=format&fit=crop')",
+              backgroundImage: "url('https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185606/mika-baumeister-PL7K02i4s9g-unsplash_rnxrdt.jpg')",
               backgroundSize: "cover",
               backgroundPosition: "center",
               WebkitBackgroundClip: "text",
@@ -415,10 +415,10 @@ export default function AboutPage() {
       <section className="py-0 bg-surface-low overflow-hidden">
         <div className="flex h-[50vh]">
           {[
-            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=800&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=800&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?q=80&w=800&auto=format&fit=crop",
+            "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185598/isaac-quesada-s34TlUTPIf4-unsplash_hxbzcd.jpg",
+            "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185585/istrfry-marcus-zd0SmnpgT1s-unsplash_qjy1xn.jpg",
+            "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185583/annie-spratt-6Q8o6Kxufkw-unsplash_fyebbb.jpg",
+            "https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185579/codeshady-AHzHbWmNaU4-unsplash_hsltus.jpg",
           ].map((src, i) => (
             <motion.div
               key={i}
@@ -437,7 +437,7 @@ export default function AboutPage() {
       <section className="relative py-40 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1584738766473-61c083514bf4?q=80&w=2070&auto=format&fit=crop"
+            src="https://res.cloudinary.com/dqmpgzst5/image/upload/v1777185574/pierre-chatel-innocenti-gxyeia7Syuk-unsplash_i3yi1l.jpg"
             alt="Connect"
             className="w-full h-full object-cover"
           />
